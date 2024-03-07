@@ -7,11 +7,11 @@
       "headings": {
         "about-us": "About Us",
         "project-team": "Project team",
-        "john-doe": "John Doe",
+        "rahul": "Rahul",
         "greg-tan": "Greg Tan",
         "loh-yu-tong": "Loh Yu Tong",
-        "jean-doe": "Jean Doe",
-        "james-doe": "James Doe"
+        "jim-seah": "Jim Seah",
+        "irwyn-liong": "Irwyn Liong"
       },
       "headingKeywords": {}
     },
@@ -54,15 +54,15 @@
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
         "proposed-data-archiving": "[Proposed] Data archiving",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
-        "appendix-requirements": "Appendix: Requirements",
+        "appendix-a-requirements": "Appendix A: Requirements",
         "product-scope": "Product scope",
         "user-stories": "User stories",
         "use-cases": "Use cases",
         "non-functional-requirements": "Non-Functional Requirements",
         "glossary": "Glossary",
-        "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
+        "appendix-b-instructions-for-manual-testing": "Appendix B: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
-        "deleting-a-person": "Deleting a person",
+        "deleting-a-client": "Deleting a client",
         "saving-data": "Saving data"
       },
       "headingKeywords": {}
@@ -107,12 +107,13 @@
       "src": "UserGuide.md",
       "title": "User Guide",
       "headings": {
-        "ab-3-user-guide": "AB-3 User Guide",
+        "insurebook-user-guide": "InsureBook User Guide",
         "quick-start": "Quick start",
         "features": "Features",
         "adding-a-person-add": "Adding a person: add",
         "listing-all-persons-list": "Listing all persons : list",
         "deleting-a-person-delete": "Deleting a person : delete",
+        "adding-a-new-policy-to-a-person-addpolicy": "Adding a new policy to a person : addPolicy",
         "faq": "FAQ",
         "known-issues": "Known issues",
         "command-summary": "Command summary"
@@ -149,8 +150,24 @@
       "headingKeywords": {}
     },
     {
-      "src": "team/johndoe.md",
-      "title": "John Doe's Project Portfolio Page",
+      "src": "team/jim.md",
+      "title": "Jim Seah's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/rahul.md",
+      "title": "Rahul's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/udon.md",
+      "title": "Yu Tong's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
