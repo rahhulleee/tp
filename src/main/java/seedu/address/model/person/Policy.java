@@ -9,7 +9,15 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
  */
 public class Policy {
 
-    public static final String MESSAGE_CONSTRAINTS = "Policy Name must be alphanumeric";
+    public static final String POLICY_NAME_MESSAGE_CONSTRAINTS = "Policy name should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String NUMBER_MESSAGE_CONSTRAINTS = "Policy Name must be alphanumeric";
+    public static final String POLICY_NUMBER_MESSAGE_CONSTRAINTS = "Policy number should only contain alphanumeric characters and spaces, and it should not be blank";
+
+    public static final String PREMIUM_TERM_MESSAGE_CONSTRAINTS = "Premium term should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String PREMIUM_MESSAGE_CONSTRAINTS = "Premium should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String BENEFIT_MESSAGE_CONSTRAINTS = "Benefit should only contain alphanumeric characters and spaces, and it should not be blank";
+
+
     public static final String STRING_VALIDATION_REGEX = "[^\\s].*";
     public static final String NUMBER_VALIDATION_REGEX = "\\d{3,}";
 
@@ -30,7 +38,7 @@ public class Policy {
      */
     public Policy(String policyName, String policyNumber, String premiumTerm, String premium, String benefit) {
         requireAllNonNull(policyName);
-        checkArgument(isValidPolicy(policyName), MESSAGE_CONSTRAINTS);
+//        checkArgument(isValidPolicy(policyName), STRING_MESSAGE_CONSTRAINTS);
         this.policyName = policyName;
         this.policyNumber = policyNumber;
         this.premiumTerm = premiumTerm;

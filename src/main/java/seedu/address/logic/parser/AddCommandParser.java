@@ -12,6 +12,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import java.util.Set;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
+import java.util.Collections;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.AddCommand;
@@ -55,8 +56,9 @@ public class AddCommandParser implements Parser<AddCommand> {
 
         Meeting meeting = ParserUtil.parseMeeting(argMultimap.getValue(PREFIX_MEETING).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
-        Set<Policy> policyList = ParserUtil.parsePolicies(argMultimap.getAllValues(PREFIX_POLICY_NAME));
-        Person person = new Person(name, phone, email, address, meeting, tagList, policyList);
+        // Initialize the person with an empty set of policies
+        Set<Policy> emptyPolicies = Collections.emptySet();
+        Person person = new Person(name, phone, email, address, meeting, tagList, emptyPolicies);
 
         return new AddCommand(person);
     }

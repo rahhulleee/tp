@@ -9,12 +9,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Meeting;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.Policy;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -139,30 +134,48 @@ public class ParserUtil {
         return tagSet;
     }
 
-    /**
-     * Parses a {@code String policies} into a {@code Policies}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code policies} is invalid.
-     */
-    public static Policy parsePolicies(String policies) throws ParseException {
-        requireNonNull(policies);
-        String trimmedPolicy = policies.trim();
-        if (!Policy.isValidPolicy(trimmedPolicy)) {
-            throw new ParseException(Policy.MESSAGE_CONSTRAINTS);
+    public static String parsePolicyName(String policyName) throws ParseException {
+        requireNonNull(policyName);
+        String trimmedPolicyName = policyName.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+            throw new ParseException(Policy.POLICY_NAME_MESSAGE_CONSTRAINTS);
         }
-        return new Policy(policies);
+        return policyName;
     }
 
-    /**
-     * Parses {@code Collection<String> policies} into a {@code Set<Policies>}.
-     */
-    public static Set<Policy> parsePolicies(Collection<String> policies) throws ParseException {
-        requireNonNull(policies);
-        final Set<Policy> policiesSet = new HashSet<>();
-        for (String policyName : policies) {
-            policiesSet.add(parsePolicies(policyName));
+    public static String parsePolicyNumber(String policyNumber) throws ParseException {
+        requireNonNull(policyNumber);
+        String trimmedPolicyName = policyNumber.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+            throw new ParseException(Policy.POLICY_NUMBER_MESSAGE_CONSTRAINTS);
         }
-        return policiesSet;
+        return policyNumber;
+    }
+
+    public static String parsePremiumTerm(String premiumTerm) throws ParseException {
+        requireNonNull(premiumTerm);
+        String trimmedPolicyName = premiumTerm.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+            throw new ParseException(Policy.PREMIUM_TERM_MESSAGE_CONSTRAINTS);
+        }
+        return premiumTerm;
+    }
+
+    public static String parsePremium(String premium) throws ParseException {
+        requireNonNull(premium);
+        String trimmedPolicyName = premium.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+            throw new ParseException(Policy.PREMIUM_MESSAGE_CONSTRAINTS);
+        }
+        return premium;
+    }
+
+    public static String parseBenefit(String benefit) throws ParseException {
+        requireNonNull(benefit);
+        String trimmedPolicyName = benefit.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+            throw new ParseException(Policy.BENEFIT_MESSAGE_CONSTRAINTS);
+        }
+        return benefit;
     }
 }

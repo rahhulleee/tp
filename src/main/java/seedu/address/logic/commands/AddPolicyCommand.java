@@ -29,10 +29,10 @@ public class AddPolicyCommand extends Command {
             + "by the index number used in the last person listing\n"
             + "and relevant fields. "
             + "Parameters: INDEX (must be a positive integer) "
-            + "pol/[POLICY NAME] polnum/[POLICY ID] (POLICY ID must be at least 3 digits)\n"
+            + "pol/[POLICY NAME] polnum/[POLICY ID]\n"
             + "pterm/[PREMIUM_TERM] + prem/[POLICY PREMIUM] b/[BENEFIT]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "pol/SuperSaver polnum/393 pterm/3months prem/3000 b/100000";
+            + "pol/SuperSaver polnum/393 pterm/3 months prem/3000 b/100000";
 
     public static final String MESSAGE_ADD_POLICY_SUCCESS = "Added policy to Person: %1$s";
 
