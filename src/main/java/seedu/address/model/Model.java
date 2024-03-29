@@ -84,6 +84,9 @@ public interface Model {
 
     void deleteMeeting(Meeting meeting);
 
+    boolean isFutureMeeting(Meeting meeting);
+
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
