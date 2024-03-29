@@ -158,6 +158,22 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Delete Policy feature
+
+#### Implementation
+The delete policy mechanism is facilitated by `DeletePolicyCommand`. It extends `Command` which is an abstract class with only 1 method, `Command#execute(Model model)`.
+Additionally, it implements `DeletePolicyCommand#generateSuccessMessage(Person editedPerson)`.
+
+Further descriptions on the methods:
+* `DeletePolicyCommand#execute(Model model)` — Executes the delete policy command and removes the policy with the input policy name that is linked to the input client.
+* `DeletePolicyCommand#generateSuccessMessage(Person editedPerson)` — Generates and prints the success message when a policy is successfully deleted from the specified client.
+
+#### Design Considerations
+**Aspect: Index and Policy Name field**
+* We made sure that either `Index` field or `Policy Name` field cannot be empty, if not, an exception will be raised to alert the user that some fields are insufficient/invalid.
+
+### Find Policy feature  
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
