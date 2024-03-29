@@ -10,14 +10,18 @@ import java.time.format.DateTimeFormatter;
  * Guarantees: immutable; is always valid
  */
 public class Meeting implements Comparable<Meeting> {
-    private String name;
+
     public static final String MESSAGE_CONSTRAINTS =
             "Meeting has to be in yyyy-MM-dd HH:mm:ss format, and it should not be blank";
+
     // The VALIDATION_REGEX for meeting time
     public static final String VALIDATION_REGEX =
             "^(\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}:\\d{2}| \\d{2}:\\d{2}:\\d{2})?)$";
+
     public final String value;
     public final LocalDateTime meeting;
+
+    private String name;
 
     /**
      * Constructs an {@code Meeting}.
@@ -59,11 +63,10 @@ public class Meeting implements Comparable<Meeting> {
     }
 
     public boolean isFutureMeeting() {
-        return this.meeting.isAfter(LocalDateTime.now()) ||
-            this.meeting.isEqual(LocalDateTime.now());
+        return this.meeting.isAfter(LocalDateTime.now())
+                || this.meeting.isEqual(LocalDateTime.now());
     }
-    
-    
+
     public void setName(String finalName) {
         this.name = finalName;
     }
@@ -71,7 +74,7 @@ public class Meeting implements Comparable<Meeting> {
     public String getName() {
         return this.name;
     }
-    
+
     @Override
     public String toString() {
         return meeting.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm:ss"));

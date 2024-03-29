@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import seedu.address.model.person.Person;
 import seedu.address.model.person.Meeting;
 
 /**
@@ -30,7 +29,7 @@ public class MeetingCard extends UiPart<Region> {
      * Creates a {@code MeetingCard} with the given {@code Person} and index to display.
      * This constructor initializes the UI card with the person's meeting information.
      *
-     * @param person The person whose meeting information is to be displayed.
+     * @param meeting The meeting whose meeting information is to be displayed.
      * @param displayedIndex The index number of the meeting in the list.
      */
     public MeetingCard(Meeting meeting, int displayedIndex) {
