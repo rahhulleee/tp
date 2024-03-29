@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
 
@@ -9,9 +10,8 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
-import seedu.address.model.person.Person;
 import seedu.address.model.person.Meeting;
+import seedu.address.model.person.Person;
 
 /**
  * Deletes a person identified using it's displayed index from the address book.
@@ -36,8 +36,8 @@ public class DeleteCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        
-        //to make sure when in view mode, you still can delete clients. 
+
+        //to make sure when in view mode, you still can delete clients.
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         List<Person> lastShownList = model.getFilteredPersonList();
 
