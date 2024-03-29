@@ -81,13 +81,17 @@ public class EditCommand extends Command {
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
+        Meeting meetingToEdit = personToEdit.getMeeting();
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
+        Meeting editedMeeting = editedPerson.getMeeting();
+        editedMeeting.setName(editedPerson.getName().toString());
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
         model.setPerson(personToEdit, editedPerson);
+        model.setMeeting(meetingToEdit, editedMeeting);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
     }
