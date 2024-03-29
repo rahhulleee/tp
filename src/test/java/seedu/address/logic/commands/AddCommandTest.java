@@ -39,7 +39,11 @@ public class AddCommandTest {
         Person validPerson = new PersonBuilder().build();
         Meeting validMeeting = validPerson.getMeeting();
 
-        CommandResult commandResult = new AddCommand(validPerson, validMeeting).execute(modelStub);
+        System.out.println(validPerson.getName());
+        AddCommand newAddCommand =  new AddCommand(validPerson, validMeeting);
+
+        // got problem here
+        CommandResult commandResult = newAddCommand.execute(modelStub);
 
         assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, Messages.format(validPerson)),
                 commandResult.getFeedbackToUser());

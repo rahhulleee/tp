@@ -98,8 +98,10 @@ public class EditPersonDescriptorBuilder {
      * Parses the {@code policies} into a {@code Set<Policies>} and set it to the {@code EditPersonDescriptor}
      * that we are building.
      */
-    public EditPersonDescriptorBuilder withPolicies(String... policies) {
-        Set<Policy> policySet = Stream.of(policies).map(Policy::new).collect(Collectors.toSet());
+    public EditPersonDescriptorBuilder withPolicies(String[]... policiesArrays) {
+        Set<Policy> policySet = Stream.of(policiesArrays)
+                .map(array -> new Policy(array[0], array[1], array[2], array[3], array[4]))
+                .collect(Collectors.toSet());
         descriptor.setPolicies(policySet);
         return this;
     }

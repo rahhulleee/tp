@@ -1,6 +1,10 @@
 package seedu.address.model.person;
 
 import static seedu.address.commons.util.AppUtil.checkArgument;
+
+import java.util.Arrays;
+import java.util.Set;
+import java.util.HashSet;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
@@ -9,11 +13,19 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
  */
 public class Policy {
 
-    public static final String MESSAGE_CONSTRAINTS = "Policy Name must be alphanumeric";
+    public static final String POLICY_NAME_MESSAGE_CONSTRAINTS = "Policy name should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String POLICY_NUMBER_MESSAGE_CONSTRAINTS = "Policy number should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String POLICY_TYPE_MESSAGE_CONSTRAINTS = "Policy type should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String PREMIUM_TERM_MESSAGE_CONSTRAINTS = "Premium term has to be one of the following options, and it should not be blank \n [\"Single\", \"Monthly\", \"Quarterly\", \"Semi-annually\", \"Annually\"]";
+    public static final String PREMIUM_MESSAGE_CONSTRAINTS = "Premium should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String BENEFIT_MESSAGE_CONSTRAINTS = "Benefit should only contain alphanumeric characters and spaces, and it should not be blank";
+
+
     public static final String STRING_VALIDATION_REGEX = "[^\\s].*";
-    public static final String NUMBER_VALIDATION_REGEX = "\\d{3,}";
+    public static final Set<String> ACCEPTED_PREMIUM_TERMS = new HashSet<>(Arrays.asList("SINGLE", "MONTHLY", "QUARTERLY", "SEMI-ANNUALLY", "ANNUALLY"));
 
     public final String policyName;
+    public final String policyType;
     public final String policyNumber;
     public final String premiumTerm;
     public final String premium;
@@ -23,15 +35,17 @@ public class Policy {
      * Constructs a Policy object with the given parameters.
      *
      * @param policyName   The name of the policy.
+     * @param policyType   The type of the policy.
      * @param policyNumber The policy number.
      * @param premiumTerm  The premium term.
      * @param premium      The premium amount.
      * @param benefit      The benefits associated with the policy.
      */
-    public Policy(String policyName, String policyNumber, String premiumTerm, String premium, String benefit) {
+    public Policy(String policyName, String policyType, String policyNumber, String premiumTerm, String premium, String benefit) {
         requireAllNonNull(policyName);
-        checkArgument(isValidField(policyName), MESSAGE_CONSTRAINTS);
+
         this.policyName = policyName;
+        this.policyType = policyType;
         this.policyNumber = policyNumber;
         this.premiumTerm = premiumTerm;
         this.premium = premium;
@@ -44,7 +58,7 @@ public class Policy {
      * @param field The policy name to validate.
      * @return True if the policy name is valid, false otherwise.
      */
-    public static boolean isValidField(String field) {
+    public static boolean isValidPolicy(String field) {
         return field.matches(STRING_VALIDATION_REGEX);
     }
 
@@ -54,14 +68,16 @@ public class Policy {
      * @param field The policy number to validate.
      * @return True if the policy number is valid, false otherwise.
      */
-    public static boolean isValidNumber(String field) {
-        return field.matches(NUMBER_VALIDATION_REGEX);
+    public static boolean isValidPremiumTerm(String field) {
+        return ACCEPTED_PREMIUM_TERMS.contains(field);
     }
 
     @Override
     public String toString() {
         return " Policy Name:"
                 + policyName
+                + " Policy Type: "
+                + policyType
                 + " Policy ID: "
                 + policyNumber
                 + " Premium Term: "

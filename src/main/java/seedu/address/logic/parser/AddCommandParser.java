@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
+import java.util.Collections;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.AddCommand;
@@ -30,7 +31,6 @@ import seedu.address.model.tag.Tag;
  * Parses input arguments and creates a new AddCommand object
  */
 public class AddCommandParser implements Parser<AddCommand> {
-    private final Logger logger = LogsCenter.getLogger(AddCommandParser.class);
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
      * and returns an AddCommand object for execution.
