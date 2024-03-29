@@ -208,23 +208,34 @@ Further descriptions on the methods:
 * We made sure that either `Index` field or `Policy Name` field cannot be empty, if not, an exception will be raised to alert the user that some fields are insufficient/invalid.
 
 
-### View Meetings feature
-
-  
+### View Client feature
 
 #### Implementation
 
-The view feature allows users to view clients with the compulsory field  `index`.
+The view feature allows users to view clients with the compulsory field  `index`. Users will be able to see all information about the specified client, including the policies held by the client and these policies' details.
 
 The feature is implemented through the class  `ViewCommand`.
 
 The  `index`  field needs to be in  an integer.
 
-  
-
 #### Design considerations:
 - User can view a client at the specified index.
 - User can see a list-view of policies that this client is covered by.
+- MeetingCard section of UI should not be affected by this command.
+
+### View Meetings feature
+
+#### Implementation
+
+The 'meetings' command allows users to view all the meetings that are scheduled in the current week. The feature is implemented through the `MeetingsCommand` class.
+
+The UI component for this command is the `MeetingsWindow`, which is a pop-up window displaying the meetings for the current week.
+
+#### Design considerations:
+- User can view all meetings scheduled for the current week, *in chronological order*. This allows the user to **efficiently identify** the meetings that are coming up soon.
+- The meetings should be displayed *along with the client's name*, so that users can identify the client they are meeting and the time of the meeting.
+- Designed as a pop-up window to allow users to view the meetings *without cluttering the main window*. Users can also check details in the main window while viewing the meetings.
+- User must be *able to close the window using a **keyboard***, to maintain the keyboard-centric design and speed advantage of the CLI app.
 
 --------------------------------------------------------------------------------------------------------------------
 
