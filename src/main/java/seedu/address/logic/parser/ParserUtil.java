@@ -143,10 +143,19 @@ public class ParserUtil {
         return policyName;
     }
 
+    public static String parsePolicyType(String policyType) throws ParseException {
+        requireNonNull(policyType);
+        String trimmedPolicyType = policyType.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyType)) {
+            throw new ParseException(Policy.POLICY_TYPE_MESSAGE_CONSTRAINTS);
+        }
+        return policyType;
+    }
+
     public static String parsePolicyNumber(String policyNumber) throws ParseException {
         requireNonNull(policyNumber);
-        String trimmedPolicyName = policyNumber.trim();
-        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+        String trimmedPolicyNumber = policyNumber.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyNumber)) {
             throw new ParseException(Policy.POLICY_NUMBER_MESSAGE_CONSTRAINTS);
         }
         return policyNumber;
@@ -154,8 +163,8 @@ public class ParserUtil {
 
     public static String parsePremiumTerm(String premiumTerm) throws ParseException {
         requireNonNull(premiumTerm);
-        String trimmedPolicyName = premiumTerm.trim();
-        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+        String trimmedPremiumTerm = premiumTerm.trim();
+        if (!Policy.isValidPremiumTerm(trimmedPremiumTerm)) {
             throw new ParseException(Policy.PREMIUM_TERM_MESSAGE_CONSTRAINTS);
         }
         return premiumTerm;
@@ -163,8 +172,8 @@ public class ParserUtil {
 
     public static String parsePremium(String premium) throws ParseException {
         requireNonNull(premium);
-        String trimmedPolicyName = premium.trim();
-        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+        String trimmedPremium = premium.trim();
+        if (!Policy.isValidPolicy(trimmedPremium)) {
             throw new ParseException(Policy.PREMIUM_MESSAGE_CONSTRAINTS);
         }
         return premium;
@@ -172,8 +181,8 @@ public class ParserUtil {
 
     public static String parseBenefit(String benefit) throws ParseException {
         requireNonNull(benefit);
-        String trimmedPolicyName = benefit.trim();
-        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+        String trimmedBenefit = benefit.trim();
+        if (!Policy.isValidPolicy(trimmedBenefit)) {
             throw new ParseException(Policy.BENEFIT_MESSAGE_CONSTRAINTS);
         }
         return benefit;

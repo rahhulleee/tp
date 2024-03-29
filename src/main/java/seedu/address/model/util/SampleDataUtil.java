@@ -4,15 +4,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Meeting;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -57,5 +53,12 @@ public class SampleDataUtil {
         return Arrays.stream(strings)
                 .map(Tag::new)
                 .collect(Collectors.toSet());
+    }
+
+    public static Set<Policy> getPoliciesSet(String[]... policiesArrays) {
+        Set<Policy> policySet = Stream.of(policiesArrays)
+                .map(array -> new Policy(array[0], array[1], array[2], array[3], array[4], array[5]))
+                .collect(Collectors.toSet());
+        return policySet;
     }
 }

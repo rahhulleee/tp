@@ -6,12 +6,11 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Logger;
 
-import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Policy;
@@ -29,17 +28,16 @@ public class AddPolicyCommand extends Command {
             + "by the index number used in the last person listing\n"
             + "and relevant fields. "
             + "Parameters: INDEX (must be a positive integer) "
-            + "pol/[POLICY NAME] polnum/[POLICY ID]\n"
-            + "pterm/[PREMIUM_TERM] + prem/[POLICY PREMIUM] b/[BENEFIT]\n"
+            + "pol/[POLICY NAME] poltype/[POLICY TYPE] polnum/[POLICY ID]\n"
+            + "pterm/[PREMIUM_TERM] prem/[POLICY PREMIUM] b/[BENEFIT]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "pol/SuperSaver polnum/393 pterm/3 months prem/3000 b/100000";
+            + "pol/SuperSaver poltype/health polnum/39376234 pterm/ANNUALLY prem/3000 b/100000";
 
     public static final String MESSAGE_ADD_POLICY_SUCCESS = "Added policy to Person: %1$s";
 
-    private final Logger logger = LogsCenter.getLogger(AddPolicyCommand.class);
-
     private final Index index;
     private final String policyName;
+    private final String policyType;
     private final String policyNumber;
     private final String premiumTerm;
     private final String premium;
@@ -50,11 +48,12 @@ public class AddPolicyCommand extends Command {
      * @param index The index of the client in the filtered person list.
      * @param policyName The name of the policy to be added.
      */
-    public AddPolicyCommand(Index index, String policyName,
+    public AddPolicyCommand(Index index, String policyName, String policyType,
                             String policyNumber, String premiumTerm, String premium, String benefit) {
         requireAllNonNull(index, policyName, policyNumber, premiumTerm, premium, benefit);
         this.index = index;
         this.policyName = policyName;
+        this.policyType = policyType;
         this.policyNumber = policyNumber;
         this.premiumTerm = premiumTerm;
         this.premium = premium;
@@ -71,7 +70,14 @@ public class AddPolicyCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Set<Policy> currentPolicies = new HashSet<>(personToEdit.getPolicies());
-        Policy newPolicy = new Policy(policyName, policyNumber, premiumTerm, premium, benefit);
+        Policy newPolicy = new Policy(policyName, policyType, policyNumber, premiumTerm, premium, benefit);
+        // if newPolicy exists in currentPolicies, throw error
+        boolean policyExists = currentPolicies.stream()
+                .anyMatch(policy -> policy.policyName.equals(newPolicy.policyName));
+
+        if (policyExists) {
+            throw new CommandException(Messages.MESSAGE_DUPLICATE_POLICY_NAME);
+        }
         currentPolicies.add(newPolicy);
 
         Person editedPerson = new Person(

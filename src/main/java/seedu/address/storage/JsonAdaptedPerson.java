@@ -74,7 +74,6 @@ class JsonAdaptedPerson {
                 .collect(Collectors.toList()));
 
         this.policies.addAll(source.getPolicies().stream()
-                .peek(policy -> logger.info(policy.toString()))
                 .map(JsonAdaptedPolicyTag::new)
                 .collect(Collectors.toList()));
     }

@@ -2,6 +2,8 @@ package seedu.address.testutil;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
@@ -70,7 +72,7 @@ public class PersonBuilder {
     /**
      * Parses the {@code policies} into a {@code Set<Policy>} and set it to the {@code Person} that we are building.
      */
-    public PersonBuilder withPolicies(String ... policies) {
+    public PersonBuilder withPolicies(String[]... policies) {
         this.policies = SampleDataUtil.getPoliciesSet(policies);
         return this;
     }
