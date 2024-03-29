@@ -9,11 +9,13 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Meeting;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Policy;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -137,4 +139,59 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
+    public static String parsePolicyName(String policyName) throws ParseException {
+        requireNonNull(policyName);
+        String trimmedPolicyName = policyName.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyName)) {
+            throw new ParseException(Policy.POLICY_NAME_MESSAGE_CONSTRAINTS);
+        }
+        return policyName;
+    }
+
+    public static String parsePolicyType(String policyType) throws ParseException {
+        requireNonNull(policyType);
+        String trimmedPolicyType = policyType.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyType)) {
+            throw new ParseException(Policy.POLICY_TYPE_MESSAGE_CONSTRAINTS);
+        }
+        return policyType;
+    }
+
+    public static String parsePolicyNumber(String policyNumber) throws ParseException {
+        requireNonNull(policyNumber);
+        String trimmedPolicyNumber = policyNumber.trim();
+        if (!Policy.isValidPolicy(trimmedPolicyNumber)) {
+            throw new ParseException(Policy.POLICY_NUMBER_MESSAGE_CONSTRAINTS);
+        }
+        return policyNumber;
+    }
+
+    public static String parsePremiumTerm(String premiumTerm) throws ParseException {
+        requireNonNull(premiumTerm);
+        String trimmedPremiumTerm = premiumTerm.trim();
+        if (!Policy.isValidPremiumTerm(trimmedPremiumTerm)) {
+            throw new ParseException(Policy.PREMIUM_TERM_MESSAGE_CONSTRAINTS);
+        }
+        return premiumTerm;
+    }
+
+    public static String parsePremium(String premium) throws ParseException {
+        requireNonNull(premium);
+        String trimmedPremium = premium.trim();
+        if (!Policy.isValidPolicy(trimmedPremium)) {
+            throw new ParseException(Policy.PREMIUM_MESSAGE_CONSTRAINTS);
+        }
+        return premium;
+    }
+
+    public static String parseBenefit(String benefit) throws ParseException {
+        requireNonNull(benefit);
+        String trimmedBenefit = benefit.trim();
+        if (!Policy.isValidPolicy(trimmedBenefit)) {
+            throw new ParseException(Policy.BENEFIT_MESSAGE_CONSTRAINTS);
+        }
+        return benefit;
+    }
+
 }
