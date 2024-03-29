@@ -51,8 +51,7 @@ public class ViewCommand extends Command {
         // Update the filtered person list to display all persons
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         List<Person> lastShownList = model.getFilteredPersonList();
-        logger.info("Curr list is: " + lastShownList);
-        logger.info("Curr index: " + lastShownList.size() + " WHILE OUR INDEX IS : " + index);
+        logger.info("Current list size: " + lastShownList.size() + ", target index : " + index.getOneBased());
 
         // Check if the index is valid
         if (index.getZeroBased() >= lastShownList.size()) {
