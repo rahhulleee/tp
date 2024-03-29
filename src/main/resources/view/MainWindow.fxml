@@ -12,9 +12,7 @@
 <?import javafx.scene.Scene?>
 <?import java.net.URL?>
 
-
-<fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-         title="InsureBook" minWidth="450" minHeight="600" onCloseRequest="#handleExit">
+<fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" title="InsureBook" minWidth="450" minHeight="600" onCloseRequest="#handleExit">
     <icons>
         <Image url="@/images/insure_book.png"/>
     </icons>
@@ -23,7 +21,7 @@
             <stylesheets>
                 <URL value="@DarkTheme.css"/>
                 <URL value="@Extensions.css"/>
-                <URL value="@styles.css"/>
+                <URL value="@Styles.css"/>
             </stylesheets>
             <VBox>
                 <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
@@ -34,49 +32,37 @@
                         <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help"/>
                     </Menu>
                 </MenuBar>
-
-                <!-- SplitPane for Command Box, MeetingListPanel, and PersonListPanel -->
+                
                 <SplitPane VBox.vgrow="ALWAYS" minWidth="680" prefWidth="680">
                     <items>
-                        <!-- Left side with Command Box and MeetingListPanel -->
                         <VBox styleClass="pane-with-border" minWidth="280" prefWidth="280" VBox.vgrow="ALWAYS">
                             <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-with-border">
-                                <padding>
-                                    <Insets top="10" right="10" bottom="10" left="10"/>
-                                </padding>
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                             </StackPane>
                             <Label text="Meetings" styleClass="header-label"/>
                             <StackPane fx:id="meetingListPanelPlaceholder" VBox.vgrow="ALWAYS" styleClass="pane-with-border">
-                                <padding>
-                                    <Insets top="10" right="10" bottom="10" left="10"/>
-                                </padding>
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                             </StackPane>
                         </VBox>
-
-                        <!-- Right side with PersonListPanel -->
+                        
                         <VBox styleClass="pane-with-border" minWidth="400" prefWidth="400" VBox.vgrow="ALWAYS">
                             <Label text="Clients" styleClass="header-label"/>
                             <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" styleClass="pane-with-border">
-                                <padding>
-                                    <Insets top="10" right="10" bottom="10" left="10"/>
-                                </padding>
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                            </StackPane>
+                            <Label text="Policies" styleClass="header-label"/>
+                            <StackPane fx:id="policyListPanelPlaceholder" VBox.vgrow="ALWAYS" styleClass="pane-with-border">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                             </StackPane>
                         </VBox>
                     </items>
                 </SplitPane>
-
-                <!-- Result Display below SplitPane -->
-                <StackPane fx:id="resultDisplayPlaceholder" styleClass="pane-with-border" VBox.vgrow="NEVER"
-                           minHeight="100" prefHeight="100" maxHeight="100">
-                    <padding>
-                        <Insets top="5" right="10" bottom="5" left="10"/>
-                    </padding>
+                
+                <StackPane fx:id="resultDisplayPlaceholder" styleClass="pane-with-border" VBox.vgrow="NEVER" minHeight="100" prefHeight="100" maxHeight="100">
+                    <padding><Insets top="5" right="10" bottom="5" left="10"/></padding>
                 </StackPane>
-
-                 <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" styleClass="pane-with-border">
-                    <padding>
-                        <Insets top="5" right="10" bottom="5" left="10"/>
-                    </padding>
+                <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" styleClass="pane-with-border">
+                    <padding><Insets top="5" right="10" bottom="5" left="10"/></padding>
                 </StackPane>
             </VBox>
         </Scene>

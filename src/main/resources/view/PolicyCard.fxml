@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:id="cardPane" stylesheets="@Style.css">
+    <Label fx:id="id" styleClass="cell_small_label" />
+    <Region prefWidth="20" /> <!-- Spacer -->
+    <VBox alignment="CENTER_LEFT">
+        <Label fx:id="policyName" text="\$policyName" styleClass="cell_large_label" />
+        <Label fx:id="policyId" text="\$policyId" styleClass="cell_small_label" />
+        <!-- Add more labels/UI components for policy details here if needed -->
+    </VBox>
+</HBox>
