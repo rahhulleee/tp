@@ -30,7 +30,7 @@ public class MeetingCard extends UiPart<Region> {
      * Creates a {@code MeetingCard} with the given {@code Person} and index to display.
      * This constructor initializes the UI card with the person's meeting information.
      *
-     * @param person The person whose meeting information is to be displayed.
+     * @param meeting The Meeting field of the person.
      * @param displayedIndex The index number of the meeting in the list.
      */
     public MeetingCard(Meeting meeting, int displayedIndex) {
