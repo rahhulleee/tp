@@ -198,8 +198,10 @@ arguments are valid.
 **Note:** If any of the prefixes are missing or repeated, the application will throw an error to the user and error will
 be displayed in the command output box.
 
-**Note:** Premium term (`pterm`) only accepts a set of values which are case-insensitive <br/>
+**Note:** Premium term (`pterm`) only accepts a set of values which are case-insensitive. <br/>
 ["SINGLE", "MONTHLY", "QUARTERLY", "SEMI-ANNUALLY", "ANNUALLY"]
+
+**Note:** Policy name (`pol`) cannot already exist in the Peron object's set of Policy objects.
 
 </box>
 
@@ -221,6 +223,21 @@ the specified client's set of policies. Upon inspecting the specified client's p
 tag with the inputted policy name.
 
 <puml src="diagrams\AddPolicySequenceDiagram.puml" alt="AddPolicyDiagram" />
+
+#### Design considerations:
+
+**Aspect: How store multiple policy information in the same client:**
+
+* **Alternative 1 (current choice):** Encompass the policy details into a single Policy class with the details
+as attributes to the Policy class
+	* Pros: Good abstraction level to organise all the policy information into one convenient class that can be 
+  referenced and have its own methods.
+	* Cons: Not as straightforward to implement and requires updating multiple classes
+
+* **Alternative 2:** Individual policy details as their own attributes to Person object
+  itself.
+	* Pros: Easy to implement
+	* Cons: Weak level of abstraction and code becomes a lot messier and unclear
 
 
 ### \[Proposed\] Undo/redo feature
