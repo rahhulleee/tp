@@ -12,15 +12,19 @@ import java.time.format.DateTimeFormatter;
  */
 public class JsonAdaptedMeeting {
 
+    private final String name;
     private final String meetingDetail;
 
     /**
-     * Constructs a {@code JsonAdaptedMeeting} with the given meeting detail.
+     * Constructs a {@code JsonAdaptedMeeting} with the given meeting detail and name.
      *
+     * @param name          The name associated with the meeting.
      * @param meetingDetail A valid meeting detail.
      */
     @JsonCreator
-    public JsonAdaptedMeeting(@JsonProperty("meetingDetail") String meetingDetail) {
+    public JsonAdaptedMeeting(@JsonProperty("name") String name,
+                              @JsonProperty("meetingDetail") String meetingDetail) {
+        this.name = name;
         this.meetingDetail = meetingDetail;
     }
 
@@ -30,7 +34,7 @@ public class JsonAdaptedMeeting {
      * @param source The source Meeting object to convert.
      */
     public JsonAdaptedMeeting(Meeting source) {
-        // Here, you convert the LocalDateTime to a string in the desired format
+        this.name = source.getName();
         this.meetingDetail = source.getMeeting().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
@@ -44,7 +48,14 @@ public class JsonAdaptedMeeting {
         if (!Meeting.isValidMeeting(meetingDetail)) {
             throw new IllegalValueException(Meeting.MESSAGE_CONSTRAINTS);
         }
-        return new Meeting(meetingDetail);
+        Meeting meeting = new Meeting(meetingDetail);
+        meeting.setName(this.name); // Assuming Meeting class has setName() method to set the name.
+        return meeting;
+    }
+
+    @JsonProperty("name")
+    public String getName() {
+        return name;
     }
 
     @JsonProperty("meetingDetail")
