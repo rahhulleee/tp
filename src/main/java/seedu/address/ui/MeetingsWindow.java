@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
 import seedu.address.model.person.Meeting;
-import seedu.address.model.person.Person;
 
 /**
  * Controller for a help page
@@ -46,7 +45,7 @@ public class MeetingsWindow extends UiPart<Stage> {
     }
 
     /**
-     * Shows the meetings window and displays the list of meetings.
+     * Shows the meetings window and displays the list of meetings for this week.
      * @throws IllegalStateException
      *     <ul>
      *         <li>
