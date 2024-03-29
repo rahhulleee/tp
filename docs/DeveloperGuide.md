@@ -158,103 +158,84 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Proposed\] Undo/redo feature
+### Add Client feature
 
-#### Proposed Implementation
+#### Implementation
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The add feature allows users to add new clients with the compulsory field `Name`, `Phone`, `Email`, `Address`, `Meeting`.
+The feature is implemented through the class `AddCommand`.
 
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+A `meeting` field needs to be in `YYYY-MM-DD hh:mm` format.
 
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
+<puml src="diagrams/ClientClassDiagram.puml" alt="ClientClassDiagram" />
 
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
+#### Design considerations:
+**Aspect: Meeting field**
+* We made sure that `meeting` field when doing `edit` or `add` is **always later** than **current time** so that there is
+no accidental logging of wrong meeting time.
 
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
+**Aspect: How to store clients**
+* **Alternative 1:** Store clients as a separate list from person.
+	* Pros: Easier to implement new features on it.
+	* Cons: Harder to implement it.
+* **Alternative 2 (current choice):** Store clients as person in the same list.
+	* Pros: Easier to implement.
 
-<puml src="diagrams/UndoRedoState0.puml" alt="UndoRedoState0" />
+### Delete Client feature
 
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-<puml src="diagrams/UndoRedoState1.puml" alt="UndoRedoState1" />
-
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-<puml src="diagrams/UndoRedoState2.puml" alt="UndoRedoState2" />
-
-<box type="info" seamless>
-
-**Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</box>
-
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-<puml src="diagrams/UndoRedoState3.puml" alt="UndoRedoState3" />
-
-
-<box type="info" seamless>
-
-**Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</box>
-
-The following sequence diagram shows how an undo operation goes through the `Logic` component:
-
-<puml src="diagrams/UndoSequenceDiagram-Logic.puml" alt="UndoSequenceDiagram-Logic" />
-
-<box type="info" seamless>
-
-**Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</box>
-
-Similarly, how an undo operation goes through the `Model` component is shown below:
-
-<puml src="diagrams/UndoSequenceDiagram-Model.puml" alt="UndoSequenceDiagram-Model" />
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<box type="info" seamless>
-
-**Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone InsureBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</box>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-<puml src="diagrams/UndoRedoState4.puml" alt="UndoRedoState4" />
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-<puml src="diagrams/UndoRedoState5.puml" alt="UndoRedoState5" />
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-<puml src="diagrams/CommitActivityDiagram.puml" width="250" />
+#### Implementation
 
 #### Design considerations:
 
-**Aspect: How undo & redo executes:**
+### Add policy feature
 
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
+#### Implementation
 
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
+#### Design considerations:
 
-_{more aspects and alternatives to be added}_
+### Delete Policy feature
 
-### \[Proposed\] Data archiving
+#### Implementation
+The delete policy mechanism is facilitated by `DeletePolicyCommand`. It extends `Command` which is an abstract class with only 1 method, `Command#execute(Model model)`.
+Additionally, it implements `DeletePolicyCommand#generateSuccessMessage(Person editedPerson)`.
 
-_{Explain here how the data archiving feature will be implemented}_
+Further descriptions on the methods:
+* `DeletePolicyCommand#execute(Model model)` — Executes the delete policy command and removes the policy with the input policy name that is linked to the input client.
+* `DeletePolicyCommand#generateSuccessMessage(Person editedPerson)` — Generates and prints the success message when a policy is successfully deleted from the specified client.
 
+#### Design Considerations:
+**Aspect: Index and Policy Name field**
+* We made sure that either `Index` field or `Policy Name` field cannot be empty, if not, an exception will be raised to alert the user that some fields are insufficient/invalid.
+
+
+### View Client feature
+
+#### Implementation
+
+The view feature allows users to view clients with the compulsory field  `index`. Users will be able to see all information about the specified client, including the policies held by the client and these policies' details.
+
+The feature is implemented through the class  `ViewCommand`.
+
+The  `index`  field needs to be in  an integer.
+
+#### Design considerations:
+- User can view a client at the specified index.
+- User can see a list-view of policies that this client is covered by.
+- MeetingCard section of UI should not be affected by this command.
+
+### View Meetings feature
+
+#### Implementation
+
+The 'meetings' command allows users to view all the meetings that are scheduled in the current week. The feature is implemented through the `MeetingsCommand` class.
+
+The UI component for this command is the `MeetingsWindow`, which is a pop-up window displaying the meetings for the current week.
+
+#### Design considerations:
+- User can view all meetings scheduled for the current week, *in chronological order*. This allows the user to **efficiently identify** the meetings that are coming up soon.
+- The meetings should be displayed *along with the client's name*, so that users can identify the client they are meeting and the time of the meeting.
+- Designed as a pop-up window to allow users to view the meetings *without cluttering the main window*. Users can also check details in the main window while viewing the meetings.
+- User must be *able to close the window using a **keyboard***, to maintain the keyboard-centric design and speed advantage of the CLI app.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -290,29 +271,22 @@ set reminders for meetups with clients.
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                      | I can …​                                                                  | So that I can…​                                                                                                                                    |
-|----------|------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `* * *`  | insurance agent              | add clients contact details into the address book                         | keep track of my clients                                                                                                                           |
-| `* * *`  | insurance agent              | delete clients contact details in the address book                        | remove previous clients                                                                                                                            |
-| `* * *`  | insurance agent              | edit details of the contact                                               | update clients detail                                                                                                                              |
-| `* * *`  | insurance agent              | search for contact details                                                | find client's information                                                                                                                          |
-| `* * *`  | insurance agent              | add clients insurances and policies                                       | keep track of my clients policies and insurances                                                                                                   |
-| `* *`    | new insurance agent          | view all commands                                                         | figure out how to use the application                                                                                                              |
-| `* *`    | organised insurance agent    | tag different clients in the contact details as different tiers           | focus on bigger clients, i.e. Clients with higher premium policies will have higher priority over others                                           |
-| `* * *`  | insurance agent	             | delete clients insurances and policies                                    | remove client's previous policies                                                                                                                  |
-| `*`      | insurance agent	             | untag clients in contact details                                          | organise my list of client's contact                                                                                                               |
-| `* *`    | insurance agent	             | search for clients with specified policies	                               | keep track of who has the specified policies which may have an update                                                                              |
-| `* *`    | insurance agent	             | edit details of the client's policies and insurances	                     | update myself on any changes made when my clients' update their policies                                                                           |
-| `*`      | experienced insurance agent	 | make notes about my clients	                                              | remember details about my clients and better connect to them and their needs when we meet up                                                       |
-| `*`      | insurance agent	             | automatically calculate my clients' total coverages	                      | easily check if they have any shortfall in coverage                                                                                                |
-| `* * *`  | forgetful insurance agent    | 	add meeting date/time in the address book                                | organise my day and meeting time with the client                                                                                                   |
-| `*`      | organised insurance agent    | 	form a organisational chart of my clients	                               | easily see which of my clients are giving more referrals                                                                                           |
-| `* *`    | organised insurance agent    | 	view upcoming meetings in a dashboard	                                   | anticipate and prepare for upcoming meetings                                                                                                       |
-| `* * *`  | forgetful insurance agent    | 	set weekly/monthly reminders to set up meetings with particular clients	 | I won't forget about not setting up meetings with my clients to check on their life updates and review their policies                              |
-| `* * *`  | organised insurance agent    | 	have todo lists for each of my clients	                                  | keep track of the things                                                                                              I have to do for each client |
-| `* * *`  | forgetful insurance agent    | 	add deadlines to tasks in my clients' todo list	                         | be aware of when these tasks need to be completed                                                                                                  |
-| `* *`    | efficient insurance agent    | 	sort my tasks by deadline	                                               | quickly see my most urgent tasks at a glance and get them done first                                                                               |
-| `* *`    | organised insurance agent    | 	sort my clients by their insurance companies	                            | group clients under the same company together and possibly complete overlapping tasks involving the company                                        |
+| Priority | As a …​                   | I can …​                                              | So that I can…​                                                                                                                                    |
+|----------|---------------------------|-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `* * *`  | insurance agent           | add clients contact details into the address book     | keep track of my clients                                                                                                                           |
+| `* * *`  | insurance agent           | delete clients contact details in the address book    | remove previous clients                                                                                                                            |
+| `* * *`  | insurance agent           | edit details of the contact                           | update clients detail                                                                                                                              |
+| `* * *`  | insurance agent           | search for contact details                            | find client's information                                                                                                                          |
+| `* * *`  | insurance agent           | add clients insurances and policies                   | keep track of my clients policies and insurances                                                                                                   |
+| `* *`    | new insurance agent       | view all commands                                     | figure out how to use the application                                                                                                              |
+| `* * *`  | insurance agent	          | delete clients insurances and policies                | remove client's previous policies                                                                                                                  |
+| `*`      | insurance agent	          | delete clients insurances and policies                | remove client's previous policies                                                                                                                  |
+| `*`      | insurance agent	          | untag clients in contact details                      | organise my list of client's contact                                                                                                               |
+| `* *`    | insurance agent	          | search for clients with specified policies	           | keep track of who has the specified policies which may have an update                                                                              |
+| `* *`    | insurance agent	          | edit details of the client's policies and insurances	 | update myself on any changes made when my clients' update their policies                                                                           |
+| `* * *`  | forgetful insurance agent | 	add meeting date/time                                | organise my day and meeting time with the client                                                                                                   |
+| `* *`    | organised insurance agent | 	view all my meetings in the dashboard	               | see all my meetings with my clients                                                                                                                |
+| `* * *`  | organised insurance agent | 	view upcoming meetings for the week	                 | prepare for my upcoming meetings with clients                                                                                                      |
 
 ### Use cases
 

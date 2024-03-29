@@ -210,7 +210,7 @@ public class EditCommand extends Command {
         }
 
         public Optional<Set<Policy>> getPolicies() {
-            return (tags != null) ? Optional.of(Collections.unmodifiableSet(policies)) : Optional.empty();
+            return (policies != null) ? Optional.of(Collections.unmodifiableSet(policies)) : Optional.empty();
         }
 
         public void setPolicies(Set<Policy> policies) {

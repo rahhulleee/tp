@@ -72,20 +72,44 @@ public class Policy {
         return ACCEPTED_PREMIUM_TERMS.contains(field);
     }
 
+    public String getName() {
+        return this.policyName;
+    }
+
+    public String getType() {
+        return this.policyType;
+    }
+
+    public String getId() {
+        return this.policyNumber;
+    }
+
+    public String getTerm() {
+        return this.premiumTerm;
+    }
+
+    public String getPremium() {
+        return this.premium;
+    }
+
+    public String getBenefit() {
+        return this.benefit;
+    }
+
     @Override
     public String toString() {
-        return " Policy Name:"
-                + policyName
+        return "[Policy Name: "
+                + policyName + ","
                 + " Policy Type: "
-                + policyType
+                + policyType + ","
                 + " Policy ID: "
-                + policyNumber
+                + policyNumber + ","
                 + " Premium Term: "
-                + premiumTerm
+                + premiumTerm + ","
                 + " Premium: "
-                + premium
+                + premium + ","
                 + " Benefit: "
-                + benefit;
+                + benefit + "]";
     }
 
 }
