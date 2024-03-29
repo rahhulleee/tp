@@ -240,7 +240,6 @@ public class MainWindow extends UiPart<Stage> {
 
     private void showPolicyList(HashSet<Policy> policies) {
         policyListPanel = new PolicyListPanel(policies);
-        System.out.println("MAINWINDOW 243 here " + policyListPanel); //TODO: Remove when done debugging
         policyListPanelPlaceholder.getChildren().clear();
         policyListPanelPlaceholder.getChildren().add(policyListPanel.getRoot());
         policyListPanelPlaceholder.setVisible(true);

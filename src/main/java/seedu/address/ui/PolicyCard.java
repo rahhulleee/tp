@@ -38,10 +38,10 @@ public class PolicyCard extends UiPart<Region> {
         this.policy = policy;
         id.setText(displayedIndex + ". ");
         policyName.setText(policy.getName());
-        policyType.setText(policy.getType());
-        policyId.setText(policy.getId());
-        premiumTerm.setText(policy.getTerm());
-        premium.setText(policy.getPremium());
-        benefit.setText(policy.benefit);
+        policyType.setText("Policy Type: " + policy.getType());
+        policyId.setText("Policy Number: " + policy.getId());
+        premiumTerm.setText("Premium term: " + policy.getTerm());
+        premium.setText("Premium paid: " + policy.getPremium());
+        benefit.setText("Policy benefit: " + policy.benefit);
     }
 }
