@@ -106,7 +106,7 @@ public class ParserUtil {
         requireNonNull(meeting);
         String trimmedMeeting = meeting.trim();
         if (!Meeting.isValidMeeting(trimmedMeeting)) {
-            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Meeting.MESSAGE_CONSTRAINTS);
         }
         return new Meeting(trimmedMeeting);
     }

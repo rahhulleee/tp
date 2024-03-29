@@ -10,18 +10,13 @@ import java.time.format.DateTimeFormatter;
  * Guarantees: immutable; is always valid
  */
 public class Meeting implements Comparable<Meeting> {
-
+    private String name;
     public static final String MESSAGE_CONSTRAINTS =
-            "Meeting has to be in yyyy-MM-dd HH:mm:ss format, and it should not be blank";
-
+            "Meeting MUST be in yyyy-MM-dd HH:mm format, and it should be AFTER the current day and time.";
     // The VALIDATION_REGEX for meeting time
-    public static final String VALIDATION_REGEX =
-            "^(\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}:\\d{2}| \\d{2}:\\d{2}:\\d{2})?)$";
-
+    public static final String VALIDATION_REGEX = "^(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2})$";
     public final String value;
     public final LocalDateTime meeting;
-
-    private String name;
 
     /**
      * Constructs an {@code Meeting}.
@@ -40,33 +35,33 @@ public class Meeting implements Comparable<Meeting> {
      * Returns true if a given string is a valid meeting.
      */
     public static boolean isValidMeeting(String test) {
-        return test.matches(VALIDATION_REGEX);
+        try {
+            return test.matches(VALIDATION_REGEX) && stringToDateTime(test).isAfter(LocalDateTime.now());
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
     }
 
     /**
      * This method converts a string into a LocalDateTime object.
-     * If the string is in the format "yyyy-MM-dd", it will be treated as a date at the start of the day.
-     * If the string is in the format "yyyy-MM-ddTHH:mm:ss", it will be treated as a date with time.
-     * Otherwise, the string is expected to be in the format "yyyy-MM-dd HH:mm:ss".
+     * The string must be in the format "yyyy-MM-dd HH:mm".
      *
      * @param dateTime The string to be converted into a LocalDateTime object.
      * @return A LocalDateTime object that represents the date and time specified by the input string.
      */
-    private LocalDateTime stringToDateTime(String dateTime) {
-        if (dateTime.length() <= 10) {
-            return LocalDateTime.parse(dateTime + "T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-        } else if (dateTime.contains("T")) {
-            return LocalDateTime.parse(dateTime, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-        } else {
-            return LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    private static LocalDateTime stringToDateTime(String dateTime) {
+        if (dateTime.length() != 16) {
+            throw new IllegalArgumentException("The date and time must be in the format yyyy-MM-dd HH:mm");
         }
+        return LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
     }
 
     public boolean isFutureMeeting() {
-        return this.meeting.isAfter(LocalDateTime.now())
-                || this.meeting.isEqual(LocalDateTime.now());
+        return this.meeting.isAfter(LocalDateTime.now()) ||
+            this.meeting.isEqual(LocalDateTime.now());
     }
-
+    
+    
     public void setName(String finalName) {
         this.name = finalName;
     }
@@ -74,7 +69,7 @@ public class Meeting implements Comparable<Meeting> {
     public String getName() {
         return this.name;
     }
-
+    
     @Override
     public String toString() {
         return meeting.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm:ss"));
