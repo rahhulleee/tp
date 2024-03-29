@@ -16,7 +16,7 @@ public class Policy {
     public static final String POLICY_NAME_MESSAGE_CONSTRAINTS = "Policy name should only contain alphanumeric characters and spaces, and it should not be blank";
     public static final String POLICY_NUMBER_MESSAGE_CONSTRAINTS = "Policy number should only contain alphanumeric characters and spaces, and it should not be blank";
     public static final String POLICY_TYPE_MESSAGE_CONSTRAINTS = "Policy type should only contain alphanumeric characters and spaces, and it should not be blank";
-    public static final String PREMIUM_TERM_MESSAGE_CONSTRAINTS = "Premium term has to be one of the following options, and it should not be blank [\"Single\", \"Monthly\", \"Quarterly\", \"Semi-annually\", \"Annually\"]";
+    public static final String PREMIUM_TERM_MESSAGE_CONSTRAINTS = "Premium term has to be one of the following options, and it should not be blank \n [\"Single\", \"Monthly\", \"Quarterly\", \"Semi-annually\", \"Annually\"]";
     public static final String PREMIUM_MESSAGE_CONSTRAINTS = "Premium should only contain alphanumeric characters and spaces, and it should not be blank";
     public static final String BENEFIT_MESSAGE_CONSTRAINTS = "Benefit should only contain alphanumeric characters and spaces, and it should not be blank";
 
