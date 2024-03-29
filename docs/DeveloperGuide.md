@@ -199,11 +199,24 @@ no accidental logging of wrong meeting time.
 
 #### Design considerations:
 
+
 ### View Meetings feature
+
+  
 
 #### Implementation
 
+The view feature allows users to view clients with the compulsory field  `index`.
+
+The feature is implemented through the class  `ViewCommand`.
+
+The  `index`  field needs to be in  an integer.
+
+  
+
 #### Design considerations:
+- User can view a client at the specified index.
+- User can see a list-view of policies that this client is covered by.
 
 --------------------------------------------------------------------------------------------------------------------
 
