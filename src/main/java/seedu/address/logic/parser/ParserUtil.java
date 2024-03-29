@@ -138,31 +138,4 @@ public class ParserUtil {
         }
         return tagSet;
     }
-
-    /**
-     * Parses a {@code String policies} into a {@code Policies}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code policies} is invalid.
-     */
-    public static Policy parsePolicies(String policies) throws ParseException {
-        requireNonNull(policies);
-        String trimmedPolicy = policies.trim();
-        if (!Policy.isValidPolicy(trimmedPolicy)) {
-            throw new ParseException(Policy.MESSAGE_CONSTRAINTS);
-        }
-        return new Policy(policies);
-    }
-
-    /**
-     * Parses {@code Collection<String> policies} into a {@code Set<Policies>}.
-     */
-    public static Set<Policy> parsePolicies(Collection<String> policies) throws ParseException {
-        requireNonNull(policies);
-        final Set<Policy> policiesSet = new HashSet<>();
-        for (String policyName : policies) {
-            policiesSet.add(parsePolicies(policyName));
-        }
-        return policiesSet;
-    }
 }
