@@ -36,7 +36,7 @@ public class JsonAdaptedMeeting {
      */
     public JsonAdaptedMeeting(Meeting source) {
         this.name = source.getName();
-        this.meetingDetail = source.getMeeting().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.meetingDetail = source.getMeeting().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
     }
 
     /**
