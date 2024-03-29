@@ -203,7 +203,7 @@ Further descriptions on the methods:
 * `DeletePolicyCommand#execute(Model model)` — Executes the delete policy command and removes the policy with the input policy name that is linked to the input client.
 * `DeletePolicyCommand#generateSuccessMessage(Person editedPerson)` — Generates and prints the success message when a policy is successfully deleted from the specified client.
 
-#### Design Considerations:
+#### Design Considerations
 **Aspect: Index and Policy Name field**
 * We made sure that either `Index` field or `Policy Name` field cannot be empty, if not, an exception will be raised to alert the user that some fields are insufficient/invalid.
 
