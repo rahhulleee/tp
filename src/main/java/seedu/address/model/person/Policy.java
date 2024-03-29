@@ -74,18 +74,18 @@ public class Policy {
 
     @Override
     public String toString() {
-        return " Policy Name:"
-                + policyName
+        return "[Policy Name: "
+                + policyName + ","
                 + " Policy Type: "
-                + policyType
+                + policyType + ","
                 + " Policy ID: "
-                + policyNumber
+                + policyNumber + ","
                 + " Premium Term: "
-                + premiumTerm
+                + premiumTerm + ","
                 + " Premium: "
-                + premium
+                + premium + ","
                 + " Benefit: "
-                + benefit;
+                + benefit + "]";
     }
 
 }

@@ -134,8 +134,7 @@ public class Person {
      */
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
-                .add("name", name)
+        return new ToStringBuilder(name.toString())
                 .add("phone", phone)
                 .add("email", email)
                 .add("address", address)
