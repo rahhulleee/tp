@@ -5,8 +5,8 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.person.Person;
 import seedu.address.model.person.Meeting;
+import seedu.address.model.person.Person;
 
 /**
  * The API of the Model component.
@@ -83,6 +83,11 @@ public interface Model {
     void addMeeting(Meeting meeting);
 
     void deleteMeeting(Meeting meeting);
+
+    void setMeeting(Meeting target, Meeting editedMeeting);
+
+    boolean isFutureMeeting(Meeting meeting);
+
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();

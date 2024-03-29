@@ -9,7 +9,13 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.*;
+
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Meeting;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.Policy;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -102,7 +108,7 @@ public class ParserUtil {
         requireNonNull(meeting);
         String trimmedMeeting = meeting.trim();
         if (!Meeting.isValidMeeting(trimmedMeeting)) {
-            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Meeting.MESSAGE_CONSTRAINTS);
         }
         return new Meeting(trimmedMeeting);
     }
@@ -187,4 +193,5 @@ public class ParserUtil {
         }
         return benefit;
     }
+
 }

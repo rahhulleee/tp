@@ -43,6 +43,7 @@ public class Policy {
      */
     public Policy(String policyName, String policyType, String policyNumber, String premiumTerm, String premium, String benefit) {
         requireAllNonNull(policyName);
+
         this.policyName = policyName;
         this.policyType = policyType;
         this.policyNumber = policyNumber;

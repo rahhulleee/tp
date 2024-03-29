@@ -5,7 +5,7 @@
     "phone" : "94351253",
     "email" : "alice@example.com",
     "address" : "123, Jurong West Ave 6, #08-111",
-    "meeting" : "2024-01-12",
+    "meeting" : "2024-01-12 10:00",
     "tags" : [ "friends" ],
     "polices" : [ "supersaver1"]
   }, {
@@ -13,7 +13,7 @@
     "phone" : "98765432",
     "email" : "johnd@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
-    "meeting" : "2024-01-13",
+    "meeting" : "2024-01-13 10:00",
     "tags" : [ "owesMoney", "friends" ],
     "polices" : [ "supersaver2"]
   }, {
@@ -21,7 +21,7 @@
     "phone" : "95352563",
     "email" : "heinz@example.com",
     "address" : "wall street",
-    "meeting" : "2024-01-14",
+    "meeting" : "2024-01-14 10:00",
     "tags" : [ ],
     "polices" : [ "supersaver3"]
   }, {
@@ -29,7 +29,7 @@
     "phone" : "87652533",
     "email" : "cornelia@example.com",
     "address" : "10th street",
-    "meeting" : "2024-01-15",
+    "meeting" : "2024-01-15 10:00",
     "tags" : [ "friends" ],
     "polices" : [ "supersaver4"]
   }, {
@@ -37,7 +37,7 @@
     "phone" : "9482224",
     "email" : "werner@example.com",
     "address" : "michegan ave",
-    "meeting" : "2024-01-16",
+    "meeting" : "2024-01-16 10:00",
     "tags" : [ ],
     "policies" : [ ]
   }, {
@@ -45,7 +45,7 @@
     "phone" : "9482427",
     "email" : "lydia@example.com",
     "address" : "little tokyo",
-    "meeting" : "2024-01-17",
+    "meeting" : "2024-01-17 10:00",
     "tags" : [ ],
     "policies" : [ ]
   }, {
@@ -53,7 +53,7 @@
     "phone" : "9482442",
     "email" : "anna@example.com",
     "address" : "4th street",
-    "meeting" : "2024-01-18",
+    "meeting" : "2024-01-18 10:00",
     "tags" : [ ],
     "policies" : [ ]
   } ]
