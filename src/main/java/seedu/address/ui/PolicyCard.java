@@ -22,15 +22,26 @@ public class PolicyCard extends UiPart<Region> {
     @FXML
     private Label policyName;
     @FXML
-    private Label policyId; // Add more labels or UI components as needed
+    private Label policyType;
+    @FXML
+    private Label policyId;
+    @FXML
+    private Label premiumTerm;
+    @FXML
+    private Label premium;
+    @FXML
+    private Label benefit;
+
 
     public PolicyCard(Policy policy, int displayedIndex) {
         super(FXML);
         this.policy = policy;
         id.setText(displayedIndex + ". ");
         policyName.setText(policy.getName());
-        policyId.setText(policy.getId()); // Assuming these methods exist in your Policy class
-        // Initialize other UI components here as needed
+        policyType.setText(policy.getType());
+        policyId.setText(policy.getId());
+        premiumTerm.setText(policy.getTerm());
+        premium.setText(policy.getPremium());
+        benefit.setText(policy.benefit);
     }
 }
-

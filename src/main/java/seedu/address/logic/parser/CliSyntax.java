@@ -13,7 +13,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_TAG = new Prefix("t/");
     public static final Prefix PREFIX_MEETING = new Prefix("m/");
     public static final Prefix PREFIX_POLICY_NAME = new Prefix("pol/");
-    public static final Prefix PREFIX_POLICY_TYPE = new Prefix("poltype/");
+    public static final Prefix PREFIX_POLICY_TYPE = new Prefix("type/");
     public static final Prefix PREFIX_POLICY_NUMBER = new Prefix("polnum/");
 
     public static final Prefix PREFIX_PREMIUM_TERM = new Prefix("pterm/");
