@@ -158,7 +158,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Proposed\] Add Policy feature
+### Add Policy feature
 As an insurance agent, each of your clients can have 0 or multiple policies under them as their insurance policies can 
 cover a variety of things such as health, life, car, house, etc. Hence, it is essential that our application keeps 
 track of these policies and their details under the correct client. 
