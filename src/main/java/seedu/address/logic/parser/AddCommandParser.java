@@ -55,7 +55,6 @@ public class AddCommandParser implements Parser<AddCommand> {
 
         Meeting meeting = ParserUtil.parseMeeting(argMultimap.getValue(PREFIX_MEETING).get());
         meeting.setName(name.toString());
-        
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         // Initialize the person with an empty set of policies

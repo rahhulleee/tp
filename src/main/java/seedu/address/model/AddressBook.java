@@ -3,6 +3,7 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.LogsCenter;
@@ -11,14 +12,13 @@ import seedu.address.model.person.Meeting;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniqueMeetingList;
 import seedu.address.model.person.UniquePersonList;
-import java.util.logging.Logger;
 
 /**
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSamePerson comparison)
  */
 public class AddressBook implements ReadOnlyAddressBook {
-     private static final Logger logger = LogsCenter.getLogger(AddressBook.class);
+    private static final Logger logger = LogsCenter.getLogger(AddressBook.class);
 
     private final UniquePersonList persons;
     private final UniqueMeetingList meetings;
@@ -33,7 +33,6 @@ public class AddressBook implements ReadOnlyAddressBook {
     {
         persons = new UniquePersonList();
         meetings = new UniqueMeetingList();
-        
     }
 
     public AddressBook() {}
@@ -56,6 +55,12 @@ public class AddressBook implements ReadOnlyAddressBook {
         this.persons.setPersons(persons);
     }
 
+    /**
+     * Replaces the contents of the meeting list with {@code meetings}.
+     * {@code meetings} must not contain duplicate meetings.
+     *
+     * @param meetings The list of meetings to replace.
+     */
     public void setMeetings(List<Meeting> meetings) {
         this.meetings.setMeetings(meetings);
     }
@@ -106,28 +111,53 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
-     //// meeting-level operations
+    //// meeting-level operations
 
+    /**
+     * Returns true if a meeting with the same identity as {@code meeting} exists in the address book.
+     *
+     * @param meeting The meeting to check for existence.
+     * @return True if a meeting with the same identity exists, false otherwise.
+     */
     public boolean hasMeeting(Meeting meeting) {
         requireNonNull(meeting);
         return meetings.contains(meeting);
     }
 
+    /**
+     * Adds a meeting to the address book.
+     * The meeting must not already exist in the address book.
+     *
+     * @param m The meeting to be added.
+     */
     public void addMeeting(Meeting m) {
         meetings.add(m);
     }
 
+    /**
+     * Replaces the given meeting {@code target} in the list with {@code editedMeeting}.
+     * {@code target} must exist in the address book.
+     * The meeting identity of {@code editedMeeting} must not be the same as another existing meeting.
+     *
+     * @param target The meeting to be replaced.
+     * @param editedMeeting The edited meeting to replace the target.
+     */
     public void setMeeting(Meeting target, Meeting editedMeeting) {
         requireNonNull(editedMeeting);
 
         meetings.setMeeting(target, editedMeeting);
     }
 
+    /**
+     * Removes {@code key} from this {@code AddressBook}.
+     * {@code key} must exist in the address book.
+     *
+     * @param key The meeting to be removed.
+     */
     public void removeMeeting(Meeting key) {
         logger.fine("WE ARE CHECKING AFTER DELETION: " + meetings);
         meetings.remove(key);
     }
-
 
     //// util methods
 
