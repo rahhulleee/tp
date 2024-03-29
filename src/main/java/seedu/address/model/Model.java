@@ -84,6 +84,8 @@ public interface Model {
 
     void deleteMeeting(Meeting meeting);
 
+    void setMeeting(Meeting target, Meeting editedMeeting);
+
     boolean isFutureMeeting(Meeting meeting);
 
 
