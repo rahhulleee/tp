@@ -239,7 +239,7 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     private void showPolicyList(HashSet<Policy> policies) {
-        policyListPanel = new PolicyListPanel(policies); // Adapt PolicyListPanel constructor as needed
+        policyListPanel = new PolicyListPanel(policies);
         policyListPanelPlaceholder.getChildren().clear();
         policyListPanelPlaceholder.getChildren().add(policyListPanel.getRoot());
         policyListPanelPlaceholder.setVisible(true);

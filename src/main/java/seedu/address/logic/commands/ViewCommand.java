@@ -64,10 +64,9 @@ public class ViewCommand extends Command {
         Person person = lastShownList.get(index.getZeroBased());
         Set<Policy> policies = person.getPolicies();
 
-        // Create an View predicate to filter the list to only contain the specified person
+        // Create a View predicate to filter the list to only contain the specified person
         ViewPredicate pred = new ViewPredicate(index, person);
         model.updateFilteredPersonList(pred);
-        
 
         return new ViewCommandResult(String.format(MESSAGE_VIEW_SUCCESS, person.getName()), policies);
     }

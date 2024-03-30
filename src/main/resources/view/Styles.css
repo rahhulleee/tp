@@ -1,7 +1,10 @@
 .header-label {
     -fx-text-fill: white; /* Sets the text color to white */
-    -fx-font-size: 20px; /* Sets the font size */
+    -fx-font-size: 28px; /* Sets the font size */
     -fx-font-family: "Times New Roman";
     -fx-font-weight: bold;
-    -fx-alignment: center; /* Centralizes the text */
+}
+
+.pane-with-border {
+    -fx-alignment: center;
 }
