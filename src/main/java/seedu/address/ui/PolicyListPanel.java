@@ -34,6 +34,10 @@ public class PolicyListPanel extends UiPart<Region> {
         policyListView.setCellFactory(listView -> new PolicyListViewCell());
     }
 
+    public void setPrefSize(double width, double height) {
+        policyListView.setPrefSize(width, height);
+    }
+
     /**
      * Custom {@code ListCell} that displays the graphics of a {@code Policy} using a {@code PolicyCard}.
      */

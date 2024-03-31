@@ -50,8 +50,6 @@ public class ViewCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireAllNonNull(model);
 
-        // Update the filtered person list to display all persons
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         List<Person> lastShownList = model.getFilteredPersonList();
         logger.info("Current list size: " + lastShownList.size() + ", target index : " + index.getOneBased());
 

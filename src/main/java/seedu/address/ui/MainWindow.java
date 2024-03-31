@@ -154,7 +154,6 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
-
     /**
      * Opens the help window or focuses on it if it's already opened.
      */
@@ -211,13 +210,6 @@ public class MainWindow extends UiPart<Stage> {
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
 
-            if (commandResult instanceof ViewCommandResult) {
-                ViewCommandResult viewCommandResult = (ViewCommandResult) commandResult;
-                showPolicyList(new HashSet<>(viewCommandResult.getPolicies())); // Assuming Set<Policy> to ObservableList<Policy> conversion if necessary
-            } else {
-                hidePolicyList();
-            }
-
             if (commandResult.isShowHelp()) {
                 handleHelp();
             }
@@ -230,6 +222,13 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
+            if (commandResult instanceof ViewCommandResult) {
+                ViewCommandResult viewCommandResult = (ViewCommandResult) commandResult;
+                showPolicyList(new HashSet<>(viewCommandResult.getPolicies()));
+            } else {
+                hidePolicyList();
+            }
+
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("An error occurred while executing command: " + commandText);
@@ -238,14 +237,23 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    /**
+     * Expands the policy list panel and shows the policy list.
+     * @param policies Policies to be shown in the policy list panel.
+     */
     private void showPolicyList(HashSet<Policy> policies) {
         policyListPanel = new PolicyListPanel(policies);
+        policyListPanel.setPrefSize(680, 680);
         policyListPanelPlaceholder.getChildren().clear();
         policyListPanelPlaceholder.getChildren().add(policyListPanel.getRoot());
         policyListPanelPlaceholder.setVisible(true);
     }
 
+    /**
+     * Collapses the policy list panel and hides the policy list.
+     */
     private void hidePolicyList() {
+        policyListPanel.setPrefSize(0,0);
         policyListPanelPlaceholder.setVisible(false);
     }
 
