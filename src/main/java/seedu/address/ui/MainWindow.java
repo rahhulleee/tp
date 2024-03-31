@@ -253,6 +253,9 @@ public class MainWindow extends UiPart<Stage> {
      * Collapses the policy list panel and hides the policy list.
      */
     private void hidePolicyList() {
+        if (policyListPanel == null) {
+            return;
+        }
         policyListPanel.setPrefSize(0,0);
         policyListPanelPlaceholder.setVisible(false);
     }
