@@ -50,8 +50,6 @@ public class ViewCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireAllNonNull(model);
 
-        // Update the filtered person list to display all persons
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         List<Person> lastShownList = model.getFilteredPersonList();
         logger.info("Current list size: " + lastShownList.size() + ", target index : " + index.getOneBased());
 
@@ -64,10 +62,9 @@ public class ViewCommand extends Command {
         Person person = lastShownList.get(index.getZeroBased());
         Set<Policy> policies = person.getPolicies();
 
-        // Create an View predicate to filter the list to only contain the specified person
+        // Create a View predicate to filter the list to only contain the specified person
         ViewPredicate pred = new ViewPredicate(index, person);
         model.updateFilteredPersonList(pred);
-        
 
         return new ViewCommandResult(String.format(MESSAGE_VIEW_SUCCESS, person.getName()), policies);
     }
