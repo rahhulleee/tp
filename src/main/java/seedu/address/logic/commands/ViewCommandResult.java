@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import java.util.Set;
+
 import seedu.address.model.person.Policy;
 
 /**
@@ -22,7 +23,8 @@ public class ViewCommandResult extends CommandResult {
     /**
      * Constructs a {@code ViewCommandResult} with all fields specified.
      */
-    public ViewCommandResult(String feedbackToUser, boolean showHelp, boolean showMeetings, boolean exit, Set<Policy> policies) {
+    public ViewCommandResult(String feedbackToUser, boolean showHelp, boolean showMeetings,
+                             boolean exit, Set<Policy> policies) {
         super(feedbackToUser, showHelp, showMeetings, exit);
         this.policies = policies;
     }
