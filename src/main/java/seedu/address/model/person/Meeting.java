@@ -21,7 +21,7 @@ public class Meeting implements Comparable<Meeting> {
     public final LocalDateTime meeting;
 
     /**
-     * Constructs an {@code Meeting}.
+     * Constructs a {@code Meeting}.
      */
     public Meeting(String meeting) {
         requireNonNull(meeting);
@@ -29,8 +29,20 @@ public class Meeting implements Comparable<Meeting> {
         this.meeting = stringToDateTime(meeting);
     }
 
+    /**
+     * Constructs a {@code Meeting} with a name.
+     */
+    public Meeting(String meeting, String name) {
+        this(meeting);
+        this.name = name;
+    }
+
     public LocalDateTime getMeeting() {
         return meeting;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     /**
