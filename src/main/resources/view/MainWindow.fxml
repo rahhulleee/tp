@@ -32,7 +32,6 @@
                         <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help"/>
                     </Menu>
                 </MenuBar>
-                
                 <SplitPane VBox.vgrow="ALWAYS" minWidth="680" prefWidth="680">
                     <items>
                         <VBox styleClass="pane-with-border" minWidth="280" prefWidth="280" VBox.vgrow="ALWAYS">
@@ -44,7 +43,6 @@
                                 <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                             </StackPane>
                         </VBox>
-                        
                         <VBox styleClass="pane-with-border" minWidth="400" prefWidth="400" VBox.vgrow="ALWAYS">
                             <Label text="Clients" styleClass="header-label"/>
                             <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" styleClass="pane-with-border">
@@ -57,7 +55,6 @@
                         </VBox>
                     </items>
                 </SplitPane>
-                
                 <StackPane fx:id="resultDisplayPlaceholder" styleClass="pane-with-border" VBox.vgrow="NEVER" minHeight="100" prefHeight="100" maxHeight="100">
                     <padding><Insets top="5" right="10" bottom="5" left="10"/></padding>
                 </StackPane>
