@@ -10,12 +10,15 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import java.util.HashSet;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
+import seedu.address.logic.commands.ViewCommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Policy;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -36,6 +39,7 @@ public class MainWindow extends UiPart<Stage> {
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
     private MeetingsWindow meetingsWindow;
+    private PolicyListPanel policyListPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -54,6 +58,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane statusbarPlaceholder;
+
+    @FXML
+    private StackPane policyListPanelPlaceholder;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -131,6 +138,8 @@ public class MainWindow extends UiPart<Stage> {
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
+
+        policyListPanelPlaceholder.setVisible(false);
     }
 
     /**
@@ -213,6 +222,13 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
+            if (commandResult instanceof ViewCommandResult) {
+                ViewCommandResult viewCommandResult = (ViewCommandResult) commandResult;
+                showPolicyList(new HashSet<>(viewCommandResult.getPolicies()));
+            } else {
+                hidePolicyList();
+            }
+
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("An error occurred while executing command: " + commandText);
@@ -220,4 +236,25 @@ public class MainWindow extends UiPart<Stage> {
             throw e;
         }
     }
+
+    /**
+     * Expands the policy list panel and shows the policy list.
+     * @param policies Policies to be shown in the policy list panel.
+     */
+    private void showPolicyList(HashSet<Policy> policies) {
+        policyListPanel = new PolicyListPanel(policies);
+        policyListPanel.setPrefSize(680, 680);
+        policyListPanelPlaceholder.getChildren().clear();
+        policyListPanelPlaceholder.getChildren().add(policyListPanel.getRoot());
+        policyListPanelPlaceholder.setVisible(true);
+    }
+
+    /**
+     * Collapses the policy list panel and hides the policy list.
+     */
+    private void hidePolicyList() {
+        policyListPanel.setPrefSize(0,0);
+        policyListPanelPlaceholder.setVisible(false);
+    }
+
 }

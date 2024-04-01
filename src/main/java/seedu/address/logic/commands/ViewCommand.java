@@ -5,12 +5,14 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Policy;
 import seedu.address.model.person.ViewPredicate;
 
 /**
@@ -48,11 +50,8 @@ public class ViewCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireAllNonNull(model);
 
-        // Update the filtered person list to display all persons
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         List<Person> lastShownList = model.getFilteredPersonList();
-        logger.info("Curr list is: " + lastShownList);
-        logger.info("Curr index: " + lastShownList.size() + " WHILE OUR INDEX IS : " + index);
+        logger.info("Current list size: " + lastShownList.size() + ", target index : " + index.getOneBased());
 
         // Check if the index is valid
         if (index.getZeroBased() >= lastShownList.size()) {
@@ -61,12 +60,13 @@ public class ViewCommand extends Command {
 
         // Retrieve the person with the specified index
         Person person = lastShownList.get(index.getZeroBased());
+        Set<Policy> policies = person.getPolicies();
 
-        // Create an View predicate to filter the list to only contain the specified person
+        // Create a View predicate to filter the list to only contain the specified person
         ViewPredicate pred = new ViewPredicate(index, person);
         model.updateFilteredPersonList(pred);
 
-        return new CommandResult(String.format(MESSAGE_VIEW_SUCCESS, person.getName()));
+        return new ViewCommandResult(String.format(MESSAGE_VIEW_SUCCESS, person.getName()), policies);
     }
 
     /**

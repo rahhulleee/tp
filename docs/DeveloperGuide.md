@@ -158,6 +158,87 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Add Policy feature
+As an insurance agent, each of your clients can have 0 or multiple policies under them as their insurance policies can 
+cover a variety of things such as health, life, car, house, etc. Hence, it is essential that our application keeps 
+track of these policies and their details under the correct client. 
+
+#### Proposed Implementation
+Essential policy information consists of 6 fields: 
+1. Policy name
+2. Policy type
+3. Policy number
+4. Premium Term
+5. Premium
+6. Benefit
+
+Thus, we created a new Policy class that has these fields as required attributes that have to be passed in as arguments
+into the constructor.
+In our Person class (which represents a client in our InsureBook), we have a new attribute called `policies` which
+represents a set of Policy objects tagged to the Person object.  
+
+Given below is an example usage scenario and how the add policy mechanism behaves at each step
+
+Step 1. The user launches the application for the first time and adds a new client to the InsureBook with the 
+add command `add n/David ...`. In this step, a new Person object is created with the attributes `name` = `David` 
+`phone` = `96623786` and so on. `policies` attribute is initialised to an empty set, representing that a client starts
+out with no policies attached to the client
+
+Step 2. This client `David` decides to take up a new insurance policy with the user. The user then adds a new policy to 
+`David` and uses the addPolicy command with David's person index (e.g. 2) `addPolicy 2 pol/policyA poltype/health 
+polnum/987654 pterm/annually prem/123 b/456`.
+
+Step 3. Upon entering this command, the `LogicManager` uses the `AddressBookParser` to parse the input string and 
+recognise the `addPolicy` command word to pass the arguments into the `AddPolicyCommandParser` where the arguments 
+are parsed to extract the parameters to create a new `AddPolicyCommand` object while also checking that the 
+arguments are valid.
+
+<box type="info" seamless>
+
+**Note:** If any of the prefixes are missing or repeated, the application will throw an error to the user and error will
+be displayed in the command output box.
+
+**Note:** Premium term (`pterm`) only accepts a set of values which are case-insensitive. <br/>
+["SINGLE", "MONTHLY", "QUARTERLY", "SEMI-ANNUALLY", "ANNUALLY"]
+
+**Note:** Policy name (`pol`) cannot already exist in the Peron object's set of Policy objects.
+
+</box>
+
+Step 4. A new `AddPolicyCommand` object is created and returned to `LogicManager` with an execute command that 
+finds the `Person` object (David) with the given person index (2) and retrieves the current set of `Policy` objects stored 
+in this Person's `policies` attribute.
+
+Step 5. With the given arguments, a new `Policy` object is created with the `Policy` constructor. This new `Policy` object
+is appended to the Person's previous set of `Policy` objects.
+
+Step 6. Then a new `Person` object is created with this new set of `Policy` objects while keeping the other attributes of 
+the Person object the same.
+
+Step 7. The new `Person` object is then passed into `Model#setPerson()` which edits/updates the `Person` object (David) 
+accordingly.
+
+Step 8. Application throws a success message in the command output box to show that a new Policy object was added to 
+the specified client's set of policies. Upon inspecting the specified client's person card, the user will see a new red
+tag with the inputted policy name.
+
+<puml src="diagrams\AddPolicySequenceDiagram.puml" alt="AddPolicyDiagram" />
+
+#### Design considerations:
+
+**Aspect: How store multiple policy information in the same client:**
+
+* **Alternative 1 (current choice):** Encompass the policy details into a single Policy class with the details
+as attributes to the Policy class
+	* Pros: Good abstraction level to organise all the policy information into one convenient class that can be 
+  referenced and have its own methods.
+	* Cons: Not as straightforward to implement and requires updating multiple classes
+
+* **Alternative 2:** Individual policy details as their own attributes to Person object
+  itself.
+	* Pros: Easy to implement
+	* Cons: Weak level of abstraction and code becomes a lot messier and unclear
+
 ### Add Client feature
 
 #### Implementation
@@ -196,14 +277,46 @@ no accidental logging of wrong meeting time.
 ### Delete Policy feature
 
 #### Implementation
+The delete policy mechanism is facilitated by `DeletePolicyCommand`. It extends `Command` which is an abstract class with only 1 method, `Command#execute(Model model)`.
+Additionally, it implements `DeletePolicyCommand#generateSuccessMessage(Person editedPerson)`.
+
+Further descriptions on the methods:
+* `DeletePolicyCommand#execute(Model model)` — Executes the delete policy command and removes the policy with the input policy name that is linked to the input client.
+* `DeletePolicyCommand#generateSuccessMessage(Person editedPerson)` — Generates and prints the success message when a policy is successfully deleted from the specified client.
+
+#### Design Considerations:
+**Aspect: Index and Policy Name field**
+* We made sure that either `Index` field or `Policy Name` field cannot be empty, if not, an exception will be raised to alert the user that some fields are insufficient/invalid.
+
+
+### View Client feature
+
+#### Implementation
+
+The view feature allows users to view clients with the compulsory field  `index`. Users will be able to see all information about the specified client, including the policies held by the client and these policies' details.
+
+The feature is implemented through the class  `ViewCommand`.
+
+The  `index`  field needs to be in  an integer.
 
 #### Design considerations:
+- User can view a client at the specified index.
+- User can see a list-view of policies that this client is covered by.
+- MeetingCard section of UI should not be affected by this command.
 
 ### View Meetings feature
 
 #### Implementation
 
+The 'meetings' command allows users to view all the meetings that are scheduled in the current week. The feature is implemented through the `MeetingsCommand` class.
+
+The UI component for this command is the `MeetingsWindow`, which is a pop-up window displaying the meetings for the current week.
+
 #### Design considerations:
+- User can view all meetings scheduled for the current week, *in chronological order*. This allows the user to **efficiently identify** the meetings that are coming up soon.
+- The meetings should be displayed *along with the client's name*, so that users can identify the client they are meeting and the time of the meeting.
+- Designed as a pop-up window to allow users to view the meetings *without cluttering the main window*. Users can also check details in the main window while viewing the meetings.
+- User must be *able to close the window using a **keyboard***, to maintain the keyboard-centric design and speed advantage of the CLI app.
 
 --------------------------------------------------------------------------------------------------------------------
 

@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.commands.AddCommand.MESSAGE_DUPLICATE_MEETING;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MEETING;
@@ -88,6 +89,12 @@ public class EditCommand extends Command {
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
+        for (Person person : model.getAddressBook().getPersonList()) {
+            if (person.getMeeting().equals(editedMeeting)) {
+                throw new CommandException(MESSAGE_DUPLICATE_MEETING);
+            }
         }
 
         model.setPerson(personToEdit, editedPerson);
@@ -210,7 +217,7 @@ public class EditCommand extends Command {
         }
 
         public Optional<Set<Policy>> getPolicies() {
-            return (tags != null) ? Optional.of(Collections.unmodifiableSet(policies)) : Optional.empty();
+            return (policies != null) ? Optional.of(Collections.unmodifiableSet(policies)) : Optional.empty();
         }
 
         public void setPolicies(Set<Policy> policies) {

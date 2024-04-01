@@ -8,7 +8,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.PolicyNameContainsKeywordsPredicate;
 
 /**
- * Finds and lists all persons in the address book whose policy name contains any of the specified keywords.
+ * Finds and lists all persons in the address book who have policy names containing any of the specified keywords.
  */
 public class FindPolicyCommand extends Command {
 
