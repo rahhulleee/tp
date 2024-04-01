@@ -1,13 +1,13 @@
 package seedu.address.ui;
 
+import java.util.Set;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
-import java.util.Set;
-
 import seedu.address.model.person.Policy;
 
 /**
@@ -19,14 +19,18 @@ public class PolicyListPanel extends UiPart<Region> {
     @FXML
     private ListView<Policy> policyListView;
 
-    // Constructor that accepts an ObservableList<Policy>
+    /**
+     * Creates a {@code PolicyListPanel} with the given {@code ObservableList}.
+     */
     public PolicyListPanel(ObservableList<Policy> policyList) {
         super(FXML);
         policyListView.setItems(policyList);
         policyListView.setCellFactory(listView -> new PolicyListViewCell());
     }
 
-    // Additional constructor to handle Set<Policy>
+    /**
+     * Creates a {@code PolicyListPanel} with the given {@code Set<Policy>}.
+     */
     public PolicyListPanel(Set<Policy> policySet) {
         super(FXML);
         ObservableList<Policy> policyList = FXCollections.observableArrayList(policySet);

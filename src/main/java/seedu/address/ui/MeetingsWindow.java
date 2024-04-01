@@ -70,8 +70,8 @@ public class MeetingsWindow extends UiPart<Stage> {
         List<Meeting> meetings = logic.getMeetingList();
         meetings = meetings.stream()
                 .filter(m -> m.getMeeting() != null)
-                .filter(m -> m.getMeeting().get(IsoFields.WEEK_OF_WEEK_BASED_YEAR) ==
-                        LocalDateTime.now().get(IsoFields.WEEK_OF_WEEK_BASED_YEAR))
+                .filter(m -> m.getMeeting().get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)
+                        == LocalDateTime.now().get(IsoFields.WEEK_OF_WEEK_BASED_YEAR))
                 .collect(Collectors.toList());
         meetings.sort(Comparator.comparing(Meeting::getMeeting));
         StringBuilder sb = new StringBuilder();
