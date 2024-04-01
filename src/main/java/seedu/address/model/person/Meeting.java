@@ -11,7 +11,6 @@ import java.time.format.DateTimeParseException;
  * Guarantees: immutable; is always valid
  */
 public class Meeting implements Comparable<Meeting> {
-    private String name;
     public static final String MESSAGE_CONSTRAINTS =
             "Meeting MUST be a valid date and time in yyyy-MM-dd HH:mm format,"
                     + " and it should be AFTER the current day and time.";
@@ -19,9 +18,10 @@ public class Meeting implements Comparable<Meeting> {
     public static final String VALIDATION_REGEX = "^(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2})$";
     public final String value;
     public final LocalDateTime meeting;
+    private String name;
 
     /**
-     * Constructs an {@code Meeting}.
+     * Constructs a {@code Meeting}.
      */
     public Meeting(String meeting) {
         requireNonNull(meeting);
@@ -29,8 +29,20 @@ public class Meeting implements Comparable<Meeting> {
         this.meeting = stringToDateTime(meeting);
     }
 
+    /**
+     * Constructs a {@code Meeting} with a name.
+     */
+    public Meeting(String meeting, String name) {
+        this(meeting);
+        this.name = name;
+    }
+
     public LocalDateTime getMeeting() {
         return meeting;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     /**
@@ -63,11 +75,10 @@ public class Meeting implements Comparable<Meeting> {
     }
 
     public boolean isFutureMeeting() {
-        return this.meeting.isAfter(LocalDateTime.now()) ||
-            this.meeting.isEqual(LocalDateTime.now());
+        return this.meeting.isAfter(LocalDateTime.now())
+                || this.meeting.isEqual(LocalDateTime.now());
     }
-    
-    
+
     public void setName(String finalName) {
         this.name = finalName;
     }
@@ -75,7 +86,7 @@ public class Meeting implements Comparable<Meeting> {
     public String getName() {
         return this.name;
     }
-    
+
     @Override
     public String toString() {
         return meeting.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm"));
