@@ -159,12 +159,12 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 This section describes some noteworthy details on how certain features are implemented.
 
 ### Add Policy feature
-As an insurance agent, each of your clients can have 0 or multiple policies under them as their insurance policies can 
-cover a variety of things such as health, life, car, house, etc. Hence, it is essential that our application keeps 
-track of these policies and their details under the correct client. 
+As an insurance agent, each of your clients can have 0 or multiple policies under them as their insurance policies can
+cover a variety of things such as health, life, car, house, etc. Hence, it is essential that our application keeps
+track of these policies and their details under the correct client.
 
 #### Proposed Implementation
-Essential policy information consists of 6 fields: 
+Essential policy information consists of 6 fields:
 1. Policy name
 2. Policy type
 3. Policy number
@@ -175,7 +175,7 @@ Essential policy information consists of 6 fields:
 Thus, we created a new Policy class that has these fields as required attributes that have to be passed in as arguments
 into the constructor.
 In our Person class (which represents a client in our InsureBook), we have a new attribute called `policies` which
-represents a set of Policy objects tagged to the Person object.  
+represents a set of Policy objects tagged to the Person object.
 
 Given below is an example usage scenario and how the add policy mechanism behaves at each step
 
