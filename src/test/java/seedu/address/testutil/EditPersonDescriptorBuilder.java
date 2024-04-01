@@ -100,7 +100,7 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withPolicies(String[]... policiesArrays) {
         Set<Policy> policySet = Stream.of(policiesArrays)
-                .map(array -> new Policy(array[0], array[1], array[2], array[3], array[4]))
+                .map(array -> new Policy(array[0], array[1], array[2], array[3], array[4], array[5]))
                 .collect(Collectors.toSet());
         descriptor.setPolicies(policySet);
         return this;
