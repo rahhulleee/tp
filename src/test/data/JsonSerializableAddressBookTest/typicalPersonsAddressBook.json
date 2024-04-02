@@ -56,5 +56,27 @@
     "meeting" : "2024-05-18 10:00",
     "tags" : [ ],
     "policies" : [ ]
+  } ],
+  "meetings" : [ {
+    "name" : "Alice Pauline",
+    "meetingDetail" : "2024-05-12 10:00"
+  }, {
+    "name" : "Benson Meier",
+    "meetingDetail" : "2024-05-13 10:00"
+  }, {
+    "name" : "Carl Kurz",
+    "meetingDetail" : "2024-05-14 10:00"
+  }, {
+    "name" : "Daniel Meier",
+    "meetingDetail" : "2024-05-15 10:00"
+  }, {
+    "name" : "Elle Meyer",
+    "meetingDetail" : "2024-05-16 10:00"
+  }, {
+    "name" : "Fiona Kunz",
+    "meetingDetail" : "2024-05-17 10:00"
+  }, {
+    "name" : "George Best",
+    "meetingDetail" : "2024-05-18 10:00"
   } ]
 }
