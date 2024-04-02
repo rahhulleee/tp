@@ -39,8 +39,8 @@ public class CommandTestUtil {
     public static final String VALID_MEETING_BOB = "2024-03-12 18:00:00";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
-    public static final String[] VALID_POLICY_A = { "policyA", "9876543", "ANNUALLY", "123", "456" };
-    public static final String[] VALID_POLICY_B = {"policyB", "1234567", "MONTHLY", "234", "567"};
+    public static final String[] VALID_POLICY_A = { "policyA", "health", "9876543", "ANNUALLY", "123", "456" };
+    public static final String[] VALID_POLICY_B = {"policyB", "car", "1234567", "MONTHLY", "234", "567"};
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;

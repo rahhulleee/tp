@@ -144,7 +144,6 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void setMeeting(Meeting target, Meeting editedMeeting) {
         requireNonNull(editedMeeting);
-
         meetings.setMeeting(target, editedMeeting);
     }
 
