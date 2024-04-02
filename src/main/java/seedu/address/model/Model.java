@@ -86,8 +86,6 @@ public interface Model {
 
     void setMeeting(Meeting target, Meeting editedMeeting);
 
-    boolean isFutureMeeting(Meeting meeting);
-
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();

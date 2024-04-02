@@ -12,8 +12,10 @@ import java.time.format.DateTimeParseException;
  */
 public class Meeting implements Comparable<Meeting> {
     public static final String MESSAGE_CONSTRAINTS =
-            "Meeting MUST be a valid date and time in yyyy-MM-dd HH:mm format,"
-                    + " and it should be AFTER the current day and time.";
+            "Meeting MUST be a valid date and time in yyyy-MM-dd HH:mm format";
+
+    public static final String FUTURE_MEETING_MESSAGE_CONSTRAINTS =
+            "Meeting MUST be AFTER the current day and time.";
     // The VALIDATION_REGEX for meeting time
     public static final String VALIDATION_REGEX = "^(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2})$";
     public final String value;
@@ -50,7 +52,15 @@ public class Meeting implements Comparable<Meeting> {
      */
     public static boolean isValidMeeting(String test) {
         try {
-            return test.matches(VALIDATION_REGEX) && stringToDateTime(test).isAfter(LocalDateTime.now());
+            return test.matches(VALIDATION_REGEX);
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
+
+    public static boolean isFutureMeeting(String test) {
+        try {
+            return stringToDateTime(test).isAfter(LocalDateTime.now());
         } catch (IllegalArgumentException e) {
             return false;
         }
