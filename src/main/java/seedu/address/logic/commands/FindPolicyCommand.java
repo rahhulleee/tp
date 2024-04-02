@@ -16,7 +16,7 @@ public class FindPolicyCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Find person(s) with the input Policy Name linked to them.\n "
-            + "Parameters: [POLICY NAME] (partial words are allowed and case-insensitive)\n"
+            + "Parameters: POLICY_NAME (partial words are allowed and case-insensitive)\n"
             + "Example: " + COMMAND_WORD + " Saver ";
 
     private final PolicyNameContainsKeywordsPredicate predicate;
