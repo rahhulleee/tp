@@ -89,7 +89,7 @@ public class AddCommandTest {
     @Test
     public void toStringMethod() {
         AddCommand addCommand = new AddCommand(ALICE, ALICE.getMeeting());
-        String expected = AddCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
+        String expected = AddCommand.class.getCanonicalName() + ", toAdd: " + ALICE;
         assertEquals(expected, addCommand.toString());
     }
 
@@ -112,12 +112,10 @@ public class AddCommandTest {
         public void updateFilteredMeetingList(Predicate<Meeting> predicate) {
             throw new AssertionError("This method should not be called.");
         }
-
         @Override
         public ObservableList<Meeting> getMeetingList() {
             throw new AssertionError("This method should not be called.");
         }
-
         @Override
         public void deleteMeeting(Meeting meeting) {
             throw new AssertionError("This method should not be called.");
