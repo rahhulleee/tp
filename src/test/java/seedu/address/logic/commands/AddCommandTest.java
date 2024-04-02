@@ -112,12 +112,18 @@ public class AddCommandTest {
         public void updateFilteredMeetingList(Predicate<Meeting> predicate) {
             throw new AssertionError("This method should not be called.");
         }
-
+        @Override
+        public boolean isFutureMeeting(Meeting meeting) {
+            throw new AssertionError("This method should not be called.");
+        }
+        @Override
+        public void setMeeting(Meeting target, Meeting meeting) {
+            throw new AssertionError("This method should not be called.");
+        }
         @Override
         public ObservableList<Meeting> getMeetingList() {
             throw new AssertionError("This method should not be called.");
         }
-
         @Override
         public void deleteMeeting(Meeting meeting) {
             throw new AssertionError("This method should not be called.");
