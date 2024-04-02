@@ -66,9 +66,6 @@ public class AddCommand extends Command {
         if (model.hasMeeting(toAddMeeting)) {
             throw new CommandException(MESSAGE_DUPLICATE_MEETING);
         }
-        if (!model.isFutureMeeting(toAddMeeting)) {
-            throw new CommandException(MESSAGE_INVALID_MEEITNG);
-        }
         model.addPerson(toAdd);
         model.addMeeting(toAddMeeting);
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(toAdd)));
