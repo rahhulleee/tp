@@ -1,5 +1,6 @@
 package seedu.address.ui;
 
+import java.util.HashSet;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
@@ -10,7 +11,6 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import java.util.HashSet;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
@@ -256,8 +256,7 @@ public class MainWindow extends UiPart<Stage> {
         if (policyListPanel == null) {
             return;
         }
-        policyListPanel.setPrefSize(0,0);
+        policyListPanel.setPrefSize(0, 0);
         policyListPanelPlaceholder.setVisible(false);
     }
-
 }

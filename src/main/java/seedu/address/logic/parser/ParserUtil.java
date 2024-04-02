@@ -9,7 +9,6 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Meeting;
@@ -140,6 +139,12 @@ public class ParserUtil {
         return tagSet;
     }
 
+    /**
+     * Parses a {@code String policyName} into a {String}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code policyName} is invalid.
+     */
     public static String parsePolicyName(String policyName) throws ParseException {
         requireNonNull(policyName);
         String trimmedPolicyName = policyName.trim();
@@ -149,6 +154,12 @@ public class ParserUtil {
         return policyName;
     }
 
+    /**
+     * Parses a {@code String policyType} into a {String}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code policyType} is invalid.
+     */
     public static String parsePolicyType(String policyType) throws ParseException {
         requireNonNull(policyType);
         String trimmedPolicyType = policyType.trim();
@@ -158,6 +169,12 @@ public class ParserUtil {
         return policyType;
     }
 
+    /**
+     * Parses a {@code String policyNumber} into a {String}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code policyNumber} is invalid.
+     */
     public static String parsePolicyNumber(String policyNumber) throws ParseException {
         requireNonNull(policyNumber);
         String trimmedPolicyNumber = policyNumber.trim();
@@ -167,6 +184,12 @@ public class ParserUtil {
         return policyNumber;
     }
 
+    /**
+     * Parses a {@code String premiumTerm} into a {String}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code premiumTerm} is invalid.
+     */
     public static String parsePremiumTerm(String premiumTerm) throws ParseException {
         requireNonNull(premiumTerm);
         String trimmedPremiumTerm = premiumTerm.trim();
@@ -176,6 +199,12 @@ public class ParserUtil {
         return premiumTerm;
     }
 
+    /**
+     * Parses a {@code String premium} into a {String}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code premium} is invalid.
+     */
     public static String parsePremium(String premium) throws ParseException {
         requireNonNull(premium);
         String trimmedPremium = premium.trim();
@@ -185,6 +214,12 @@ public class ParserUtil {
         return premium;
     }
 
+    /**
+     * Parses a {@code String benefit} into a {String}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code benefit} is invalid.
+     */
     public static String parseBenefit(String benefit) throws ParseException {
         requireNonNull(benefit);
         String trimmedBenefit = benefit.trim();

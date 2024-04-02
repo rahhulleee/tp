@@ -1,11 +1,10 @@
 package seedu.address.model.person;
 
-import static seedu.address.commons.util.AppUtil.checkArgument;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Arrays;
-import java.util.Set;
 import java.util.HashSet;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import java.util.Set;
 
 /**
  * Represents a policy associated with a person.
@@ -13,16 +12,24 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
  */
 public class Policy {
 
-    public static final String POLICY_NAME_MESSAGE_CONSTRAINTS = "Policy name should only contain alphanumeric characters and spaces, and it should not be blank";
-    public static final String POLICY_NUMBER_MESSAGE_CONSTRAINTS = "Policy number should only contain alphanumeric characters and spaces, and it should not be blank";
-    public static final String POLICY_TYPE_MESSAGE_CONSTRAINTS = "Policy type should only contain alphanumeric characters and spaces, and it should not be blank";
-    public static final String PREMIUM_TERM_MESSAGE_CONSTRAINTS = "Premium term has to be one of the following options, and it should not be blank \n [\"Single\", \"Monthly\", \"Quarterly\", \"Semi-annually\", \"Annually\"]";
-    public static final String PREMIUM_MESSAGE_CONSTRAINTS = "Premium should only contain alphanumeric characters and spaces, and it should not be blank";
-    public static final String BENEFIT_MESSAGE_CONSTRAINTS = "Benefit should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String POLICY_NAME_MESSAGE_CONSTRAINTS = "Policy name should only contain alphanumeric "
+            + "characters and spaces,and it should not be blank";
+    public static final String POLICY_NUMBER_MESSAGE_CONSTRAINTS = "Policy number should only contain alphanumeric "
+            + "characters and spaces, and it should not be blank";
+    public static final String POLICY_TYPE_MESSAGE_CONSTRAINTS = "Policy type should only contain alphanumeric "
+            + "characters and spaces, and it should not be blank";
+    public static final String PREMIUM_TERM_MESSAGE_CONSTRAINTS = "Premium term has to be one of the following "
+            + "options, and it should not be blank "
+            + "\n [\"Single\", \"Monthly\", \"Quarterly\", \"Semi-annually\", \"Annually\"]";
+    public static final String PREMIUM_MESSAGE_CONSTRAINTS = "Premium should only contain alphanumeric "
+            + "characters and spaces, and it should not be blank";
+    public static final String BENEFIT_MESSAGE_CONSTRAINTS = "Benefit should only contain alphanumeric "
+            + "characters and spaces, and it should not be blank";
 
 
     public static final String STRING_VALIDATION_REGEX = "[^\\s].*";
-    public static final Set<String> ACCEPTED_PREMIUM_TERMS = new HashSet<>(Arrays.asList("SINGLE", "MONTHLY", "QUARTERLY", "SEMI-ANNUALLY", "ANNUALLY"));
+    public static final Set<String> ACCEPTED_PREMIUM_TERMS =
+            new HashSet<>(Arrays.asList("SINGLE", "MONTHLY", "QUARTERLY", "SEMI-ANNUALLY", "ANNUALLY"));
 
     public final String policyName;
     public final String policyType;
@@ -41,7 +48,8 @@ public class Policy {
      * @param premium      The premium amount.
      * @param benefit      The benefits associated with the policy.
      */
-    public Policy(String policyName, String policyType, String policyNumber, String premiumTerm, String premium, String benefit) {
+    public Policy(String policyName, String policyType, String policyNumber, String premiumTerm,
+                  String premium, String benefit) {
         requireAllNonNull(policyName);
 
         this.policyName = policyName;
