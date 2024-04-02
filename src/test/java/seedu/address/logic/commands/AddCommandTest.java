@@ -89,7 +89,7 @@ public class AddCommandTest {
     @Test
     public void toStringMethod() {
         AddCommand addCommand = new AddCommand(ALICE, ALICE.getMeeting());
-        String expected = AddCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
+        String expected = AddCommand.class.getCanonicalName() + ", toAdd: " + ALICE;
         assertEquals(expected, addCommand.toString());
     }
 
@@ -110,14 +110,6 @@ public class AddCommandTest {
 
         @Override
         public void updateFilteredMeetingList(Predicate<Meeting> predicate) {
-            throw new AssertionError("This method should not be called.");
-        }
-        @Override
-        public boolean isFutureMeeting(Meeting meeting) {
-            throw new AssertionError("This method should not be called.");
-        }
-        @Override
-        public void setMeeting(Meeting target, Meeting meeting) {
             throw new AssertionError("This method should not be called.");
         }
         @Override
