@@ -193,11 +193,6 @@ public class AddCommandTest {
         public void setMeeting(Meeting target, Meeting editedMeeting) {
             throw new AssertionError("This method should not be called.");
         };
-
-        @Override
-        public boolean isFutureMeeting(Meeting meeting) {
-            throw new AssertionError("This method should not be called.");
-        };
     }
 
     /**

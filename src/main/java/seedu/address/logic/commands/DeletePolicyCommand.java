@@ -27,9 +27,9 @@ public class DeletePolicyCommand extends Command {
             + ": Deletes the specific policy linked to the client identified "
             + "by the index number used in the last person listing.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "pol/ [POLICY NAME]\n"
+            + "pol/POLICY_NAME\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "pol/ SuperSaver";
+            + "pol/SuperSaver";
 
     public static final String MESSAGE_DELETE_POLICY_SUCCESS = "Removed policy from Person: %1$s";
 
