@@ -17,7 +17,7 @@ public class MeetingTest {
     @Test
     public void constructor_invalidMeeting_throwsDateTimeException() {
         String invalidMeeting = "";
-        assertThrows(DateTimeException.class, () -> new Meeting(invalidMeeting));
+        assertThrows(IllegalArgumentException.class, () -> new Meeting(invalidMeeting));
     }
 
     @Test
@@ -33,10 +33,10 @@ public class MeetingTest {
 
     @Test
     public void equals() {
-        Meeting meeting = new Meeting("2024-01-01");
+        Meeting meeting = new Meeting("2025-01-01 00:00");
 
         // same values -> returns true
-        assertTrue(meeting.equals(new Meeting("2024-01-01")));
+        assertTrue(meeting.equals(new Meeting("2025-01-01 00:00")));
 
         // same object -> returns true
         assertTrue(meeting.equals(meeting));
@@ -48,6 +48,6 @@ public class MeetingTest {
         assertFalse(meeting.equals(5.0f));
 
         // different values -> returns false
-        assertFalse(meeting.equals(new Meeting("2024-01-02")));
+        assertFalse(meeting.equals(new Meeting("2025-01-02 12:30")));
     }
 }

@@ -41,8 +41,6 @@ public class AddCommandTest {
 
         System.out.println(validPerson.getName());
         AddCommand newAddCommand = new AddCommand(validPerson, validMeeting);
-
-        // got problem here
         CommandResult commandResult = newAddCommand.execute(modelStub);
 
         assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, Messages.format(validPerson)),
@@ -89,7 +87,7 @@ public class AddCommandTest {
     @Test
     public void toStringMethod() {
         AddCommand addCommand = new AddCommand(ALICE, ALICE.getMeeting());
-        String expected = AddCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
+        String expected = AddCommand.class.getCanonicalName() + ", toAdd: " + ALICE;
         assertEquals(expected, addCommand.toString());
     }
 
@@ -112,12 +110,10 @@ public class AddCommandTest {
         public void updateFilteredMeetingList(Predicate<Meeting> predicate) {
             throw new AssertionError("This method should not be called.");
         }
-
         @Override
         public ObservableList<Meeting> getMeetingList() {
             throw new AssertionError("This method should not be called.");
         }
-
         @Override
         public void deleteMeeting(Meeting meeting) {
             throw new AssertionError("This method should not be called.");
@@ -227,6 +223,7 @@ public class AddCommandTest {
      */
     private class ModelStubAcceptingPersonAdded extends ModelStub {
         final ArrayList<Person> personsAdded = new ArrayList<>();
+        final ArrayList<Meeting> meetingsAdded = new ArrayList<>();
 
         @Override
         public boolean hasPerson(Person person) {
@@ -238,6 +235,18 @@ public class AddCommandTest {
         public void addPerson(Person person) {
             requireNonNull(person);
             personsAdded.add(person);
+        }
+
+        @Override
+        public boolean hasMeeting(Meeting meeting) {
+            requireNonNull(meeting);
+            return meetingsAdded.stream().anyMatch(meeting::isSameMeeting);
+        }
+
+        @Override
+        public void addMeeting(Meeting meeting) {
+            requireNonNull(meeting);
+            meetingsAdded.add(meeting);
         }
 
         @Override
