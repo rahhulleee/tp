@@ -111,15 +111,25 @@ Examples:
 
 Adds new insurance policy to a specific client
 
-Format: `addPolicy i/INDEX n/POLICY`
+Format: `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID 
+pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`
 
 * Adds a policy to the person at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer between the numeric range of contacts in the address book.**
-* `POLICY` is the name of the policy to be added
+* `POLICY_NAME` is the name of the policy to be added and must not be repeated in the person's current list
+of policies. `POLICY_NAME` is used for identifying different policies among clients.
+* `POLICY_TYPE` is the type of policy to be added.
+* `POLICY_ID` is the policy id/number of the policy.
+* `PERMIUM_TERM` is the premium term of the policy. The premium term of the policy can only be one of the 
+following options: ["Single", "Monthly", "Quarterly", "Semi-annually", "Annually"]
+* `POLICY_PREMIUM` is the premium of the policy. You may use alphanumeric characters for the abbreviation of 
+large numbers or other non-cash payment methods. (e.g. 100mil, 500 CPF OA)
+* `BENEFIT` is the benefit of the policy. You may use alphanumeric characters for the abbreviation of
+  large numbers. (e.g. 100mil, 100M)
 
 Examples:
-* `addPolicy i/10 n/SuperSaver`
+* `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000`
 
 ### View the lists of meetings for this week : `meetings`
 
@@ -160,7 +170,7 @@ Action     | Format, Examples
 **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List**   | `list`
-**AddPolicy** | `addPolicy i/INDEX n/POLICY`<br> e.g., `addPolicy i/4 n/SuperSaver`
+**AddPolicy** | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT` <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000`
 **Help**   | `help`
 **Exit**   | `exit`
 **Meetings** | `meetings`
