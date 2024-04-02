@@ -116,4 +116,17 @@ public class Meeting implements Comparable<Meeting> {
     public int compareTo(Meeting o) {
         return this.meeting.compareTo(o.meeting);
     }
+
+    /**
+     * Returns true if both Meeting have the same time.
+     * This defines a weaker notion of equality between two meetings.
+     */
+    public boolean isSameMeeting(Meeting otherMeeting) {
+        if (otherMeeting == this) {
+            return true;
+        }
+
+        return otherMeeting != null
+                && otherMeeting.getMeeting().equals(getMeeting());
+    }
 }

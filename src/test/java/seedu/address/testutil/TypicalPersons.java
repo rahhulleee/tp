@@ -29,30 +29,30 @@ public class TypicalPersons {
 
     public static final Person ALICE = new PersonBuilder().withName("Alice Pauline")
             .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
-            .withPhone("94351253").withMeeting("2024-01-12")
+            .withPhone("94351253").withMeeting("2024-05-12 00:00")
             .withTags("friends").withPolicies(VALID_POLICY_A).build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
-            .withEmail("johnd@example.com").withPhone("98765432").withMeeting("2024-01-13")
+            .withEmail("johnd@example.com").withPhone("98765432").withMeeting("2024-05-13 00:00")
             .withTags("owesMoney", "friends").withPolicies(VALID_POLICY_B).build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withEmail("heinz@example.com").withAddress("wall street").withMeeting("2024-01-14")
+            .withEmail("heinz@example.com").withAddress("wall street").withMeeting("2024-05-14 00:00")
             .withPolicies(VALID_POLICY_A, VALID_POLICY_B).build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withEmail("cornelia@example.com").withAddress("10th street").withMeeting("2024-01-15")
+            .withEmail("cornelia@example.com").withAddress("10th street").withMeeting("2024-05-15 00:00")
             .withTags("friends").withPolicies(VALID_POLICY_A).build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withEmail("werner@example.com").withAddress("michegan ave").withMeeting("2024-01-16").build();
+            .withEmail("werner@example.com").withAddress("michegan ave").withMeeting("2024-05-16 00:00").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
-            .withEmail("lydia@example.com").withAddress("little tokyo").withMeeting("2024-01-17").build();
+            .withEmail("lydia@example.com").withAddress("little tokyo").withMeeting("2024-05-17 00:00").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
-            .withEmail("anna@example.com").withAddress("4th street").withMeeting("2024-01-18").build();
+            .withEmail("anna@example.com").withAddress("4th street").withMeeting("2024-05-18 00:00").build();
 
     // Manually added
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")
-            .withEmail("stefan@example.com").withAddress("little india").withMeeting("2024-01-18").build();
+            .withEmail("stefan@example.com").withAddress("little india").withMeeting("2024-05-19 00:00").build();
     public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withEmail("hans@example.com").withAddress("chicago ave").withMeeting("2024-01-19").build();
+            .withEmail("hans@example.com").withAddress("chicago ave").withMeeting("2024-05-20 00:00").build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)

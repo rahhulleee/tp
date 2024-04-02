@@ -91,9 +91,11 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        for (Person person : model.getAddressBook().getPersonList()) {
-            if (person.getMeeting().equals(editedMeeting)) {
-                throw new CommandException(MESSAGE_DUPLICATE_MEETING);
+        if (editPersonDescriptor.isMeetingEdited()) { // If meeting field was edited, we check for duplicate meetings
+            for (Person person : model.getAddressBook().getPersonList()) {
+                if (person.getMeeting().equals(editedMeeting)) {
+                    throw new CommandException(MESSAGE_DUPLICATE_MEETING);
+                }
             }
         }
 
@@ -182,6 +184,13 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, meeting, tags);
+        }
+
+        /**
+         * Returns true if meeting is edited.
+         */
+        public boolean isMeetingEdited() {
+            return meeting != null;
         }
 
         public void setName(Name name) {
