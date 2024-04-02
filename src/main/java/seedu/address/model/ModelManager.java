@@ -139,12 +139,6 @@ public class ModelManager implements Model {
         addressBook.removeMeeting(meeting);
     }
 
-    @Override
-    public boolean isFutureMeeting(Meeting meeting) {
-        requireNonNull(meeting);
-        return meeting.isFutureMeeting();
-    }
-
     //=========== Filtered Person List Accessors =============================================================
 
     /**
