@@ -19,20 +19,28 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `insurebook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+2. Download the latest `InsureBook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for InsureBook.
+3. Copy the file to the folder you want to use as the _home folder_ for InsureBook.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar insurebook.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Open a command terminal and `cd` into the folder you put the jar file in. Alternatively, <br>**[Windows]** right-click anywhere in the display pane's background, then click "Open in Terminal":
+
+   <img src="images/OpenInTerminal.png" alt="Open in Terminal" width="483" height="275"/>
+
+**[macOS]** right click on the _home folder_ and click "New Terminal at Folder":
+
+   <img src="images/NewTerminal.png" alt="New Terminal at Folder" width="498" height="450"/>
+
+5. Type `java -jar insurebook.jar` to run the application.<br>
+   A GUI similar to the one below should appear in a few seconds. Note that the app contains some pre-loaded sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+6. Type your command into the user input box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
    * `list` : Lists all clients.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to your InsureBook.
+   * `add n/John Doe p/98765432 e/johnd@example.com a/123 John Street m/2024-08-02 10:00` : Adds a contact named `John Doe` to your InsureBook.
 
    * `delete 3` : Deletes the 3rd client shown in the current list.
 
@@ -40,7 +48,7 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
 
    * `exit` : Exits the app.
 
-1. Refer to the [Features](#features) below for details of each command.
+7. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -176,9 +184,17 @@ Examples:
 
 ### Locating clients via Policy Name : `findPolicy`
 
-### View the lists of meetings : `meetings`
+### View the lists of meetings for this week : `meetings`
 
-Opens a new window containing a list of all meetings, in chronological order.
+Opens a new window containing a list of all meetings for this week, in chronological order. <br>
+Meetings are considered to be scheduled for the current week if they are within the same Monday to Sunday block: <br>
+e.g. If today is Tuesday (2nd April), then meetings scheduled from Monday (1st April) to Sunday (7th April) will be displayed.
+
+<img src="images/SameWeekCalendar.png" alt="SameWeekCalendar" width="467" height="326"/>
+
+Meetings will be displayed as: "Number | < Meeting Date & Time > with: < Client Name >". The meetings window can be closed by simply pressing 'Esc' on your keyboard.
+
+<img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="467" height="326"/>
 
 Format: `meetings`
 

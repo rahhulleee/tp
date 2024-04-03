@@ -12,8 +12,10 @@ import java.time.format.DateTimeParseException;
  */
 public class Meeting implements Comparable<Meeting> {
     public static final String MESSAGE_CONSTRAINTS =
-            "Meeting MUST be a valid date and time in yyyy-MM-dd HH:mm format,"
-                    + " and it should be AFTER the current day and time.";
+            "Meeting MUST be a valid date and time in yyyy-MM-dd HH:mm format";
+
+    public static final String FUTURE_MEETING_MESSAGE_CONSTRAINTS =
+            "Meeting MUST be AFTER the current day and time.";
     // The VALIDATION_REGEX for meeting time
     public static final String VALIDATION_REGEX = "^(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2})$";
     public final String value;
@@ -50,7 +52,18 @@ public class Meeting implements Comparable<Meeting> {
      */
     public static boolean isValidMeeting(String test) {
         try {
-            return test.matches(VALIDATION_REGEX) && stringToDateTime(test).isAfter(LocalDateTime.now());
+            return test.matches(VALIDATION_REGEX);
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Returns true if a given string is after LocalDatTime now.
+     */
+    public static boolean isFutureMeeting(String test) {
+        try {
+            return stringToDateTime(test).isAfter(LocalDateTime.now());
         } catch (IllegalArgumentException e) {
             return false;
         }
@@ -72,11 +85,6 @@ public class Meeting implements Comparable<Meeting> {
         } catch (DateTimeParseException e) {
             throw new IllegalArgumentException("Ensure a valid date and time, in the format yyyy-MM-dd HH:mm");
         }
-    }
-
-    public boolean isFutureMeeting() {
-        return this.meeting.isAfter(LocalDateTime.now())
-                || this.meeting.isEqual(LocalDateTime.now());
     }
 
     public void setName(String finalName) {
@@ -104,7 +112,7 @@ public class Meeting implements Comparable<Meeting> {
         }
 
         Meeting otherMeeting = (Meeting) other;
-        return meeting.equals(otherMeeting.meeting);
+        return this.getMeeting().equals(otherMeeting.getMeeting());
     }
 
     @Override
@@ -115,5 +123,18 @@ public class Meeting implements Comparable<Meeting> {
     @Override
     public int compareTo(Meeting o) {
         return this.meeting.compareTo(o.meeting);
+    }
+
+    /**
+     * Returns true if both Meeting have the same time.
+     * This defines a weaker notion of equality between two meetings.
+     */
+    public boolean isSameMeeting(Meeting otherMeeting) {
+        if (otherMeeting == this) {
+            return true;
+        }
+
+        return otherMeeting != null
+                && otherMeeting.getMeeting().equals(getMeeting());
     }
 }
