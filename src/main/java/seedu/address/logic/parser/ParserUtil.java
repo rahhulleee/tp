@@ -109,6 +109,9 @@ public class ParserUtil {
         if (!Meeting.isValidMeeting(trimmedMeeting)) {
             throw new ParseException(Meeting.MESSAGE_CONSTRAINTS);
         }
+        if (!Meeting.isFutureMeeting(trimmedMeeting)) {
+            throw new ParseException(Meeting.FUTURE_MEETING_MESSAGE_CONSTRAINTS);
+        }
         return new Meeting(trimmedMeeting);
     }
 
