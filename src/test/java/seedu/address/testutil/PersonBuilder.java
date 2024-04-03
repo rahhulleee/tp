@@ -58,6 +58,9 @@ public class PersonBuilder {
         policies = new HashSet<>(personToCopy.getPolicies());
     }
 
+    /**
+     * Creates a PersonBuilder with the data of {@code person} and adds {@code newPolicy} to the policies.
+     */
     public PersonBuilder(Person person, Policy newPolicy) {
         name = person.getName();
         phone = person.getPhone();

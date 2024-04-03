@@ -1,6 +1,11 @@
 package seedu.address.logic.commands;
 
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+
 import org.junit.jupiter.api.Test;
+
 import seedu.address.logic.Messages;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
@@ -9,10 +14,6 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Policy;
 import seedu.address.testutil.PersonBuilder;
-
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 public class AddPolicyCommandTest {
     public static final String VALID_POLICY_NAME = "SuperSaver";
@@ -32,7 +33,8 @@ public class AddPolicyCommandTest {
 
         AddPolicyCommand newAddPolicyCommand = new AddPolicyCommand(INDEX_FIRST_PERSON, VALID_POLICY_NAME,
                 VALID_POLICY_TYPE, VALID_POLICY_NUMBER, VALID_PREMIUM_TERM, VALID_PREMIUM, VALID_BENEFIT);
-        String expectedMessage = String.format(AddPolicyCommand.MESSAGE_ADD_POLICY_SUCCESS, Messages.format(personAfterAddPolicy));
+        String expectedMessage = String.format(AddPolicyCommand.MESSAGE_ADD_POLICY_SUCCESS,
+                Messages.format(personAfterAddPolicy));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(model.getFilteredPersonList().get(0), personAfterAddPolicy);
