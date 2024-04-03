@@ -2,7 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_POLICY_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_POLICY_NUMBER;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
@@ -24,14 +24,14 @@ public class DeletePolicyCommandParser implements Parser<DeletePolicyCommand> {
     public DeletePolicyCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args,
-                PREFIX_POLICY_NAME);
+                PREFIX_POLICY_NUMBER);
 
         Index index;
-        String policyName = argMultimap.getValue(PREFIX_POLICY_NAME).orElse(null);
+        String policyNumber = argMultimap.getValue(PREFIX_POLICY_NUMBER).orElse(null);
 
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
-            if (policyName == null) {
+            if (policyNumber == null) {
                 throw new IllegalValueException(MESSAGE_INVALID_COMMAND_FORMAT);
             }
         } catch (IllegalValueException ive) {
@@ -39,6 +39,6 @@ public class DeletePolicyCommandParser implements Parser<DeletePolicyCommand> {
                     DeletePolicyCommand.MESSAGE_USAGE), ive);
         }
 
-        return new DeletePolicyCommand(index, policyName);
+        return new DeletePolicyCommand(index, policyNumber);
     }
 }
