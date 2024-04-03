@@ -37,14 +37,19 @@ public class DeleteCommand extends Command {
         requireNonNull(model);
 
         List<Person> lastShownList = model.getFilteredPersonList();
+        List<Meeting> lastShownListM = model.getMeetingList();
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
+        if (targetIndex.getZeroBased() >= lastShownListM.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_MEETING_DISPLAYED_INDEX);
+        }
+
         Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
-        Meeting meetingToDelete = personToDelete.getMeeting();
         model.deletePerson(personToDelete);
+        Meeting meetingToDelete = lastShownListM.get(targetIndex.getZeroBased());
         model.deleteMeeting(meetingToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, Messages.format(personToDelete)));
     }
