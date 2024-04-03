@@ -91,7 +91,7 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        if (editPersonDescriptor.isMeetingEdited()) { // If meeting field was edited, we check for duplicate meetings
+        if (editPersonDescriptor.isMeetingEdited()) {
             for (Person person : model.getAddressBook().getPersonList()) {
                 if (person.getMeeting().equals(editedMeeting)) {
                     throw new CommandException(MESSAGE_DUPLICATE_MEETING);
