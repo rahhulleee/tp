@@ -131,7 +131,7 @@ with(this){return _c('ul',[_c('li',[_c('p',[_v("Adds a policy to the person at t
 with(this){return _c('p',[_v("of policies. "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("POLICY_ID")]),_v(" can contain alphanumeric characters.")])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("PERMIUM_TERM")]),_v(" is the premium term of the policy. The premium term of the policy can only be one of the")])])}
+with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("PREMIUM_TERM")]),_v(" is the premium term of the policy. The premium term of the policy can only be one of the")])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_v("following options: "),_c('strong',[_v("[\"Single\", \"Monthly\", \"Quarterly\", \"Semi-annually\", \"Annually\"]")])])}
@@ -242,6 +242,6 @@ with(this){return _c('p',[_c('strong',[_v("Exit")]),_v(" | "),_c('code',{pre:tru
 with(this){return _c('p',[_c('strong',[_v("Meetings")]),_v(" | "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("meetings")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Wed, 3 Apr 2024, 16:57:00 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Wed, 3 Apr 2024, 17:01:54 GMT+8]")])])])}
 }];
   
