@@ -58,6 +58,16 @@ public class PersonBuilder {
         policies = new HashSet<>(personToCopy.getPolicies());
     }
 
+    public PersonBuilder(Person person, Policy newPolicy) {
+        name = person.getName();
+        phone = person.getPhone();
+        email = person.getEmail();
+        address = person.getAddress();
+        meeting = person.getMeeting();
+        tags = new HashSet<>(person.getTags());
+        policies = new HashSet<>(person.getPolicies());
+        policies.add(newPolicy);
+    }
 
     /**
      * Sets the {@code Name} of the {@code Person} that we are building.
