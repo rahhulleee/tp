@@ -430,7 +430,7 @@ Format: `delPolicy polnum/POLICY_NUMBER`
 Examples:
 
  - `delPolicy 1 polnum/39376234` will delete the existing policy with policy number 39376234 from the Client at `INDEX` 1.
- - `delPolicy 2 polnum/1111111A`  will delete the existing policy with policy number1111111A from the Client at `INDEX` 2.
+ - `delPolicy 2 polnum/1111111A`  will delete the existing policy with policy number 1111111A from the Client at `INDEX` 2.
 
 
  
