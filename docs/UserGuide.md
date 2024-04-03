@@ -23,16 +23,17 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
 
 3. Copy the file to the folder you want to use as the _home folder_ for InsureBook.
 
-4. Open a command terminal and `cd` into the folder you put the jar file in. Alternatively, <br>**[Windows]** right-click anywhere in the display pane's background, then click "Open in Terminal":
+4. Open a command terminal and `cd` into the folder you put the jar file in. Alternatively, <br>
+   **[Windows]** right-click anywhere in the display pane's background, then click "Open in Terminal":
 
-   <img src="images/OpenInTerminal.png" alt="Open in Terminal" width="483" height="275"/>
+   <img src="images/OpenInTerminal.png" alt="Open in Terminal" width="457" height="260"/>
 
-**[macOS]** right click on the _home folder_ and click "New Terminal at Folder":
+   **[macOS]** right-click on the _home folder_ and click "New Terminal at Folder":
 
-   <img src="images/NewTerminal.png" alt="New Terminal at Folder" width="498" height="450"/>
+   <img src="images/NewTerminal.png" alt="New Terminal at Folder" width="387" height="350"/>
 
 5. Type `java -jar insurebook.jar` to run the application.<br>
-   A GUI similar to the one below should appear in a few seconds. Note that the app contains some pre-loaded sample data.<br>
+   A GUI similar to the one below should appear on screen. Note that the app contains some pre-loaded sample data.<br>
    ![Ui](images/Ui.png)
 
 6. Type your command into the user input box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -127,11 +128,11 @@ Opens a new window containing a list of all meetings for this week, in chronolog
 Meetings are considered to be scheduled for the current week if they are within the same Monday to Sunday block: <br>
 e.g. If today is Tuesday (2nd April), then meetings scheduled from Monday (1st April) to Sunday (7th April) will be displayed.
 
-<img src="images/SameWeekCalendar.png" alt="SameWeekCalendar" width="467" height="326"/>
+<img src="images/SameWeekCalendar.png" alt="SameWeekCalendar" width="420" height="293"/>
 
 Meetings will be displayed as: "Number | < Meeting Date & Time > with: < Client Name >". The meetings window can be closed by simply pressing 'Esc' on your keyboard.
 
-<img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="467" height="326"/>
+<img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="420" height="293"/>
 
 Format: `meetings`
 
@@ -141,6 +142,12 @@ Format: `meetings`
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous InsureBook home folder.
+
+**Q**: What if I have two clients with the same name?<br>
+**A**: You are not allowed to add clients with duplicate names into InsureBook. If you have more than 1 client with the same name, consider adding a unique identifier to their names, e.g. 'John Doe from NUS' and 'John Doe from SMU'.
+
+**Q**: Can I leave the meeting field empty for clients that I have not scheduled a meeting with?<br>
+**A**: No - the meeting field is mandatory. You WILL need to schedule appointments with your clients before adding them to the address book. We believe that requiring you to be proactive in scheduling appointments will help you reach greater heights in your career!
 
 --------------------------------------------------------------------------------------------------------------------
 
