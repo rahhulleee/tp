@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.AddressBook;
+import seedu.address.model.person.Meeting;
 import seedu.address.model.person.Person;
 
 /**
@@ -74,6 +75,9 @@ public class TypicalPersons {
         AddressBook ab = new AddressBook();
         for (Person person : getTypicalPersons()) {
             ab.addPerson(person);
+        }
+        for (Meeting meeting : TypicalMeetings.getTypicalMeetings()) {
+            ab.addMeeting(meeting);
         }
         return ab;
     }
