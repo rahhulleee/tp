@@ -104,7 +104,7 @@ public class Meeting implements Comparable<Meeting> {
         }
 
         Meeting otherMeeting = (Meeting) other;
-        return meeting.equals(otherMeeting.meeting);
+        return this.getMeeting().equals(otherMeeting.getMeeting());
     }
 
     @Override

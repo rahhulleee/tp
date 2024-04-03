@@ -15,7 +15,7 @@ public class MeetingTest {
     }
 
     @Test
-    public void constructor_invalidMeeting_throwsDateTimeException() {
+    public void constructor_invalidMeeting_IllegalArugmentException() {
         String invalidMeeting = "";
         assertThrows(IllegalArgumentException.class, () -> new Meeting(invalidMeeting));
     }
