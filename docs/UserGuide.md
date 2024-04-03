@@ -8,17 +8,16 @@ pageNav: 3
 
 ---
 
-  
+
 
 # InsureBook User Guide
 
-  
+
 
 InsureBook is a **desktop app for insurance agents to manage potential and existing clients' personal and policy details.** The app has a Graphical User Interface (GUI), but most user interactions occur via a Command Line Interface (CLI). If you can type fast, InsureBook can get your client management tasks done faster than traditional GUI apps!
 
  - [Quick Start](#quick-start)
- - [Features](#features) 
-			 
+ - [Features](#features)
 	- [Viewing help : `help`](#viewing-help--help)
 	- [Adding a client : `add`](#adding-a-client--add)
 	- [Listing all clients : `list`](#listing-all-clients--list)
@@ -38,36 +37,37 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
 - [Command Summary](#command-summary)
 
 
-	 
 
- 
-  
+
+
+
 
 <!-- * Table of Contents -->
 
 <page-nav-print  />
 
-  
+
 
 --------------------------------------------------------------------------------------------------------------------
 
-  
+ 
 
 ## Quick start
 
-  
+ 
 
 *The InsureBook .jar file is not available for download yet. These instructions will be applicable when it is released in the future.*
 
-  
 
-1. Ensure you have Java `11` or above installed in your Computer.
+
+1. Ensure you have Java `11` or above
+installed in your Computer.
 
   
 
 2. Download the latest `InsureBook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
 
-  
+
 
 3. Copy the file to the folder you want to use as the _home folder_ for InsureBook.
 
