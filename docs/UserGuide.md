@@ -387,7 +387,7 @@ pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`
 
 of policies. `POLICY_ID` can contain alphanumeric characters.
 
-*  `PERMIUM_TERM` is the premium term of the policy. The premium term of the policy can only be one of the
+*  `PREMIUM_TERM` is the premium term of the policy. The premium term of the policy can only be one of the
 
 following options: **["Single", "Monthly", "Quarterly", "Semi-annually", "Annually"]**
 
