@@ -58,6 +58,9 @@ public class Meeting implements Comparable<Meeting> {
         }
     }
 
+    /**
+     * Returns true if a given string is after LocalDatTime now.
+     */
     public static boolean isFutureMeeting(String test) {
         try {
             return stringToDateTime(test).isAfter(LocalDateTime.now());
@@ -82,11 +85,6 @@ public class Meeting implements Comparable<Meeting> {
         } catch (DateTimeParseException e) {
             throw new IllegalArgumentException("Ensure a valid date and time, in the format yyyy-MM-dd HH:mm");
         }
-    }
-
-    public boolean isFutureMeeting() {
-        return this.meeting.isAfter(LocalDateTime.now())
-                || this.meeting.isEqual(LocalDateTime.now());
     }
 
     public void setName(String finalName) {
@@ -114,7 +112,7 @@ public class Meeting implements Comparable<Meeting> {
         }
 
         Meeting otherMeeting = (Meeting) other;
-        return meeting.equals(otherMeeting.meeting);
+        return this.getMeeting().equals(otherMeeting.getMeeting());
     }
 
     @Override
