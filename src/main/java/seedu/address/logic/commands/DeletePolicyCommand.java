@@ -29,25 +29,25 @@ public class DeletePolicyCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "pol/POLICY_NAME\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "pol/SuperSaver";
+            + "polnum/123456";
 
     public static final String MESSAGE_DELETE_POLICY_SUCCESS = "Removed policy from Person: %1$s";
 
     private final Logger logger = LogsCenter.getLogger(DeletePolicyCommand.class);
 
     private final Index index;
-    private final String policyName;
+    private final String policyNumber;
 
     /**
      * Constructs a {@code DeletePolicyCommand}.
      *
      * @param index      Index of the client in the filtered person list.
-     * @param policyName Name of the policy to be deleted.
+     * @param policyNumber Number of the policy to be deleted.
      */
-    public DeletePolicyCommand(Index index, String policyName) {
-        requireAllNonNull(index, policyName);
+    public DeletePolicyCommand(Index index, String policyNumber) {
+        requireAllNonNull(index, policyNumber);
         this.index = index;
-        this.policyName = policyName;
+        this.policyNumber = policyNumber;
     }
 
     @Override
@@ -60,8 +60,8 @@ public class DeletePolicyCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Set<Policy> currentPolicies = new HashSet<>(personToEdit.getPolicies());
-        String targetPolicyName = policyName;
-        boolean isRemoved = currentPolicies.removeIf(policy -> policy.policyName.equals(targetPolicyName));
+        String targetPolicyNumber = policyNumber;
+        boolean isRemoved = currentPolicies.removeIf(policy -> policy.policyNumber.equals(targetPolicyNumber));
 
         if (!isRemoved) {
             throw new CommandException(Messages.MESSAGE_INVALID_POLICY);
