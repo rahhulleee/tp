@@ -52,7 +52,11 @@ public class Meeting implements Comparable<Meeting> {
      */
     public static boolean isValidMeeting(String test) {
         try {
-            return test.matches(VALIDATION_REGEX);
+            if (!test.matches(VALIDATION_REGEX)) { // Check for YYYY-MM-DD HH:MM format
+                return false;
+            }
+            stringToDateTime(test); // Check for valid date and time
+            return true;
         } catch (IllegalArgumentException e) {
             return false;
         }
