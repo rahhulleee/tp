@@ -47,6 +47,7 @@ public class UiPartTest {
     @Test
     public void constructor_validFileUrl_loadsFile() {
         URL validFileUrl = getTestFileUrl(VALID_FILE_PATH);
+        assert(validFileUrl != null);
         assertEquals(VALID_FILE_ROOT, new TestUiPart<TestFxmlObject>(validFileUrl).getRoot());
     }
 
