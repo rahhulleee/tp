@@ -410,8 +410,6 @@ Examples:
 ### Deleting an existing policy from a client : `delPolicy`
 
 
-
-
 Deletes an existing insurance policy to a specific client.
 
 
@@ -505,6 +503,18 @@ Exits Insurebook and closes the application window.
 
 Format:`exit`
 
+### Finding Help : `help`
+
+
+
+Generates a popup window with a link to our User Guide for your reference. <br>
+You can click the enter button on your keyboard to copy the url or click the esc button on your keyboard to close 
+the window. 
+
+
+
+Format:`help`
+
   
 
 #### Saving data in InsureBook
@@ -547,30 +557,18 @@ AddressBook data are saved in the hard disk automatically after any command that
 
 ## Command summary
 
-  
 
-Action | Format, Examples
 
------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`  <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-
-**Clear** | `clear`
-
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-
-**List** | `list`
-
-**Add Policy** | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000`
-
-**Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`
-
-**Help** | `help`
-
-**Exit** | `exit`
-
-**Meetings** | `meetings`
+| Action          | Format & Examples                                                                                                                                                           |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**         | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`<br>e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`         |
+| **Clear**       | `clear`                                                                                                                                                                     |
+| **Delete**      | `delete INDEX`<br>e.g., `delete 3`                                                                                                                                           |
+| **Edit**        | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br>e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                   |
+| **Find**        | `find KEYWORD [MORE_KEYWORDS]`<br>e.g., `find James Jake`                                                                                                                    |
+| **List**        | `list`                                                                                                                                                                      |
+| **Add Policy**  | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`<br>e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000` |
+| **Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br>e.g., `delPolicy 1 polnum/39376234`                                                                                                |
+| **Help**        | `help`                                                                                                                                                                      |
+| **Exit**        | `exit`                                                                                                                                                                      |
+| **Meetings**    | `meetings`  

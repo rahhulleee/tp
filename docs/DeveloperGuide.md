@@ -185,7 +185,7 @@ add command `add n/David ...`. In this step, a new Person object is created with
 out with no policies attached to the client
 
 Step 2. This client `David` decides to take up a new insurance policy with the user. The user then adds a new policy to 
-`David` and uses the addPolicy command with David's person index (e.g. 2) `addPolicy 2 pol/policyA poltype/health 
+`David` and uses the addPolicy command with David's person index (e.g. 2) `addPolicy 2 pol/policyA type/health 
 polnum/987654 pterm/annually prem/123 b/456`.
 
 Step 3. Upon entering this command, the `LogicManager` uses the `AddressBookParser` to parse the input string and 
@@ -201,7 +201,7 @@ be displayed in the command output box.
 **Note:** Premium term (`pterm`) only accepts a set of values which are case-insensitive. <br/>
 ["SINGLE", "MONTHLY", "QUARTERLY", "SEMI-ANNUALLY", "ANNUALLY"]
 
-**Note:** Policy name (`pol`) cannot already exist in the Peron object's set of Policy objects.
+**Note:** Policy number (`polnum`) cannot already exist in the Peron object's set of Policy objects.
 
 </box>
 
@@ -268,12 +268,6 @@ no accidental logging of wrong meeting time.
 
 #### Design considerations:
 
-### Add policy feature
-
-#### Implementation
-
-#### Design considerations:
-
 ### Delete Policy feature
 
 #### Implementation
@@ -281,12 +275,12 @@ The delete policy mechanism is facilitated by `DeletePolicyCommand`. It extends 
 Additionally, it implements `DeletePolicyCommand#generateSuccessMessage(Person editedPerson)`.
 
 Further descriptions on the methods:
-* `DeletePolicyCommand#execute(Model model)` — Executes the delete policy command and removes the policy with the input policy name that is linked to the input client.
+* `DeletePolicyCommand#execute(Model model)` — Executes the delete policy command and removes the policy with the input policy number that is linked to the input client.
 * `DeletePolicyCommand#generateSuccessMessage(Person editedPerson)` — Generates and prints the success message when a policy is successfully deleted from the specified client.
 
 #### Design Considerations:
-**Aspect: Index and Policy Name field**
-* We made sure that either `Index` field or `Policy Name` field cannot be empty, if not, an exception will be raised to alert the user that some fields are insufficient/invalid.
+**Aspect: Index and Policy Number field**
+* We made sure that either `Index` field or `Policy Number` field cannot be empty, if not, an exception will be raised to alert the user that some fields are insufficient/invalid.
 
 
 ### View Client feature
