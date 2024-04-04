@@ -437,7 +437,23 @@ Examples:
 
 ### Locating clients via Policy Name : `findPolicy`
 
-  
+Finds the specified policy for all clients
+
+Format: `findPolicy POLICY_NAME`
+
+* Finds clients with the specified `POLICY_NAME`.
+
+* `POLICY_NAME` is the part of the policy you are searching for.
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+    <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+    It does not need to be an exact match to the full policy name. 
+</div>
+
+Examples:
+* `findPolicy SuperSaver`
+* `findPolicy Super`
+* `findPolicy S`
+
 
 ### View the lists of meetings for this week : `meetings`
 
