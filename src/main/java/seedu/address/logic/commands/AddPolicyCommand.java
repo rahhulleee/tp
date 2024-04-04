@@ -70,12 +70,11 @@ public class AddPolicyCommand extends Command {
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Set<Policy> currentPolicies = new HashSet<>(personToEdit.getPolicies());
         Policy newPolicy = new Policy(policyName, policyType, policyNumber, premiumTerm, premium, benefit);
-        // if newPolicy exists in currentPolicies, throw error
         boolean policyExists = currentPolicies.stream()
-                .anyMatch(policy -> policy.policyName.equals(newPolicy.policyName));
+                .anyMatch(policy -> policy.policyNumber.equals(newPolicy.policyNumber));
 
         if (policyExists) {
-            throw new CommandException(Messages.MESSAGE_DUPLICATE_POLICY_NAME);
+            throw new CommandException(Messages.MESSAGE_DUPLICATE_POLICY_NUMBER);
         }
         currentPolicies.add(newPolicy);
 
