@@ -1,4 +1,4 @@
-1---
+---
 
 layout: default.md
 
@@ -60,44 +60,32 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
 
 
 
-1. Ensure you have Java `11` or above
-installed in your Computer.
+1. Ensure you have Java `11` or above installed in your Computer.
 
   
 
-2. Download the latest `InsureBook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+2. Download the latest `InsureBook.jar` from [here](https://github.com/AY2324S2-CS2103T-W09-4/tp/releases).
 
 
 
 3. Copy the file to the folder you want to use as the _home folder_ for InsureBook.
 
-  
 
-4. Open a command terminal and `cd` into the folder you put the jar file in. Alternatively, <br>**[Windows]** right-click anywhere in the display pane's background, then click "Open in Terminal":
+4. Open a command terminal and `cd` into the folder you put the jar file in. Alternatively, <br>
+   **[Windows]** right-click anywhere in the display pane's background, then click "Open in Terminal":
 
-  
+   <img src="images/OpenInTerminal.png" alt="Open in Terminal" width="457" height="260"/>
 
-<img  src="images/OpenInTerminal.png"  alt="Open in Terminal"  width="483"  height="275"/>
+   **[macOS]** right-click on the _home folder_ and click "New Terminal at Folder":
 
-  
+   <img src="images/NewTerminal.png" alt="New Terminal at Folder" width="387" height="350"/>
 
-**[macOS]** right click on the _home folder_ and click "New Terminal at Folder":
-
-  
-
-<img  src="images/NewTerminal.png"  alt="New Terminal at Folder"  width="498"  height="450"/>
-
-  
 
 5. Type `java -jar insurebook.jar` to run the application.<br>
+   A GUI similar to the one below should appear on screen. Note that the app contains some pre-loaded sample data.<br>
+   ![Ui](images/Ui.png)
 
-A GUI similar to the one below should appear in a few seconds. Note that the app contains some pre-loaded sample data.<br>
-
-![Ui](images/Ui.png)
-
-  
-
-6. Type your command into the user input box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+6. Type your command into the user input box and press Enter to execute it. e.g. type **`help`** and press Enter to open the help window.<br>
 
 Some example commands you can try:
 
@@ -167,22 +155,24 @@ e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` i
 
   
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
+* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`)
+will be ignored.<br>
 
 e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
   
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+* If you are using a PDF version of this document, be careful when copying and pasting commands that span
+multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 
 </box>
 
   
 
-### Viewing help : `help`
+### Finding help : `help`
 
-Shows the link to the User Guide and Command Summary of InsureBook.
-
+Opens a pop-up window with the link to InsureBook's User Guide and Command Summary for your reference.
+The linked can be copied with using the 'Enter' key, and can be closed using the 'Esc' key.
   
 
 Format: `help`
@@ -201,25 +191,19 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME
 
   
 
-<div  style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
-
-<span  style="font-size: 20px; color: #007bff;">&#x1F4A1;</span>  <strong>Tip:</strong>
-
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
 Meeting field input cannot be a date and time in the past!
-
 </div>
 
 <br/>
 
-<div  style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
-
-<span  style="font-size: 20px; color: #007bff;">&#x1F4A1;</span>  <strong>Tip:</strong>
-
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
 It is optional for the client to have tags. A client can have any number of tags (including 0).
-
 </div>
 
-  
+
 
 Examples:
 
@@ -255,7 +239,8 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_D
 
   
 
-* Edits the client at the specified INDEX. The index refers to the index number shown in the displayed client list. The index must be a positive integer 1, 2, 3, …​
+* Edits the client at the specified INDEX. The index refers to the index number shown in the displayed client list.
+The index must be a positive integer 1, 2, 3, …​
 
 * At least one of the [optional] fields must be provided.
 
@@ -269,9 +254,11 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_D
 
 Examples:
 
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st client to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st client to
+be `91234567` and `johndoe@example.com` respectively.
 
-*  `edit 2 n/Jinny Tan t/friends` Edits the name of the 2nd client to be `Jinny Tan` and overrides existing tags with the `friends` tag.
+*  `edit 2 n/Jinny Tan t/friends` Edits the name of the 2nd client to be `Jinny Tan` and overrides existing tags
+with the `friends` tag.
 
 *  `edit 4 n/Betsy Crower t/` Edits the name of the 4th client to be `Betsy Crower` and clears all existing tags.
 
@@ -297,7 +284,8 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 * Both full and partial words will be matched e.g. `Han` will match `Hans`
 
-* Clients matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* Clients matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will 
+return `Hans Gruber`, `Bo Yang`
 
   
 
@@ -355,7 +343,8 @@ Examples:
 
 *  `view 1` will show all policies and policy details of the 1st client displayed in InsureBook.
 
-*  `find Bern` followed by `view 2` will show all policies and policy details of the 2nd client in the results of the find command.
+*  `find Bern` followed by `view 2` will show all policies and policy details of the 2nd client in
+the results of the find command.
 
   
 
@@ -392,11 +381,9 @@ of policies. `POLICY_ID` can contain alphanumeric characters.
 following options: **["Single", "Monthly", "Quarterly", "Semi-annually", "Annually"]**
 
 *  `POLICY_PREMIUM` is the premium of the policy. You may use alphanumeric characters for the abbreviation of
-
 large numbers or other non-cash payment methods. (e.g. 100mil, 500 CPF OA)
 
 *  `BENEFIT` is the benefit of the policy. You may use alphanumeric characters for the abbreviation of
-
 large numbers. (e.g. 100mil, 100M)
 
   
@@ -408,6 +395,8 @@ Examples:
   
 
 ### Deleting an existing policy from a client : `delPolicy`
+
+
 
 
 Deletes an existing insurance policy to a specific client.
@@ -463,19 +452,13 @@ Meetings are considered to be scheduled for the current week if they are within 
 
 e.g. If today is Tuesday (2nd April), then meetings scheduled from Monday (1st April) to Sunday (7th April) will be displayed.
 
-  
+<img src="images/SameWeekCalendar.png" alt="SameWeekCalendar" width="420" height="293"/>
 
-<img  src="images/SameWeekCalendar.png"  alt="SameWeekCalendar"  width="467"  height="326"/>
+Meetings will be displayed as: "Number | < Meeting Date & Time > with: < Client Name >". 
+The meetings window can be closed by simply pressing 'Esc' on your keyboard.
 
-  
+<img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="420" height="293"/> 
 
-Meetings will be displayed as: "Number | < Meeting Date & Time > with: < Client Name >". The meetings window can be closed by simply pressing 'Esc' on your keyboard.
-
-  
-
-<img  src="images/MeetingsWindow.png"  alt="MeetingsWindow"  width="467"  height="326"/>
-
-  
 
 Format: `meetings`
 
@@ -503,18 +486,6 @@ Exits Insurebook and closes the application window.
 
 Format:`exit`
 
-### Finding Help : `help`
-
-
-
-Generates a popup window with a link to our User Guide for your reference. <br>
-You can click the enter button on your keyboard to copy the url or click the esc button on your keyboard to close 
-the window. 
-
-
-
-Format:`help`
-
   
 
 #### Saving data in InsureBook
@@ -534,10 +505,14 @@ AddressBook data are saved in the hard disk automatically after any command that
   
 
 **Q**: How do I transfer my data to another Computer?<br>
-
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous InsureBook home folder.
 
-  
+**Q**: What if I have two clients with the same name?<br>
+**A**: You are not allowed to add clients with duplicate names into InsureBook. If you have more than 1 client with the same name, consider adding a unique identifier to their names, e.g. 'John Doe from NUS' and 'John Doe from SMU'.
+
+**Q**: Can I leave the meeting field empty for clients that I have not scheduled a meeting with?<br>
+**A**: No - the meeting field is mandatory. You WILL need to schedule appointments with your clients before adding them to the address book. We believe that requiring you to be proactive in scheduling appointments will help you reach greater heights in your career!
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -547,28 +522,26 @@ AddressBook data are saved in the hard disk automatically after any command that
 
   
 
-1.  **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+1.  **When using multiple screens**, if you move the application to a secondary screen, and later switch to using
+only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created
+by the application before running the application again.
 
   
 
 --------------------------------------------------------------------------------------------------------------------
 
-  
-
 ## Command summary
 
-
-
-| Action          | Format & Examples                                                                                                                                                           |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**         | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`<br>e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`         |
-| **Clear**       | `clear`                                                                                                                                                                     |
-| **Delete**      | `delete INDEX`<br>e.g., `delete 3`                                                                                                                                           |
-| **Edit**        | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br>e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                   |
-| **Find**        | `find KEYWORD [MORE_KEYWORDS]`<br>e.g., `find James Jake`                                                                                                                    |
-| **List**        | `list`                                                                                                                                                                      |
-| **Add Policy**  | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`<br>e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000` |
-| **Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br>e.g., `delPolicy 1 polnum/39376234`                                                                                                |
-| **Help**        | `help`                                                                                                                                                                      |
-| **Exit**        | `exit`                                                                                                                                                                      |
-| **Meetings**    | `meetings`  
+Action | Format, Examples
+--------|------------------
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/ t/single t/student`
+**Clear** | `clear`
+**Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**List** | `list`
+**Add Policy** | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000`
+**Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`
+**Help** | `help`  
+**Exit** | `exit`
+**Meetings** | `meetings`
