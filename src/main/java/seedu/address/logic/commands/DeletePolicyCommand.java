@@ -27,7 +27,7 @@ public class DeletePolicyCommand extends Command {
             + ": Deletes the specific policy linked to the client identified "
             + "by the index number used in the last person listing.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "pol/POLICY_NAME\n"
+            + "polnum/POLICY_NUMBER\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + "polnum/123456";
 
