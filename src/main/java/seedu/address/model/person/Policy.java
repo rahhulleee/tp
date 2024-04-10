@@ -26,7 +26,7 @@ public class Policy {
 
 
     public static final String STRING_VALIDATION_REGEX = "[^\\s].{0,15}";
-    public static final String ALPHANUMERIC_VALIDATION_REGEX = "^[a-zA-Z0-9]+$";
+    public static final String ALPHANUMERIC_VALIDATION_REGEX = "^[a-zA-Z0-9 ]+$";
     public static final Set<String> ACCEPTED_PREMIUM_TERMS =
             new HashSet<>(Arrays.asList("SINGLE", "MONTHLY", "QUARTERLY", "SEMI-ANNUALLY", "ANNUALLY"));
 
