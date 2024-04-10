@@ -328,7 +328,7 @@ the results of the find command.
 
 Adds a new insurance policy to a specific client.
 
-Format: `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID
+Format: `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER
 
 pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`
 
@@ -352,17 +352,17 @@ POLICY_NAME can contain non-alphanumeric characters.
 
 *  `POLICY_TYPE` is the type of policy to be added.
 
-<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
-<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_TYPE can contain non-alphanumeric characters.
+<div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
+POLICY_TYPE MUST be alphanumeric characters only!
 </div>
 
-*  `POLICY_ID` is the policy id/number of the policy and must not be repeated in the person's current list
+*  `POLICY_NUMBER` is the policy number of the policy and must not be repeated in the person's current list
 of policies.
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_ID can contain non-alphanumeric characters.
+POLICY_NUMBER can contain non-alphanumeric characters.
 </div>
 
 *  `PREMIUM_TERM` is the premium term of the policy. The premium term of the policy can only be one of the
@@ -372,19 +372,19 @@ following options:
 
 
 *  `POLICY_PREMIUM` is the premium of the policy. You may use alphanumeric characters for the abbreviation of
-large numbers or other non-cash payment methods. (e.g. 100mil, 500 CPF OA)
+large numbers or to indicate non-cash payment methods. (e.g. 100mil, 500 CPF OA)
 
-<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
-<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_PREMIUM must be alphanumeric characters.
+<div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
+Policy_PREMIUM MUST be alphanumeric characters only!
 </div>
 
 *  `BENEFIT` is the benefit of the policy. You may use alphanumeric characters for the abbreviation of
 large numbers. (e.g. 100mil, 100M)
 
-<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
-<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_PREMIUM must be alphanumeric characters.
+<div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
+POLICY_PREMIUM MUST be alphanumeric characters only!
 </div>
 
 Examples:
@@ -411,7 +411,7 @@ The index must be an integer in the displayed client list.
 * POLICY_NUMBER must be an existing policy number tied to the Client at specified `INDEX`.
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_NUMBER must be alphanumeric characters.
+POLICY_NUMBER can contain non-alphanumeric characters.
 </div>
 
 Examples:
@@ -512,16 +512,16 @@ by the application before running the application again.
 
 ## Command summary
 
-| Action            | Format, Examples                                                                                                                                                                                                        |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**           | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/ t/single t/student`                     |
-| **Clear**         | `clear`                                                                                                                                                                                                                 |
-| **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                     |
-| **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                               |
-| **Find**          | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                              |
-| **List**          | `list`                                                                                                                                                                                                                  |
-| **Add Policy**    | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000` |
-| **Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`                                                                                                                                         |
-| **Help**          | `help`                                                                                                                                                                                                                  |
-| **Exit**          | `exit`                                                                                                                                                                                                                  |
-| **Meetings**      | `meetings`                                                                                                                                                                                                              |
+| Action            | Format, Examples                                                                                                                                                                                                            |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**           | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/ t/single t/student`                         |
+| **Clear**         | `clear`                                                                                                                                                                                                                     |
+| **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                         |
+| **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                   |
+| **Find**          | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                  |
+| **List**          | `list`                                                                                                                                                                                                                      |
+| **Add Policy**    | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000` |
+| **Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`                                                                                                                                             |
+| **Help**          | `help`                                                                                                                                                                                                                      |
+| **Exit**          | `exit`                                                                                                                                                                                                                      |
+| **Meetings**      | `meetings`                                                                                                                                                                                                                  |

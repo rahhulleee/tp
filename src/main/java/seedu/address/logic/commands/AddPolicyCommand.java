@@ -27,7 +27,7 @@ public class AddPolicyCommand extends Command {
             + "by the index number used in the last person listing\n"
             + "and relevant fields. "
             + "Parameters: INDEX (must be a positive integer) "
-            + "pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID\n"
+            + "pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER\n"
             + "pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + "pol/SuperSaver type/CI polnum/39376234 pterm/annually prem/3000 b/100000";
