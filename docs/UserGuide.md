@@ -36,33 +36,16 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
 - [Known Issues](#known-issues)
 - [Command Summary](#command-summary)
 
-
-
-
-
-
-
-<!-- * Table of Contents -->
-
 <page-nav-print  />
-
-
 
 --------------------------------------------------------------------------------------------------------------------
 
- 
-
 ## Quick start
-
- 
-
-*The InsureBook .jar file is not available for download yet. These instructions will be applicable when it is released in the future.*
-
 
 
 1. Ensure you have Java `11` or above installed in your Computer.
+   - If your computer is not running Java version `11` or above, you may download it from [here](https://www.oracle.com/java/technologies/downloads/#java11).
 
-  
 
 2. Download the latest `InsureBook.jar` from [here](https://github.com/AY2324S2-CS2103T-W09-4/tp/releases).
 
@@ -189,16 +172,16 @@ Adds a client, together with their name, phone number, email, address and meetin
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]...`
 
-  
+<br/>
 
 <div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
-<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-Meeting field input cannot be a date and time in the past!
+<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+Meeting field input must be a date and time in the future!
 </div>
 
 <br/>
 
-<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
 It is optional for the client to have tags. A client can have any number of tags (including 0).
 </div>
@@ -287,37 +270,28 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * Clients matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will 
 return `Hans Gruber`, `Bo Yang`
 
-  
 
 Examples:
-
-  
 
 `find Joh` returns `Johnny Daniels` and `John Doe`
 
 `find alex david` returns `Alex Yeoh`, `David Li`
 
-  
 
 ### Deleting a client : `delete`
 
-  
-
 Removes an existing client based on their index from InsureBook.
-
-  
 
 Format: `delete INDEX`
 
-  
-
 * Deletes the client at the specified `INDEX`.
+* The index refers to the index number shown in the displayed client list.
+  The index must be a positive integer 1, 2, 3, …​
 
-* The index refers to the index number shown in the current displayed client list.
-
-* The index **must be a positive integer between the numeric range of contacts in the address book.**
-
-  
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+The index must be an integer in the displayed client list.
+</div>
 
 Examples:
 
@@ -329,15 +303,18 @@ Examples:
 
 ### View a client's complete profile : `view`
 
-  
-
 Expands a client's profile such that the user can see all policies and policy details.
-
-  
 
 Format: `view INDEX`
 
-  
+* Views the client's policies at the specified `INDEX`.
+* The index refers to the index number shown in the displayed client list.
+  The index must be a positive integer 1, 2, 3, …​
+
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+The index must be an integer in the displayed client list.
+</div>
 
 Examples:
 
@@ -346,47 +323,69 @@ Examples:
 *  `find Bern` followed by `view 2` will show all policies and policy details of the 2nd client in
 the results of the find command.
 
-  
 
 ### Adding a new policy to a client : `addPolicy`
 
-  
-
 Adds a new insurance policy to a specific client.
-
-  
 
 Format: `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID
 
 pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`
 
-  
 
 * Adds a policy to the person at the specified `INDEX`.
 
-* The index refers to the index number shown in the displayed person list.
+* The index refers to the index number shown in the displayed client list.
+  The index must be a positive integer 1, 2, 3, …​
 
-* The index **must be a positive integer between the numeric range of contacts in the address book.**
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+The index must be an integer in the displayed client list.
+</div>
 
-*  `POLICY_NAME` is the name of the policy to be added. `POLICY_NAME` can contain alphanumeric characters.
+*  `POLICY_NAME` is the name of the policy to be added. 
 
-*  `POLICY_TYPE` is the type of policy to be added. `POLICY_TYPE` can contain alphanumeric characters.
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+POLICY_NAME can contain non-alphanumeric characters.
+</div>
+
+*  `POLICY_TYPE` is the type of policy to be added.
+
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+POLICY_TYPE can contain non-alphanumeric characters.
+</div>
 
 *  `POLICY_ID` is the policy id/number of the policy and must not be repeated in the person's current list
+of policies.
 
-of policies. `POLICY_ID` can contain alphanumeric characters.
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+POLICY_ID can contain non-alphanumeric characters.
+</div>
 
 *  `PREMIUM_TERM` is the premium term of the policy. The premium term of the policy can only be one of the
+following options: 
 
-following options: **["Single", "Monthly", "Quarterly", "Semi-annually", "Annually"]**
+	**["Single", "Monthly", "Quarterly", "Semi-annually", "Annually"]**
+
 
 *  `POLICY_PREMIUM` is the premium of the policy. You may use alphanumeric characters for the abbreviation of
 large numbers or other non-cash payment methods. (e.g. 100mil, 500 CPF OA)
 
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+POLICY_PREMIUM must be alphanumeric characters.
+</div>
+
 *  `BENEFIT` is the benefit of the policy. You may use alphanumeric characters for the abbreviation of
 large numbers. (e.g. 100mil, 100M)
 
-  
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+POLICY_PREMIUM must be alphanumeric characters.
+</div>
 
 Examples:
 
@@ -396,31 +395,29 @@ Examples:
 
 ### Deleting an existing policy from a client : `delPolicy`
 
+Deletes an existing insurance policy of a specific client.
 
+Format: `delPolicy INDEX polnum/POLICY_NUMBER`
 
+* Deletes a policy to the person at the specified `INDEX`.
+* The index refers to the index number shown in the displayed client list.
+  The index must be a positive integer 1, 2, 3, …​
 
-Deletes an existing insurance policy to a specific client.
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+The index must be an integer in the displayed client list.
+</div>
 
-
-  
-Format: `delPolicy polnum/POLICY_NUMBER`
-
- * Deletes a policy to the person at the specified `INDEX`.
-
-* The index refers to the index number shown in the displayed person list.
-
-* The index **must be a positive integer between the numeric range of contacts in the address book.**
-* POLICY_NUMBER must be an existing policy number tied to the Client at specified `INDEX`
-* POLICY_NUMBER is a `String`
-
+* POLICY_NUMBER must be an existing policy number tied to the Client at specified `INDEX`.
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+POLICY_NUMBER must be alphanumeric characters.
+</div>
 
 Examples:
 
  - `delPolicy 1 polnum/39376234` will delete the existing policy with policy number 39376234 from the Client at `INDEX` 1.
  - `delPolicy 2 polnum/1111111A`  will delete the existing policy with policy number 1111111A from the Client at `INDEX` 2.
-
-
- 
 
 ### Locating clients via Policy Name : `findPolicy`
 
@@ -431,7 +428,7 @@ Format: `findPolicy POLICY_NAME`
 * Finds clients with the specified `POLICY_NAME`.
 
 * `POLICY_NAME` is the part of the policy you are searching for.
-<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
     <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
     It does not need to be an exact match to the full policy name. 
 </div>
@@ -444,7 +441,6 @@ Examples:
 
 ### View the lists of meetings for this week : `meetings`
 
-  
 
 Opens a new window containing a list of all meetings for this week, in chronological order. <br>
 
@@ -459,38 +455,22 @@ The meetings window can be closed by simply pressing 'Esc' on your keyboard.
 
 <img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="420" height="293"/> 
 
-
 Format: `meetings`
 
-  
 
 ### Clearing all client entries : `clear`
 
-  
-
 Clears all client entries from InsureBook.
-
-  
 
 Format:`clear`
 
-  
-
 ### Exiting InsureBook : `exit`
-
-  
 
 Exits Insurebook and closes the application window.
 
-  
-
 Format:`exit`
 
-  
-
 #### Saving data in InsureBook
-
-  
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
@@ -532,16 +512,16 @@ by the application before running the application again.
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/ t/single t/student`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Add Policy** | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000`
-**Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`
-**Help** | `help`  
-**Exit** | `exit`
-**Meetings** | `meetings`
+| Action            | Format, Examples                                                                                                                                                                                                        |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**           | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/ t/single t/student`                     |
+| **Clear**         | `clear`                                                                                                                                                                                                                 |
+| **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                     |
+| **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                               |
+| **Find**          | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                              |
+| **List**          | `list`                                                                                                                                                                                                                  |
+| **Add Policy**    | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_ID pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000` |
+| **Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`                                                                                                                                         |
+| **Help**          | `help`                                                                                                                                                                                                                  |
+| **Exit**          | `exit`                                                                                                                                                                                                                  |
+| **Meetings**      | `meetings`                                                                                                                                                                                                              |
