@@ -35,6 +35,8 @@ public class MeetingsWindow extends UiPart<Stage> {
     public MeetingsWindow(Stage root, Logic logic) {
         super(FXML, root);
         this.logic = logic;
+        root.setMinWidth(600);
+        root.setMinHeight(450);
     }
 
     /**
@@ -42,6 +44,7 @@ public class MeetingsWindow extends UiPart<Stage> {
      */
     public MeetingsWindow(Logic logic) {
         this(new Stage(), logic);
+        assert(getRoot() != null); // Ensure that this UiPart is correctly initialized
     }
 
     /**
@@ -101,10 +104,11 @@ public class MeetingsWindow extends UiPart<Stage> {
     }
 
     /**
-     * Focuses on the meetings window.
+     * Reopens the meetings window.
      */
-    public void focus() {
-        getRoot().requestFocus();
+    public void reopen() {
+        hide();
+        displayMeetings();
     }
 
     /**

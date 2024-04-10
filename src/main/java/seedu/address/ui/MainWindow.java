@@ -174,7 +174,7 @@ public class MainWindow extends UiPart<Stage> {
         if (!meetingsWindow.isShowing()) {
             meetingsWindow.displayMeetings();
         } else {
-            meetingsWindow.focus();
+            meetingsWindow.reopen();
         }
     }
 

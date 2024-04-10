@@ -4,10 +4,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.stage.Stage?>
 
+<?import javafx.scene.layout.VBox?>
 <fx:root title="View Meetings" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
         <Image url="@/images/meetings_icon.png" />
@@ -17,22 +19,29 @@
             <stylesheets>
                 <URL value="@MeetingsWindow.css" />
             </stylesheets>
-
-            <HBox alignment="CENTER" fx:id="meetingsMessageContainer">
-                <children>
-                    <Label fx:id="meetingsMessage" text="Label">
-                        <HBox.margin>
-                            <Insets right="5.0" />
-                        </HBox.margin>
-                    </Label>
-                </children>
-                <opaqueInsets>
-                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
-                </opaqueInsets>
-                <padding>
-                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
-                </padding>
-            </HBox>
+            <VBox alignment="CENTER" fx:id="meetingsMessageContainerV">
+                <HBox alignment="CENTER" fx:id="meetingsMessageContainerH" >
+                    <children>
+                        <ScrollPane styleClass="scroll-bar" fx:id="scrollPane">
+                            <content>
+                                <HBox alignment="CENTER">
+                                    <Label fx:id="meetingsMessage" text="Label">
+                                        <HBox.margin>
+                                            <Insets right="5.0" />
+                                        </HBox.margin>
+                                    </Label>
+                                </HBox>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                    <opaqueInsets>
+                        <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
+                    </padding>
+                </HBox>
+            </VBox>
         </Scene>
     </scene>
 </fx:root>
