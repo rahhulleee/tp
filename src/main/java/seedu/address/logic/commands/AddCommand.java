@@ -43,7 +43,6 @@ public class AddCommand extends Command {
     public static final String MESSAGE_SUCCESS = "New client added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This client already exists in the address book.";
     public static final String MESSAGE_DUPLICATE_MEETING = "This meeting already exists in the address book.";
-    public static final String MESSAGE_INVALID_MEEITNG = "You can't add meetings from the past.";
 
     private final Person toAdd;
     private final Meeting toAddMeeting;
