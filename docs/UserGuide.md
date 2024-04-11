@@ -96,7 +96,12 @@ Some example commands you can try:
 
 7. Refer to the [Features](#features) below for details of each command.
 
-  
+<br/>
+
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+For the best experience, use InsureBook in full-screen!
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -353,7 +358,7 @@ The index must be an integer in the displayed client list.
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_NAME can contain non-alphanumeric characters.
+POLICY_NAME can contain non-alphanumeric characters. <strong> Max: 40 characters</strong>
 </div>
 
 <br/>
@@ -372,7 +377,7 @@ of policies. (e.g. "123456", "123-abc-xyz")
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_NUMBER can contain non-alphanumeric characters.
+POLICY_NUMBER can contain non-alphanumeric characters. <strong> Max: 16 characters</strong>
 </div>
 
 <br/>
@@ -451,7 +456,7 @@ Format: `findPolicy POLICY_NAME`
 * `POLICY_NAME` is the part of the policy you are searching for.
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
     <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-    It does not need to be an exact match to the full policy name. 
+    It does not need to be an exact match to the full policy name. 	
 </div>
 
 <br/>
@@ -548,7 +553,7 @@ by the application before running the application again.
 
 | Action            | Format, Examples                                                                                                                                                                                                            |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**           | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/ t/single t/student`                         |
+| **Add**           | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/2024-10-12 13:00 t/single t/student`         |
 | **Clear**         | `clear`                                                                                                                                                                                                                     |
 | **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                         |
 | **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                   |
