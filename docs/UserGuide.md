@@ -181,14 +181,21 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME
 
 <div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
-Meeting field input must be a date and time in the future!
+Meeting field input <strong>MUST</strong> be a date and time in the future!
+</div>
+
+<br/>
+
+<div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
+Meeting time needs to be unique!
 </div>
 
 <br/>
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-It is optional for the client to have tags. A client can have any number of tags (including 0).
+It is optional for the client to have tags. A client can have any number of tags (including 0). TAG <strong>MUST</strong> be alphanumeric characters only!
 </div>
 
 <br/>
@@ -238,7 +245,19 @@ The index must be a positive integer 1, 2, 3, …​
 
 * You can remove all the client’s tags by typing t/ without specifying any tags after it.
 
-  
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+Meeting field input <strong>MUST</strong> be a date and time in the future!
+</div>
+
+<br/>
+
+<div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
+Meeting time needs to be unique!
+</div>
+
+<br/>
 
 Examples:
 
