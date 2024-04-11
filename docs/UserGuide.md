@@ -357,8 +357,8 @@ POLICY_NAME can contain non-alphanumeric characters.
 </div>
 
 <br/>
+*  `POLICY_TYPE` is the type of policy to be added. (e.g. "Health", "Car", "Life")
 
-*  `POLICY_TYPE` is the type of policy to be added.
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
@@ -368,7 +368,7 @@ POLICY_TYPE MUST be alphanumeric characters only!
 <br/>
 
 *  `POLICY_NUMBER` is the policy number of the policy and must not be repeated in the person's current list
-of policies.
+of policies. (e.g. "123456", "123-abc-xyz")
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
@@ -385,7 +385,7 @@ following options:
 <br/>
 
 *  `POLICY_PREMIUM` is the premium of the policy. You may use alphanumeric characters for the abbreviation of
-large numbers or to indicate non-cash payment methods. (e.g. 100mil, 500 CPF OA)
+large numbers or to indicate non-cash payment methods. (e.g. "100mil", "500 CPF OA")
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
@@ -393,9 +393,9 @@ Policy_PREMIUM MUST be alphanumeric characters only!
 </div>
 
 <br/>
-
 *  `BENEFIT` is the policy's benefit (e.g. sum assured). You may use alphanumeric characters for the abbreviation of
-large numbers. (e.g. 100mil, 100M)
+large numbers. (e.g. "100mil", "100M")
+
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>

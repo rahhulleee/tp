@@ -8,14 +8,14 @@ import java.util.Set;
 
 /**
  * Represents a policy associated with a person.
- * Guarantees: immutable; policyName is valid as declared in {@link #isValidPolicy(String)}
+ * Guarantees: immutable; policyName is valid as declared in {@link #isValidPolicyName(String)}
  */
 public class Policy {
 
-    public static final String POLICY_NAME_MESSAGE_CONSTRAINTS = "Policy name should only contain alphanumeric "
-            + "characters and spaces,and it should not be blank";
-    public static final String POLICY_NUMBER_MESSAGE_CONSTRAINTS = "Policy number should only contain alphanumeric "
-            + "characters and spaces, and it should not be blank";
+    public static final String POLICY_NAME_MESSAGE_CONSTRAINTS = "Policy name should not be blank and limited to "
+            + "30 characters only";
+    public static final String POLICY_NUMBER_MESSAGE_CONSTRAINTS = "Policy number should not be blank and limited to "
+            + "16 characters only";
     public static final String POLICY_TYPE_MESSAGE_CONSTRAINTS = "Policy type should only contain alphanumeric "
             + "characters and spaces, and it should not be blank";
     public static final String PREMIUM_TERM_MESSAGE_CONSTRAINTS = "Premium term has to be one of the following "
@@ -27,7 +27,9 @@ public class Policy {
             + "characters and spaces, and it should not be blank";
 
 
-    public static final String STRING_VALIDATION_REGEX = "[^\\s].*";
+    public static final String POLICY_NUMBER_VALIDATION_REGEX = "[^\\s].{0,15}";
+    public static final String POLICY_NAME_VALIDATION_REGEX = "[^\\s].{0,29}";
+    public static final String ALPHANUMERIC_VALIDATION_REGEX = "^[a-zA-Z0-9 ]+$";
     public static final Set<String> ACCEPTED_PREMIUM_TERMS =
             new HashSet<>(Arrays.asList("SINGLE", "MONTHLY", "QUARTERLY", "SEMI-ANNUALLY", "ANNUALLY"));
 
@@ -66,8 +68,15 @@ public class Policy {
      * @param field The policy name to validate.
      * @return True if the policy name is valid, false otherwise.
      */
-    public static boolean isValidPolicy(String field) {
-        return field.matches(STRING_VALIDATION_REGEX);
+    public static boolean isValidPolicyName(String field) {
+        return field.matches(POLICY_NAME_VALIDATION_REGEX);
+    }
+    public static boolean isValidPolicyNumber(String field) {
+        return field.matches(POLICY_NUMBER_VALIDATION_REGEX);
+    }
+
+    public static boolean isValidTypeOrPremiumOrBenefit(String field) {
+        return field.matches(ALPHANUMERIC_VALIDATION_REGEX);
     }
 
     /**
