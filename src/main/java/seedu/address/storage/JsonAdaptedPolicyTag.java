@@ -54,13 +54,13 @@ public class JsonAdaptedPolicyTag {
      * @throws IllegalValueException if there were any data constraints violated in the adapted tag.
      */
     public Policy toModelType() throws IllegalValueException {
-        if (!Policy.isValidPolicyNameOrNumber(policyName)) {
+        if (!Policy.isValidPolicyName(policyName)) {
             throw new IllegalValueException(Policy.POLICY_NAME_MESSAGE_CONSTRAINTS);
         }
         if (!Policy.isValidTypeOrPremiumOrBenefit(policyType)) {
             throw new IllegalValueException(Policy.POLICY_TYPE_MESSAGE_CONSTRAINTS);
         }
-        if (!Policy.isValidPolicyNameOrNumber(policyNumber)) {
+        if (!Policy.isValidPolicyNumber(policyNumber)) {
             throw new IllegalValueException(Policy.POLICY_NUMBER_MESSAGE_CONSTRAINTS);
         }
         if (!Policy.isValidPremiumTerm(premiumTerm)) {

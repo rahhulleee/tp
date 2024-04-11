@@ -151,7 +151,7 @@ public class ParserUtil {
     public static String parsePolicyName(String policyName) throws ParseException {
         requireNonNull(policyName);
         String trimmedPolicyName = policyName.trim();
-        if (!Policy.isValidPolicyNameOrNumber(trimmedPolicyName)) {
+        if (!Policy.isValidPolicyName(trimmedPolicyName)) {
             throw new ParseException(Policy.POLICY_NAME_MESSAGE_CONSTRAINTS);
         }
         return policyName;
@@ -181,7 +181,7 @@ public class ParserUtil {
     public static String parsePolicyNumber(String policyNumber) throws ParseException {
         requireNonNull(policyNumber);
         String trimmedPolicyNumber = policyNumber.trim();
-        if (!Policy.isValidPolicyNameOrNumber(trimmedPolicyNumber)) {
+        if (!Policy.isValidPolicyNumber(trimmedPolicyNumber)) {
             throw new ParseException(Policy.POLICY_NUMBER_MESSAGE_CONSTRAINTS);
         }
         return policyNumber;
