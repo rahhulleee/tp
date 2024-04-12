@@ -329,7 +329,6 @@ the results of the find command.
 Adds a new insurance policy to a specific client.
 
 Format: `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER
-
 pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`
 
 
@@ -512,16 +511,18 @@ by the application before running the application again.
 
 ## Command summary
 
-| Action            | Format, Examples                                                                                                                                                                                                            |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**           | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/ t/single t/student`                         |
-| **Clear**         | `clear`                                                                                                                                                                                                                     |
-| **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                         |
-| **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                   |
-| **Find**          | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                  |
-| **List**          | `list`                                                                                                                                                                                                                      |
-| **Add Policy**    | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000` |
-| **Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`                                                                                                                                             |
-| **Help**          | `help`                                                                                                                                                                                                                      |
-| **Exit**          | `exit`                                                                                                                                                                                                                      |
-| **Meetings**      | `meetings`                                                                                                                                                                                                                  |
+| Action                           | Format, Examples                                                                                                                                                                                                             |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Find help**                    | `help`                                                                                                                                                                                                                       |
+| **Add client**                   | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/2025-02-20 10:00 t/single t/student`          |
+| **List all clients**             | `list`                                                                                                                                                                                                                       |
+| **Edit client**                  | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                    |
+| **Find client(s) using name**    | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                   |
+| **Delete client**                | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                        ` |
+| **View client profile**          | `view INDEX`<br/> e.g., `view 6`                                                                                                                                                                                             |
+| **Add policy to client**         | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000`  |
+| **Delete policy from client**    | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`                                                                                                                                              |
+| **Find client(s) using policy**  | `findPolicy POLICY_NAME`<br/> e.g., `find Savers`                                                                                                                                                                            |
+| **View weekly list of meetings** | `meetings`                                                                                                                                                                                                                   |
+| **Clear all client entries**     | `clear`                                                                                                                                                                                                                      |
+| **Exit**                         | `exit`                                                                                                                                                                                                                       |
