@@ -82,6 +82,10 @@ public class EditCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
+        if (!editPersonDescriptor.isAnyFieldEdited()) {
+            throw new CommandException(EditCommand.MESSAGE_NOT_EDITED);
+        }
+
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Meeting meetingToEdit = personToEdit.getMeeting();
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);

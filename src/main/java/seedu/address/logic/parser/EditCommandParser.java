@@ -1,7 +1,6 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MEETING;
@@ -39,11 +38,6 @@ public class EditCommandParser implements Parser<EditCommand> {
         Index index;
 
         index = ParserUtil.parseIndex(argMultimap.getPreamble());
-        if (index.getOneBased() <= 0) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX)
-            );
-        }
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
                 PREFIX_MEETING);
@@ -66,10 +60,6 @@ public class EditCommandParser implements Parser<EditCommand> {
             editPersonDescriptor.setMeeting(ParserUtil.parseMeeting(argMultimap.getValue(PREFIX_MEETING).get()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
-
-        if (!editPersonDescriptor.isAnyFieldEdited()) {
-            throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
-        }
 
         return new EditCommand(index, editPersonDescriptor);
     }
