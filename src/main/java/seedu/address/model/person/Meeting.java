@@ -2,6 +2,7 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -82,12 +83,13 @@ public class Meeting implements Comparable<Meeting> {
      */
     private static LocalDateTime stringToDateTime(String dateTime) {
         if (dateTime.length() != 16) {
-            throw new IllegalArgumentException("The date and time must be in the format yyyy-MM-dd HH:mm");
+            throw new IllegalArgumentException(MESSAGE_CONSTRAINTS);
         }
         try {
+            LocalDate dateCheck = LocalDate.parse(dateTime.substring(0, 10)); // Check that the date is valid.
             return LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         } catch (DateTimeParseException e) {
-            throw new IllegalArgumentException("Ensure a valid date and time, in the format yyyy-MM-dd HH:mm");
+            throw new IllegalArgumentException(MESSAGE_CONSTRAINTS);
         }
     }
 
