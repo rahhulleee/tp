@@ -61,27 +61,27 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
 6. Type your command into the user input box and press Enter to execute it. e.g. type **`help`** and press Enter to open the help window.<br>
 Some example commands you can try:
 
-  
+
 
 *  `list` : Lists all clients.
 
-  
+
 
 *  `add n/John Doe p/98765432 e/johnd@example.com a/123 John Street m/2024-08-02 10:00` : Adds a contact named `John Doe` to your InsureBook.
 
-  
+
 
 *  `delete 3` : Deletes the 3rd client shown in the current list.
 
-  
+
 
 *  `clear` : Deletes all clients.
 
-  
+
 
 *  `exit` : Exits the app.
 
-  
+
 
 7. Refer to the [Features](#features) below for details of each command.
 
@@ -94,75 +94,75 @@ For the best experience, use InsureBook in full-screen!
 
 --------------------------------------------------------------------------------------------------------------------
 
-  
+
 
 ## Features
 
-  
+
 
 <box  type="info"  seamless>
 
-  
+
 
 **Notes about the command format:**<br>
 
-  
+
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
 
 e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
-  
+
 
 * Items in square brackets are optional.<br>
 
 e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
-  
+
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
 
 e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 
-  
+
 
 * Parameters can be in any order.<br>
 
 e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-  
+
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`)
 will be ignored.<br>
 
 e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-  
+
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span
 multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 
 </box>
 
-  
+
 
 ### Finding help : `help`
 
 Opens a pop-up window with the link to InsureBook's User Guide and Command Summary for your reference.
 The linked can be copied with using the 'Enter' key, and can be closed using the 'Esc' key.
-  
+
 
 Format: `help`
 
-  
+
 
 ### Adding a client : `add`
 
-  
+
 
 Adds a client, together with their name, phone number, email, address and meeting date and time into InsureBook. <br>
 You may also add optional tags to the client, to provide any extra details as labels.
-  
+
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]...`
 
@@ -197,31 +197,31 @@ Examples:
 
 *  `add n/Jack Daniel p/91118932 e/jackys@hotmail.com a/291, Woodlands Dr 89, #08-56 m/2025-02-20 10:00 t/acquaintence t/schoolmate`
 
-  
+
 
 ### Listing all clients : `list`
 
-  
+
 
 Shows a list of all clients in InsureBook.
 
-  
+
 
 Format: `list`
 
-  
+
 
 ### Editing a client : `edit`
 
-  
+
 
 Edits an existing client in InsureBook.
 
-  
+
 
 Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]...`
 
-  
+
 
 * Edits the client at the specified INDEX. The index refers to the index number shown in the displayed client list.
 The index must be a positive integer 1, 2, 3, …​
@@ -258,19 +258,19 @@ with the `friends` tag.
 
 *  `edit 4 n/Betsy Crower t/` Edits the name of the 4th client to be `Betsy Crower` and clears all existing tags.
 
-  
+
 
 ### Locating clients by name : `find`
 
-  
+
 
 Finds clients whose names contain any of the input keywords.
 
-  
+
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
-  
+
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 
@@ -280,8 +280,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 * Both full and partial words will be matched e.g. `Han` will match `Hans`
 
-* Clients matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will 
-return `Hans Gruber`, `Bo Yang`
+* Clients matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 
 Examples:
@@ -314,7 +313,7 @@ Examples:
 
 *  `find Betsy` followed by `delete 1` deletes the 1st client in the results of the find command.
 
-  
+
 
 ### View a client's complete profile : `view`
 
@@ -361,7 +360,7 @@ The index must be an integer in the displayed client list.
 
 <br/>
 
-*  `POLICY_NAME` is the name of the policy to be added. 
+*  `POLICY_NAME` is the name of the policy to be added.
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
@@ -390,7 +389,7 @@ POLICY_NUMBER can contain non-alphanumeric characters. <strong> Max: 16 characte
 <br/>
 
 *  `PREMIUM_TERM` is the premium term of the policy. The premium term of the policy can only be one of the
-following options: 
+following options:
 
 	**["Single", "Monthly", "Quarterly", "Semi-annually", "Annually"]**
 
@@ -420,7 +419,7 @@ Examples:
 
 *  `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000`
 
-  
+
 
 ### Deleting an existing policy from a client : `delPolicy`
 
@@ -463,7 +462,7 @@ Format: `findPolicy POLICY_NAME`
 * `POLICY_NAME` is the part of the policy you are searching for.
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
     <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-    It does not need to be an exact match to the full policy name. 	
+    It does not need to be an exact match to the full policy name.
 </div>
 
 <br/>
@@ -487,10 +486,10 @@ e.g. If today is Tuesday (2nd April), then meetings scheduled from Monday (1st A
 
 <br/>
 
-Meetings will be displayed as: "Number | < Meeting Date & Time > with: < Client Name >". 
+Meetings will be displayed as: "Number | < Meeting Date & Time > with: < Client Name >".
 The meetings window can be **closed** by simply **pressing 'Esc'** on your keyboard.
 
-<img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="420" height="293"/> 
+<img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="420" height="293"/>
 
 <br/>
 
@@ -520,15 +519,15 @@ Format:`exit`
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-  
+
 
 --------------------------------------------------------------------------------------------------------------------
 
-  
+
 
 ## FAQ
 
-  
+
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous InsureBook home folder.
@@ -542,17 +541,17 @@ AddressBook data are saved in the hard disk automatically after any command that
 
 --------------------------------------------------------------------------------------------------------------------
 
-  
+
 
 ## Known issues
 
-  
+
 
 1.  **When using multiple screens**, if you move the application to a secondary screen, and later switch to using
 only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created
 by the application before running the application again.
 
-  
+
 
 --------------------------------------------------------------------------------------------------------------------
 

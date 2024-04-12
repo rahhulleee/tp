@@ -179,18 +179,18 @@ represents a set of Policy objects tagged to the Person object.
 
 Given below is an example usage scenario and how the add policy mechanism behaves at each step
 
-Step 1. The user launches the application for the first time and adds a new client to the InsureBook with the 
-add command `add n/David ...`. In this step, a new Person object is created with the attributes `name` = `David` 
+Step 1. The user launches the application for the first time and adds a new client to the InsureBook with the
+add command `add n/David ...`. In this step, a new Person object is created with the attributes `name` = `David`
 `phone` = `96623786` and so on. `policies` attribute is initialised to an empty set, representing that a client starts
 out with no policies attached to the client
 
-Step 2. This client `David` decides to take up a new insurance policy with the user. The user then adds a new policy to 
-`David` and uses the addPolicy command with David's person index (e.g. 2) `addPolicy 2 pol/policyA type/health 
+Step 2. This client `David` decides to take up a new insurance policy with the user. The user then adds a new policy to
+`David` and uses the addPolicy command with David's person index (e.g. 2) `addPolicy 2 pol/policyA type/health
 polnum/987654 pterm/annually prem/123 b/456`.
 
-Step 3. Upon entering this command, the `LogicManager` uses the `AddressBookParser` to parse the input string and 
-recognise the `addPolicy` command word to pass the arguments into the `AddPolicyCommandParser` where the arguments 
-are parsed to extract the parameters to create a new `AddPolicyCommand` object while also checking that the 
+Step 3. Upon entering this command, the `LogicManager` uses the `AddressBookParser` to parse the input string and
+recognise the `addPolicy` command word to pass the arguments into the `AddPolicyCommandParser` where the arguments
+are parsed to extract the parameters to create a new `AddPolicyCommand` object while also checking that the
 arguments are valid.
 
 <box type="info" seamless>
@@ -205,20 +205,20 @@ be displayed in the command output box.
 
 </box>
 
-Step 4. A new `AddPolicyCommand` object is created and returned to `LogicManager` with an execute command that 
-finds the `Person` object (David) with the given person index (2) and retrieves the current set of `Policy` objects stored 
+Step 4. A new `AddPolicyCommand` object is created and returned to `LogicManager` with an execute command that
+finds the `Person` object (David) with the given person index (2) and retrieves the current set of `Policy` objects stored
 in this Person's `policies` attribute.
 
 Step 5. With the given arguments, a new `Policy` object is created with the `Policy` constructor. This new `Policy` object
 is appended to the Person's previous set of `Policy` objects.
 
-Step 6. Then a new `Person` object is created with this new set of `Policy` objects while keeping the other attributes of 
+Step 6. Then a new `Person` object is created with this new set of `Policy` objects while keeping the other attributes of
 the Person object the same.
 
-Step 7. The new `Person` object is then passed into `Model#setPerson()` which edits/updates the `Person` object (David) 
+Step 7. The new `Person` object is then passed into `Model#setPerson()` which edits/updates the `Person` object (David)
 accordingly.
 
-Step 8. Application throws a success message in the command output box to show that a new Policy object was added to 
+Step 8. Application throws a success message in the command output box to show that a new Policy object was added to
 the specified client's set of policies. Upon inspecting the specified client's person card, the user will see a new red
 tag with the inputted policy name.
 
@@ -230,7 +230,7 @@ tag with the inputted policy name.
 
 * **Alternative 1 (current choice):** Encompass the policy details into a single Policy class with the details
 as attributes to the Policy class
-	* Pros: Good abstraction level to organise all the policy information into one convenient class that can be 
+	* Pros: Good abstraction level to organise all the policy information into one convenient class that can be
   referenced and have its own methods.
 	* Cons: Not as straightforward to implement and requires updating multiple classes
 
@@ -638,7 +638,7 @@ testers are expected to do more *exploratory* testing.
 
 ### Deleting a client
 
- 
+
 
 1. Deleting a client while all clients are being shown
 
@@ -660,7 +660,7 @@ testers are expected to do more *exploratory* testing.
 	1. Prerequisites: List all clients using the `list` command. The list should be empty.
 
 	2. Test case: `delete x`
-	
+
 		Expected: An Error should pop up and Error details will be shown in the status message. Shows that the storage is functioning properly.
 
 
@@ -675,5 +675,5 @@ testers are expected to do more *exploratory* testing.
 		  2. Navigate to the file containing the data of the InsureBook which is located in `/data/addressbook.json`
 		  3. Delete or rename this json file and this will corrupt it
 		  4. Exit and relaunch the application
-	  
+
 			  Expected: The application should detect that the data file is missing and the whole InsureBook would be empty, and the commands will still be working in the empty InsureBook without any crashes. This ensures that the application can still be used even if the data file gets deleted.
