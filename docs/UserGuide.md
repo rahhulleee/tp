@@ -45,15 +45,8 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
 
 1. Ensure you have Java `11` or above installed in your Computer.
    - If your computer is not running Java version `11` or above, you may download it from [here](https://www.oracle.com/java/technologies/downloads/#java11).
-
-
 2. Download the latest `InsureBook.jar` from [here](https://github.com/AY2324S2-CS2103T-W09-4/tp/releases).
-
-
-
 3. Copy the file to the folder you want to use as the _home folder_ for InsureBook.
-
-
 4. Open a command terminal and `cd` into the folder you put the jar file in. Alternatively, <br>
    **[Windows]** right-click anywhere in the display pane's background, then click "Open in Terminal":
 
@@ -62,14 +55,10 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
    **[macOS]** right-click on the _home folder_ and click "New Terminal at Folder":
 
    <img src="images/NewTerminal.png" alt="New Terminal at Folder" width="387" height="350"/>
-
-
 5. Type `java -jar insurebook.jar` to run the application.<br>
    A GUI similar to the one below should appear on screen. Note that the app contains some pre-loaded sample data.<br>
    ![Ui](images/Ui.png)
-
 6. Type your command into the user input box and press Enter to execute it. e.g. type **`help`** and press Enter to open the help window.<br>
-
 Some example commands you can try:
 
   
