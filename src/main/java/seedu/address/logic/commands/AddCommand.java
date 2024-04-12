@@ -38,11 +38,12 @@ public class AddCommand extends Command {
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_MEETING + "2024-07-12 12:00 "
             + PREFIX_TAG + "friends "
-            + PREFIX_TAG + "owesMoney";
+            + PREFIX_TAG + "single";
 
     public static final String MESSAGE_SUCCESS = "New client added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This client already exists in the address book.";
     public static final String MESSAGE_DUPLICATE_MEETING = "This meeting already exists in the address book.";
+    public static final String MESSAGE_INVALID_MEETING = "You can't add meetings from the past.";
 
     private final Person toAdd;
     private final Meeting toAddMeeting;

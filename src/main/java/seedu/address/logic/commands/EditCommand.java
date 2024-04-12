@@ -77,8 +77,13 @@ public class EditCommand extends Command {
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
-        if (index.getZeroBased() >= lastShownList.size()) {
+        // Check if the index is valid
+        if (index.getZeroBased() >= lastShownList.size() || index.getZeroBased() < 0) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        }
+
+        if (!editPersonDescriptor.isAnyFieldEdited()) {
+            throw new CommandException(EditCommand.MESSAGE_NOT_EDITED);
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
