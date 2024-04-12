@@ -65,15 +65,4 @@ public class StringUtil {
             return false;
         }
     }
-
-    public static boolean isInteger(String s) {
-        requireNonNull(s);
-
-        try {
-            int value = Integer.parseInt(s);
-            return true; // "+1" is successfully parsed by Integer#parseInt(String)
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-    }
 }
