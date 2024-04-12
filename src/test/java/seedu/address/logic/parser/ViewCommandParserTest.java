@@ -24,18 +24,23 @@ public class ViewCommandParserTest {
     @Test
     public void parse_invalidArgs_throwsParseException() {
         // non-integer input
-        assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "a", String.format(
+                MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
 
         // negative index
-        assertParseFailure(parser, "-1", String.format(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "-1", String.format(
+                MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
 
         // zero index
-        assertParseFailure(parser, "0", String.format(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "0", String.format(
+                MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
 
         // empty input
-        assertParseFailure(parser, "", String.format(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "", String.format(
+                MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
 
         // spaces only
-        assertParseFailure(parser, "    ", String.format(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "    ", String.format(
+                MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, ViewCommand.MESSAGE_USAGE));
     }
 }
