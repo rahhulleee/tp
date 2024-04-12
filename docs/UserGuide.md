@@ -85,7 +85,12 @@ Some example commands you can try:
 
 7. Refer to the [Features](#features) below for details of each command.
 
-  
+<br/>
+
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+For the best experience, use InsureBook in full-screen!
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -155,8 +160,8 @@ Format: `help`
 
   
 
-Adds a client, together with their name, phone number, email, address and meeting date and time into InsureBook.
-
+Adds a client, together with their name, phone number, email, address and meeting date and time into InsureBook. <br>
+You may also add optional tags to the client, to provide any extra details as labels.
   
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]...`
@@ -165,17 +170,24 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME
 
 <div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
-Meeting field input must be a date and time in the future!
+Meeting field input <strong>MUST</strong> be a date and time in the future!
+</div>
+
+<br/>
+
+<div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
+Meeting time needs to be unique!
 </div>
 
 <br/>
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-It is optional for the client to have tags. A client can have any number of tags (including 0).
+It is optional for the client to have tags. A client can have any number of tags (including 0). TAG <strong>MUST</strong> be alphanumeric characters only!
 </div>
 
-
+<br/>
 
 Examples:
 
@@ -222,7 +234,19 @@ The index must be a positive integer 1, 2, 3, …​
 
 * You can remove all the client’s tags by typing t/ without specifying any tags after it.
 
-  
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+Meeting field input <strong>MUST</strong> be a date and time in the future!
+</div>
+
+<br/>
+
+<div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
+Meeting time needs to be unique!
+</div>
+
+<br/>
 
 Examples:
 
@@ -282,6 +306,8 @@ Format: `delete INDEX`
 The index must be an integer in the displayed client list.
 </div>
 
+<br/>
+
 Examples:
 
 *  `list` followed by `delete 2` deletes the 2nd client displayed in InsureBook.
@@ -304,6 +330,8 @@ Format: `view INDEX`
 <span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
 The index must be an integer in the displayed client list.
 </div>
+
+<br/>
 
 Examples:
 
@@ -331,49 +359,62 @@ pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`
 The index must be an integer in the displayed client list.
 </div>
 
+<br/>
+
 *  `POLICY_NAME` is the name of the policy to be added. 
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_NAME can contain non-alphanumeric characters.
+POLICY_NAME can contain non-alphanumeric characters. <strong> Max: 40 characters</strong>
 </div>
 
-*  `POLICY_TYPE` is the type of policy to be added.
+<br/>
+*  `POLICY_TYPE` is the type of policy to be added. (e.g. "Health", "Car", "Life")
+
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
 POLICY_TYPE MUST be alphanumeric characters only!
 </div>
 
+<br/>
+
 *  `POLICY_NUMBER` is the policy number of the policy and must not be repeated in the person's current list
-of policies.
+of policies. (e.g. "123456", "123-abc-xyz")
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_NUMBER can contain non-alphanumeric characters.
+POLICY_NUMBER can contain non-alphanumeric characters. <strong> Max: 16 characters</strong>
 </div>
+
+<br/>
 
 *  `PREMIUM_TERM` is the premium term of the policy. The premium term of the policy can only be one of the
 following options: 
 
 	**["Single", "Monthly", "Quarterly", "Semi-annually", "Annually"]**
 
+<br/>
 
 *  `POLICY_PREMIUM` is the premium of the policy. You may use alphanumeric characters for the abbreviation of
-large numbers or to indicate non-cash payment methods. (e.g. 100mil, 500 CPF OA)
+large numbers or to indicate non-cash payment methods. (e.g. "100mil", "500 CPF OA")
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
 Policy_PREMIUM MUST be alphanumeric characters only!
 </div>
 
-*  `BENEFIT` is the benefit of the policy. You may use alphanumeric characters for the abbreviation of
-large numbers. (e.g. 100mil, 100M)
+<br/>
+*  `BENEFIT` is the policy's benefit (e.g. sum assured). You may use alphanumeric characters for the abbreviation of
+large numbers. (e.g. "100mil", "100M")
+
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
 POLICY_PREMIUM MUST be alphanumeric characters only!
 </div>
+
+<br/>
 
 Examples:
 
@@ -396,11 +437,15 @@ Format: `delPolicy INDEX polnum/POLICY_NUMBER`
 The index must be an integer in the displayed client list.
 </div>
 
+<br/>
+
 * POLICY_NUMBER must be an existing policy number tied to the Client at specified `INDEX`.
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
 POLICY_NUMBER can contain non-alphanumeric characters.
 </div>
+
+<br/>
 
 Examples:
 
@@ -418,8 +463,10 @@ Format: `findPolicy POLICY_NAME`
 * `POLICY_NAME` is the part of the policy you are searching for.
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
     <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-    It does not need to be an exact match to the full policy name. 
+    It does not need to be an exact match to the full policy name. 	
 </div>
+
+<br/>
 
 Examples:
 * `findPolicy SuperSaver`
@@ -430,7 +477,7 @@ Examples:
 ### View the lists of meetings for this week : `meetings`
 
 
-Opens a new window containing a list of all meetings for this week, in chronological order. <br>
+Opens a new window containing a list of all meetings for _**this week**_, in chronological order. <br>
 
 Meetings are considered to be scheduled for the current week if they are within the same Monday to Sunday block: <br>
 
@@ -438,10 +485,21 @@ e.g. If today is Tuesday (2nd April), then meetings scheduled from Monday (1st A
 
 <img src="images/SameWeekCalendar.png" alt="SameWeekCalendar" width="420" height="293"/>
 
+<br/>
+
 Meetings will be displayed as: "Number | < Meeting Date & Time > with: < Client Name >". 
-The meetings window can be closed by simply pressing 'Esc' on your keyboard.
+The meetings window can be **closed** by simply **pressing 'Esc'** on your keyboard.
 
 <img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="420" height="293"/> 
+
+<br/>
+
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+The Meetings window is static, i.e. will not be updated when you add a new meeting. You will need to use the 'meetings' command again.
+</div>
+
+<br/>
 
 Format: `meetings`
 
@@ -499,7 +557,6 @@ by the application before running the application again.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
-
 | Action                           | Format, Examples                                                                                                                                                                                                             |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Find help**                    | `help`                                                                                                                                                                                                                       |
