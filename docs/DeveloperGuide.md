@@ -316,6 +316,8 @@ The feature is implemented through the class `ViewCommand`.
 
 The `index` field needs to be in an integer.
 
+<puml  src="diagrams/ViewSequenceDiagram.puml"  alt="ViewCommand Diagram" />
+
 #### Design considerations:
 
 - User can view a client at the specified index.
@@ -329,8 +331,6 @@ The `index` field needs to be in an integer.
 The 'meetings' command allows users to view all the meetings that are scheduled in the current week. The feature is implemented through the `MeetingsCommand` class.
 
 The UI component for this command is the `MeetingsWindow`, which is a pop-up window displaying the meetings for the current week.
-
-<puml  src="diagrams/ViewSequenceDiagram.puml"  alt="ViewCommand Diagram" />
 
 #### Design considerations:
 
