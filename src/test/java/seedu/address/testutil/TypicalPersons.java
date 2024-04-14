@@ -42,17 +42,17 @@ public class TypicalPersons {
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
             .withEmail("cornelia@example.com").withAddress("10th street").withMeeting("2024-05-15 00:00")
             .withTags("friends").withPolicies(VALID_POLICY_A).build();
-    public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
+    public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("94822245")
             .withEmail("werner@example.com").withAddress("michegan ave").withMeeting("2024-05-16 00:00").build();
-    public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
+    public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("94824279")
             .withEmail("lydia@example.com").withAddress("little tokyo").withMeeting("2024-05-17 00:00").build();
-    public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
+    public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("94824423")
             .withEmail("anna@example.com").withAddress("4th street").withMeeting("2024-05-18 00:00").build();
 
     // Manually added
-    public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")
+    public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("84824242")
             .withEmail("stefan@example.com").withAddress("little india").withMeeting("2024-05-19 00:00").build();
-    public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withPhone("8482131")
+    public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withPhone("84821311")
             .withEmail("hans@example.com").withAddress("chicago ave").withMeeting("2024-05-20 00:00").build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
