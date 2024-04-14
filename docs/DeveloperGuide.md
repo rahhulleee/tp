@@ -262,12 +262,6 @@ no accidental logging of wrong meeting time.
 * **Alternative 2 (current choice):** Store clients as person in the same list.
 	* Pros: Easier to implement.
 
-### Delete Client feature
-
-#### Implementation
-
-#### Design considerations:
-
 ### Delete Policy feature
 
 #### Implementation
@@ -309,7 +303,7 @@ The UI component for this command is the `MeetingsWindow`, which is a pop-up win
 #### Design considerations:
 - User can view all meetings scheduled for the current week, *in chronological order*. This allows the user to **efficiently identify** the meetings that are coming up soon.
 - The meetings should be displayed *along with the client's name*, so that users can identify the client they are meeting and the time of the meeting.
-- Designed as a pop-up window to allow users to view the meetings *without cluttering the main window*. Users can also check details in the main window while viewing the meetings.
+- Designed as a pop-up window to allow users to view the meetings *without cluttering the main window with meetings details*.
 - User must be *able to close the window using a **keyboard***, to maintain the keyboard-centric design and speed advantage of the CLI app.
 
 --------------------------------------------------------------------------------------------------------------------

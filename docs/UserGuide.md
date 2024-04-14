@@ -55,9 +55,15 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
    **[macOS]** right-click on the _home folder_ and click "New Terminal at Folder":
 
    <img src="images/NewTerminal.png" alt="New Terminal at Folder" width="387" height="350"/>
+   <br><br>
+   
 5. Type `java -jar insurebook.jar` to run the application.<br>
    A GUI similar to the one below should appear on screen. Note that the app contains some pre-loaded sample data.<br>
-   ![Ui](images/Ui.png)
+   ![Ui](images/Ui.png) <br> <br>
+
+   Labelling each component of the UI:
+   ![Ui-labelled](images/Ui-labelled.png) <br><br>
+
 6. Type your command into the user input box and press Enter to execute it. e.g. type **`help`** and press Enter to open the help window.<br>
 Some example commands you can try:
 
@@ -318,6 +324,9 @@ Examples:
 ### View a client's complete profile : `view`
 
 Expands a client's profile such that the user can see all policies and policy details.
+
+The policies panel will expand upon calling the `view` function:
+<img src="images/View-Command.png" alt="MeetingsWindow" width="522" height="239"/>
 
 Format: `view INDEX`
 
