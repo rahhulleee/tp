@@ -176,14 +176,26 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME
 
 <div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
-Meeting field input <strong>MUST</strong> be a date and time in the future!
+
+PHONE_NUMBER does not need to be unique.
+
+EMAIL does not need to be unique.
+
+ADDRESS does not need to be unique.
 </div>
 
 <br/>
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
-Meeting time needs to be unique!
+
+Meeting field input <strong>MUST</strong> be a date and time in the future!
+
+MEETING_TIME <strong>MUST</strong> be unique!
+
+Name <strong>MUST</strong> be alphanumeric characters only! <strong> Max: 40 characters</strong>
+
+PHONE_NUMBER <strong>MUST</strong> be numeric characters only and <strong>MUST</strong> begin with <strong>8</strong> or <strong>9</strong>! <strong> Max: 8 characters</strong>
 </div>
 
 <br/>
@@ -240,16 +252,30 @@ The index must be a positive integer 1, 2, 3, …​
 
 * You can remove all the client’s tags by typing t/ without specifying any tags after it.
 
+<br/>
+
 <div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
-Meeting field input <strong>MUST</strong> be a date and time in the future!
+
+PHONE_NUMBER does not need to be unique.
+
+EMAIL does not need to be unique.
+
+ADDRESS does not need to be unique.
 </div>
 
 <br/>
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
-Meeting time needs to be unique!
+
+Meeting field input <strong>MUST</strong> be a date and time in the future!
+
+MEETING_TIME <strong>MUST</strong> be unique!
+
+Name <strong>MUST</strong> be alphanumeric characters only! <strong> Max: 40 characters</strong>
+
+PHONE_NUMBER <strong>MUST</strong> be numeric characters only and <strong>MUST</strong> begin with <strong>8</strong> or <strong>9</strong>! <strong> Max: 8 characters</strong>
 </div>
 
 <br/>
