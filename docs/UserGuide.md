@@ -64,6 +64,11 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
    Labelling each component of the UI:
    ![Ui-labelled](images/Ui-labelled.png) <br><br>
 
+	<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+	<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+	The Meetings panel displays meetings in the same order as the Clients panel in <code>list</code> view, and is NOT sorted chronologically.
+	</div> <br>
+
 6. Type your command into the user input box and press Enter to execute it. e.g. type **`help`** and press Enter to open the help window.<br>
 Some example commands you can try:
 
@@ -197,9 +202,9 @@ Meeting field input <strong>MUST</strong> be a date and time in the future!
 
 MEETING_TIME <strong>MUST</strong> be unique!
 
-Name <strong>MUST</strong> be alphanumeric characters only! <strong> Max: 40 characters</strong>
+Name <strong>MUST</strong> be alphanumeric characters only!
 
-PHONE_NUMBER <strong>MUST</strong> be numeric characters only and <strong>MUST</strong> begin with <strong>8</strong> or <strong>9</strong>! <strong> Max: 8 characters</strong>
+PHONE_NUMBER <strong>MUST</strong> be numeric characters only! <strong> Min: 3 characters</strong>
 </div>
 
 <br/>
@@ -277,9 +282,9 @@ Meeting field input <strong>MUST</strong> be a date and time in the future!
 
 MEETING_TIME <strong>MUST</strong> be unique!
 
-Name <strong>MUST</strong> be alphanumeric characters only! <strong> Max: 40 characters</strong>
+Name <strong>MUST</strong> be alphanumeric characters only!
 
-PHONE_NUMBER <strong>MUST</strong> be numeric characters only and <strong>MUST</strong> begin with <strong>8</strong> or <strong>9</strong>! <strong> Max: 8 characters</strong>
+PHONE_NUMBER <strong>MUST</strong> be numeric characters only! <strong> Min: 3 characters</strong>
 </div>
 
 <br/>
@@ -357,7 +362,7 @@ Examples:
 
 Expands a client's profile such that the user can see all policies and policy details.
 
-The policies panel will expand upon calling the `view` function:
+The policies panel will expand upon calling the `view` function: <br>
 <img src="images/View-Command.png" alt="MeetingsWindow" width="522" height="239"/>
 
 Format: `view INDEX`
@@ -584,6 +589,9 @@ AddressBook data are saved in the hard disk automatically after any command that
 **Q**: What if I have two clients with the same name?<br>
 **A**: You are not allowed to add clients with duplicate names into InsureBook. If you have more than 1 client with the same name, consider adding a unique identifier to their names, e.g. 'John Doe from NUS' and 'John Doe from SMU'.
 
+**Q**: My client's name contains special characters, but the Name field must be alphanumeric only. How do I workaround this?
+**A**: For now, you may use a space character for such scenarios, e.g. `"s o"` instead of `"s/o"`. We will allow some special characters in future versions of InsureBook.
+
 **Q**: Can I leave the meeting field empty for clients that I have not scheduled a meeting with?<br>
 **A**: No - the meeting field is mandatory. You WILL need to schedule appointments with your clients before adding them to the address book. We believe that requiring you to be proactive in scheduling appointments will help you reach greater heights in your career!
 
@@ -599,6 +607,9 @@ AddressBook data are saved in the hard disk automatically after any command that
 1.  **When using multiple screens**, if you move the application to a secondary screen, and later switch to using
 only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created
 by the application before running the application again.
+2. Phone number field is allowed to be a nonsensical number, e.g. "123". Please **ensure you type in your client's phone number carefully** to avoid recording down an incorrect number. Future versions will check the phone number field to make your workflow less error-prone.
+3. Phone number and email are all not unique, i.e. two clients can have the same phone number. Address is non-unique too, but this is intended as you may have clients living together. <br>
+   Again, please **ensure you type in your client's details carefully** to prevent the situation of clients having duplicate phone numbers or email addresses.
 
 
 

@@ -166,7 +166,7 @@ As an insurance agent, each of your clients can have 0 or multiple policies unde
 cover a variety of things such as health, life, car, house, etc. Hence, it is essential that our application keeps
 track of these policies and their details under the correct client.
 
-#### Proposed Implementation
+#### Implementation
 
 Essential policy information consists of 6 fields:
 
@@ -284,8 +284,13 @@ The `index` field needs to be in an integer.
 #### Design considerations:
 
 - User can delete a client at the specified index.
+- User **should not** have to remember the client's original index in the `list` view, thus: 
 
-- `index` should be a value present in the Client view section of the UI. For example, a Client `"John Doe"` may have `index 3` in the `list` view. However, after using the command `find John Doe`, this Client may have the `index 1` now. Use the index of the client in the displayed client list view (i.e `delete 3` in the normal list view but `delete 1` after using `find` command).
+  - `index` should be a value present in the *current* Client view section of the UI.
+  
+  - For example, a Client `"John Doe"` may have `index 3` in the `list` view. However, after using the command `find John Doe`, this Client may have `index 1` now.
+  
+  - Use the index of the client in the displayed client list view (e.g. `delete 3` in `list` view but `delete 1` after using `find` or `view` command).
 
 - Both MeetingCard section and PersonCard section will be affected
 
@@ -325,7 +330,7 @@ The `index` field needs to be in an integer.
 - User can see a list-view of policies that this client is covered by.
 - MeetingCard section of UI should not be affected by this command.
 
-### View Meetings feature
+### View Meetings For This Week feature
 
 #### Implementation
 
@@ -333,12 +338,27 @@ The 'meetings' command allows users to view all the meetings that are scheduled 
 
 The UI component for this command is the `MeetingsWindow`, which is a pop-up window displaying the meetings for the current week.
 
+<puml  src="diagrams/DisplayMeetingsSequenceDiagram.puml"  alt="DisplayMeetings Diagram" />
+
+
 #### Design considerations:
 
 - User can view all meetings scheduled for the current week, _in chronological order_. This allows the user to **efficiently identify** the meetings that are coming up soon.
 - The meetings should be displayed _along with the client's name_, so that users can identify the client they are meeting and the time of the meeting.
 - Designed as a pop-up window to allow users to view the meetings _without cluttering the main window_. Users can also check details in the main window while viewing the meetings.
-- User must be \*able to close the window using a **keyboard\***, to maintain the keyboard-centric design and speed advantage of the CLI app.
+- User must be *able to close the window using a **keyboard***, to maintain the keyboard-centric design and speed advantage of the CLI app.
+
+### Planned enhancements
+These are some proposed features that can be implemented in the future.
+
+#### Adding a policy displays it in the Policies panel
+
+- Proposed implementation: Modify CommandResult to have an `isAddPolicy()` method. In the MainWindow class, modify `executeCommand` - if the command result isAddPolicy, display the newly added policy in the PolicyListPanel.
+- This feature would allow users to easily check the details of the newly added policy, without having to look through the user feedback box.
+
+#### Delete policies using the policy's index in Policies panel
+
+- This feature would allow users to easily delete policies, without having to type out the whole policy number.
 
 ---
 
