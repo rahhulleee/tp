@@ -270,6 +270,7 @@ A `meeting` field needs to be in `YYYY-MM-DD hh:mm` format.
 - **Alternative 2 (current choice):** Store clients as person in the same list.
   - Pros: Easier to implement.
 
+
 ### Delete Client feature
 
 #### Implementation
