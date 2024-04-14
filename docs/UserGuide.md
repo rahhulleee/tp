@@ -595,6 +595,8 @@ AddressBook data are saved in the hard disk automatically after any command that
 **Q**: Can I leave the meeting field empty for clients that I have not scheduled a meeting with?<br>
 **A**: No - the meeting field is mandatory. You WILL need to schedule appointments with your clients before adding them to the address book. We believe that requiring you to be proactive in scheduling appointments will help you reach greater heights in your career!
 
+**Q**: How can I edit my client's current policy details? I typed some fields wrongly.
+**A**: You may delete the policy with `delPolicy` and add the correct version with `addPolicy`.
 
 --------------------------------------------------------------------------------------------------------------------
 
