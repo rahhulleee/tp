@@ -112,7 +112,9 @@ For the best experience, use InsureBook in full-screen!
 
 **Notes about the command format:**<br>
 
+* Commands are case-sensitive.
 
+e.g. `add` is a valid command but `Add` will not be a valid command.
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
 
@@ -150,13 +152,14 @@ multiple lines as space characters surrounding line-breaks may be omitted when c
 
 </box>
 
-
+## Commands
 
 ### Finding help : `help`
 
 Opens a pop-up window with the link to InsureBook's User Guide and Command Summary for your reference.
 The linked can be copied with using the 'Enter' key, and can be closed using the 'Esc' key.
 
+   <img src="images/helpCommand.png" alt="Help Window"/>
 
 Format: `help`
 
@@ -169,6 +172,7 @@ Format: `help`
 Adds a client, together with their name, phone number, email, address and meeting date and time into InsureBook. <br>
 You may also add optional tags to the client, to provide any extra details as labels.
 
+   <img src="images/addCommand.png" alt="Add a client to InsureBook"/>
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]...`
 
@@ -211,7 +215,7 @@ Examples:
 
 Shows a list of all clients in InsureBook.
 
-
+   <img src="images/listCommand.png" alt="List all clients in InsureBook"/>
 
 Format: `list`
 
@@ -223,7 +227,7 @@ Format: `list`
 
 Edits an existing client in InsureBook.
 
-
+   <img src="images/editCommand.png" alt="Edit a client's details in InsureBook"/>
 
 Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]...`
 
@@ -272,7 +276,7 @@ with the `friends` tag.
 
 Finds clients whose names contain any of the input keywords.
 
-
+   <img src="images/findCommand.png" alt="Find client John in InsureBook"/>
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -299,6 +303,8 @@ Examples:
 ### Deleting a client : `delete`
 
 Removes an existing client based on their index from InsureBook.
+
+   <img src="images/deleteCommand.png" alt="Delete the first client in InsureBook"/>
 
 Format: `delete INDEX`
 
@@ -352,6 +358,8 @@ the results of the find command.
 ### Adding a new policy to a client : `addPolicy`
 
 Adds a new insurance policy to a specific client.
+
+   <img src="images/addPolicyCommand.png" alt="Add a policy to the first client in InsureBook"/>
 
 Format: `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER
 pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`
@@ -434,6 +442,8 @@ Examples:
 
 Deletes an existing insurance policy of a specific client.
 
+<img src="images/delPolicyCommand.png" alt="Deletes a policy from the first client in InsureBook"/>
+
 Format: `delPolicy INDEX polnum/POLICY_NUMBER`
 
 * Deletes a policy to the person at the specified `INDEX`.
@@ -463,6 +473,8 @@ Examples:
 ### Locating clients via Policy Name : `findPolicy`
 
 Finds the specified policy for all clients
+
+<img src="images/findPolicy.png" alt="Finds all clients in InsureBook with Saver policies"/>
 
 Format: `findPolicy POLICY_NAME`
 
@@ -515,6 +527,8 @@ Format: `meetings`
 ### Clearing all client entries : `clear`
 
 Clears all client entries from InsureBook.
+
+<img src="images/clearCommand.png" alt="Clears all client entries in InsureBook"/>
 
 Format:`clear`
 
