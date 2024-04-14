@@ -45,15 +45,8 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
 
 1. Ensure you have Java `11` or above installed in your Computer.
    - If your computer is not running Java version `11` or above, you may download it from [here](https://www.oracle.com/java/technologies/downloads/#java11).
-
-
 2. Download the latest `InsureBook.jar` from [here](https://github.com/AY2324S2-CS2103T-W09-4/tp/releases).
-
-
-
 3. Copy the file to the folder you want to use as the _home folder_ for InsureBook.
-
-
 4. Open a command terminal and `cd` into the folder you put the jar file in. Alternatively, <br>
    **[Windows]** right-click anywhere in the display pane's background, then click "Open in Terminal":
 
@@ -62,113 +55,120 @@ InsureBook is a **desktop app for insurance agents to manage potential and exist
    **[macOS]** right-click on the _home folder_ and click "New Terminal at Folder":
 
    <img src="images/NewTerminal.png" alt="New Terminal at Folder" width="387" height="350"/>
-
-
+   <br><br>
+   
 5. Type `java -jar insurebook.jar` to run the application.<br>
    A GUI similar to the one below should appear on screen. Note that the app contains some pre-loaded sample data.<br>
-   ![Ui](images/Ui.png)
+   ![Ui](images/Ui.png) <br> <br>
+
+   Labelling each component of the UI:
+   ![Ui-labelled](images/Ui-labelled.png) <br><br>
 
 6. Type your command into the user input box and press Enter to execute it. e.g. type **`help`** and press Enter to open the help window.<br>
-
 Some example commands you can try:
 
-  
+
 
 *  `list` : Lists all clients.
 
-  
+
 
 *  `add n/John Doe p/98765432 e/johnd@example.com a/123 John Street m/2024-08-02 10:00` : Adds a contact named `John Doe` to your InsureBook.
 
-  
+
 
 *  `delete 3` : Deletes the 3rd client shown in the current list.
 
-  
+
 
 *  `clear` : Deletes all clients.
 
-  
+
 
 *  `exit` : Exits the app.
 
-  
+
 
 7. Refer to the [Features](#features) below for details of each command.
 
-  
+<br/>
+
+<div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
+For the best experience, use InsureBook in full-screen!
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
-  
+
 
 ## Features
 
-  
+
 
 <box  type="info"  seamless>
 
-  
+
 
 **Notes about the command format:**<br>
 
-  
+
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
 
 e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
-  
+
 
 * Items in square brackets are optional.<br>
 
 e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
-  
+
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
 
 e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 
-  
+
 
 * Parameters can be in any order.<br>
 
 e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-  
+
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`)
 will be ignored.<br>
 
 e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-  
+
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span
 multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 
 </box>
 
-  
+
 
 ### Finding help : `help`
 
 Opens a pop-up window with the link to InsureBook's User Guide and Command Summary for your reference.
 The linked can be copied with using the 'Enter' key, and can be closed using the 'Esc' key.
-  
+
 
 Format: `help`
 
-  
+
 
 ### Adding a client : `add`
 
-  
+
 
 Adds a client, together with their name, phone number, email, address and meeting date and time into InsureBook. <br>
 You may also add optional tags to the client, to provide any extra details as labels.
-  
+
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]...`
 
@@ -176,14 +176,21 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME
 
 <div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
-Meeting field input must be a date and time in the future!
+Meeting field input <strong>MUST</strong> be a date and time in the future!
+</div>
+
+<br/>
+
+<div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
+Meeting time needs to be unique!
 </div>
 
 <br/>
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-It is optional for the client to have tags. A client can have any number of tags (including 0).
+It is optional for the client to have tags. A client can have any number of tags (including 0). TAG <strong>MUST</strong> be alphanumeric characters only!
 </div>
 
 <br/>
@@ -196,31 +203,31 @@ Examples:
 
 *  `add n/Jack Daniel p/91118932 e/jackys@hotmail.com a/291, Woodlands Dr 89, #08-56 m/2025-02-20 10:00 t/acquaintence t/schoolmate`
 
-  
+
 
 ### Listing all clients : `list`
 
-  
+
 
 Shows a list of all clients in InsureBook.
 
-  
+
 
 Format: `list`
 
-  
+
 
 ### Editing a client : `edit`
 
-  
+
 
 Edits an existing client in InsureBook.
 
-  
+
 
 Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]...`
 
-  
+
 
 * Edits the client at the specified INDEX. The index refers to the index number shown in the displayed client list.
 The index must be a positive integer 1, 2, 3, …​
@@ -233,7 +240,19 @@ The index must be a positive integer 1, 2, 3, …​
 
 * You can remove all the client’s tags by typing t/ without specifying any tags after it.
 
-  
+<div style="border: 1px solid #007bff; background-color: #cce5ff; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">📝</span> <strong>Note:</strong>
+Meeting field input <strong>MUST</strong> be a date and time in the future!
+</div>
+
+<br/>
+
+<div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
+<span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
+Meeting time needs to be unique!
+</div>
+
+<br/>
 
 Examples:
 
@@ -245,19 +264,19 @@ with the `friends` tag.
 
 *  `edit 4 n/Betsy Crower t/` Edits the name of the 4th client to be `Betsy Crower` and clears all existing tags.
 
-  
+
 
 ### Locating clients by name : `find`
 
-  
+
 
 Finds clients whose names contain any of the input keywords.
 
-  
+
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
-  
+
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 
@@ -267,8 +286,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 * Both full and partial words will be matched e.g. `Han` will match `Hans`
 
-* Clients matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will 
-return `Hans Gruber`, `Bo Yang`
+* Clients matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 
 Examples:
@@ -301,11 +319,14 @@ Examples:
 
 *  `find Betsy` followed by `delete 1` deletes the 1st client in the results of the find command.
 
-  
+
 
 ### View a client's complete profile : `view`
 
 Expands a client's profile such that the user can see all policies and policy details.
+
+The policies panel will expand upon calling the `view` function:
+<img src="images/View-Command.png" alt="MeetingsWindow" width="522" height="239"/>
 
 Format: `view INDEX`
 
@@ -333,7 +354,6 @@ the results of the find command.
 Adds a new insurance policy to a specific client.
 
 Format: `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER
-
 pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`
 
 
@@ -349,16 +369,16 @@ The index must be an integer in the displayed client list.
 
 <br/>
 
-*  `POLICY_NAME` is the name of the policy to be added. 
+*  `POLICY_NAME` is the name of the policy to be added.
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_NAME can contain non-alphanumeric characters.
+POLICY_NAME can contain non-alphanumeric characters. <strong> Max: 40 characters</strong>
 </div>
 
 <br/>
+*  `POLICY_TYPE` is the type of policy to be added. (e.g. "Health", "Car", "Life")
 
-*  `POLICY_TYPE` is the type of policy to be added.
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
@@ -368,24 +388,24 @@ POLICY_TYPE MUST be alphanumeric characters only!
 <br/>
 
 *  `POLICY_NUMBER` is the policy number of the policy and must not be repeated in the person's current list
-of policies.
+of policies. (e.g. "123456", "123-abc-xyz")
 
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-POLICY_NUMBER can contain non-alphanumeric characters.
+POLICY_NUMBER can contain non-alphanumeric characters. <strong> Max: 16 characters</strong>
 </div>
 
 <br/>
 
 *  `PREMIUM_TERM` is the premium term of the policy. The premium term of the policy can only be one of the
-following options: 
+following options:
 
 	**["Single", "Monthly", "Quarterly", "Semi-annually", "Annually"]**
 
 <br/>
 
 *  `POLICY_PREMIUM` is the premium of the policy. You may use alphanumeric characters for the abbreviation of
-large numbers or to indicate non-cash payment methods. (e.g. 100mil, 500 CPF OA)
+large numbers or to indicate non-cash payment methods. (e.g. "100mil", "500 CPF OA")
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
@@ -393,9 +413,9 @@ Policy_PREMIUM MUST be alphanumeric characters only!
 </div>
 
 <br/>
-
 *  `BENEFIT` is the policy's benefit (e.g. sum assured). You may use alphanumeric characters for the abbreviation of
-large numbers. (e.g. 100mil, 100M)
+large numbers. (e.g. "100mil", "100M")
+
 
 <div style="border: 1px solid #dc3545; background-color: #f8d7da; padding: 10px; border-radius: 5px;">
 <span style="font-size: 20px; color: #007bff;">&#x2757;</span> <strong>Caution:</strong>
@@ -408,7 +428,7 @@ Examples:
 
 *  `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000`
 
-  
+
 
 ### Deleting an existing policy from a client : `delPolicy`
 
@@ -451,7 +471,7 @@ Format: `findPolicy POLICY_NAME`
 * `POLICY_NAME` is the part of the policy you are searching for.
 <div style="border: 1px solid #28a745; background-color: #d4edda; padding: 10px; border-radius: 5px;">
     <span style="font-size: 20px; color: #007bff;">&#x1F4A1;</span> <strong>Tip:</strong>
-    It does not need to be an exact match to the full policy name. 
+    It does not need to be an exact match to the full policy name.
 </div>
 
 <br/>
@@ -475,10 +495,10 @@ e.g. If today is Tuesday (2nd April), then meetings scheduled from Monday (1st A
 
 <br/>
 
-Meetings will be displayed as: "Number | < Meeting Date & Time > with: < Client Name >". 
+Meetings will be displayed as: "Number | < Meeting Date & Time > with: < Client Name >".
 The meetings window can be **closed** by simply **pressing 'Esc'** on your keyboard.
 
-<img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="420" height="293"/> 
+<img src="images/MeetingsWindow.png" alt="MeetingsWindow" width="420" height="293"/>
 
 <br/>
 
@@ -508,15 +528,15 @@ Format:`exit`
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-  
+
 
 --------------------------------------------------------------------------------------------------------------------
 
-  
+
 
 ## FAQ
 
-  
+
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous InsureBook home folder.
@@ -530,32 +550,33 @@ AddressBook data are saved in the hard disk automatically after any command that
 
 --------------------------------------------------------------------------------------------------------------------
 
-  
+
 
 ## Known issues
 
-  
+
 
 1.  **When using multiple screens**, if you move the application to a secondary screen, and later switch to using
 only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created
 by the application before running the application again.
 
-  
+
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
-
-| Action            | Format, Examples                                                                                                                                                                                                            |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**           | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/ t/single t/student`                         |
-| **Clear**         | `clear`                                                                                                                                                                                                                     |
-| **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                         |
-| **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                   |
-| **Find**          | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                  |
-| **List**          | `list`                                                                                                                                                                                                                      |
-| **Add Policy**    | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000` |
-| **Delete Policy** | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`                                                                                                                                             |
-| **Help**          | `help`                                                                                                                                                                                                                      |
-| **Exit**          | `exit`                                                                                                                                                                                                                      |
-| **Meetings**      | `meetings`                                                                                                                                                                                                                  |
+| Action                           | Format, Examples                                                                                                                                                                                                             |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Find help**                    | `help`                                                                                                                                                                                                                       |
+| **Add client**                   | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MEETING_DATE MEETING_TIME [t/TAG]…​` <br> e.g., `add n/James Ho p/91112222 e/jamesho@example.com a/123 Clementi Rd, S(123456) m/2025-02-20 10:00 t/single t/student`          |
+| **List all clients**             | `list`                                                                                                                                                                                                                       |
+| **Edit client**                  | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MEETING_DATE MEETING_TIME] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                    |
+| **Find client(s) using name**    | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                   |
+| **Delete client**                | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                        ` |
+| **View client profile**          | `view INDEX`<br/> e.g., `view 6`                                                                                                                                                                                             |
+| **Add policy to client**         | `addPolicy INDEX pol/POLICY_NAME type/POLICY_TYPE polnum/POLICY_NUMBER pterm/PREMIUM_TERM prem/POLICY_PREMIUM b/BENEFIT`  <br> e.g., `addPolicy 1 pol/SuperSaver type/CI polnum/39376234 pterm/Annually prem/3000 b/100000`  |
+| **Delete policy from client**    | `delPolicy INDEX polnum/POLICY_NUMBER` <br> e.g., `delPolicy 1 polnum/39376234`                                                                                                                                              |
+| **Find client(s) using policy**  | `findPolicy POLICY_NAME`<br/> e.g., `find Savers`                                                                                                                                                                            |
+| **View weekly list of meetings** | `meetings`                                                                                                                                                                                                                   |
+| **Clear all client entries**     | `clear`                                                                                                                                                                                                                      |
+| **Exit**                         | `exit`                                                                                                                                                                                                                       |
