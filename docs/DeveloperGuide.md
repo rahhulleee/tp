@@ -284,7 +284,7 @@ The `index` field needs to be in an integer.
 
 - User can delete a client at the specified index.
 
-- `index` should be a value present in the Client view section of the UI. For example, a Client `"John Doe"` may have `index 3` in the `list` view. However, after using the command `find John Doe`, this Client may have the `index 1` now. Use the index of the Client that you see (i.e `delete 3` in the normal list view but `delete 1` after using `find` command).
+- `index` should be a value present in the Client view section of the UI. For example, a Client `"John Doe"` may have `index 3` in the `list` view. However, after using the command `find John Doe`, this Client may have the `index 1` now. Use the index of the client in the displayed client list view (i.e `delete 3` in the normal list view but `delete 1` after using `find` command).
 
 - Both MeetingCard section and PersonCard section will be affected
 
