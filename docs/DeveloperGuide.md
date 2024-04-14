@@ -227,7 +227,7 @@ Step 8. Application throws a success message in the command output box to show t
 the specified client's set of policies. Upon inspecting the specified client's person card, the user will see a new red
 tag with the inputted policy name.
 
-<puml src="diagrams\AddPolicySequenceDiagram.puml" alt="AddPolicyDiagram" />
+<puml src="diagrams/AddPolicySequenceDiagram.puml" alt="AddPolicyDiagram" />
 
 #### Design considerations:
 
